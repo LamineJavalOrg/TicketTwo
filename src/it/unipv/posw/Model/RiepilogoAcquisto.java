@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class RiepilogoAcquisto {
 	
 	/**
-	 * author rkomi-dev
+	 * @author rkomi-dev
 	 */
 	
 	private String nomeEvento;
