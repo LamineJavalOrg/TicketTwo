@@ -1,0 +1,23 @@
+package it.unipv.posw.Model;
+
+public class Artista {
+	
+	private int id_artista;
+	private String nome_darte;
+	/**
+	 * @author rkomi-dev
+	 *
+	 */
+	public Artista(int id_artista, String nome_darte) {
+		super();
+		this.id_artista = id_artista;
+		this.nome_darte = nome_darte;
+	}
+	public int getId_artista() {
+		return id_artista;
+	}
+	public String getNome_darte() {
+		return nome_darte;
+	}
+
+}
