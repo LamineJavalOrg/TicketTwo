@@ -19,4 +19,21 @@ public abstract class Utente {
 		this.email = email;
 		this.password = password;
 	}
+	public String getNome() {
+		return nome;
+	}
+	public String getCognome() {
+		return cognome;
+	}
+	public LocalDate getData_nascita() {
+		return data_nascita;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	
+	
 }
