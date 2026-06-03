@@ -6,6 +6,7 @@ import it.unipv.posw.Model.Persistence.MYSQLDAOFactory;
 
 /** 
 * @author rkomi-dev
+* @author gpelle
 */
 
 public class RegistrazioneService {
@@ -16,7 +17,6 @@ public class RegistrazioneService {
 	public boolean registraNuovoCliente(Cliente cliente) {
         
         return MYSQLDAOFactory.getInstance().getClienteDAO().salvaCliente(cliente);
-        
     }
 	
 	public boolean registraNuovoOrganizzatore(Organizzatore org) {
