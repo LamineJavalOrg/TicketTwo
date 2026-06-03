@@ -1,6 +1,7 @@
 package it.unipv.posw.Model.Persistence.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -35,7 +36,7 @@ public class ClienteDAO implements IClienteDAO {
             ps.setString(2, cliente.getCognome());
             ps.setString(3, cliente.getEmail());
             ps.setString(4, cliente.getPassword());
-            ps.setDate(5, java.sql.Date.valueOf(cliente.getData_nascita()));
+            ps.setDate(5, Date.valueOf(cliente.getData_nascita()));
 
             int result = ps.executeUpdate();
             return result > 0; // Ritorna true se l'inserimento è riuscito
