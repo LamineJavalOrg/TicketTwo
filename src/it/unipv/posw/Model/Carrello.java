@@ -3,15 +3,14 @@ package it.unipv.posw.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class Carrello {
 	
 	private static Carrello instance;
     private List<Biglietto> items;
-    
-    /**
-	 * @author rkomi-dev
-	 *
-	 */
     
     private Carrello() {
         this.items = new ArrayList<>();

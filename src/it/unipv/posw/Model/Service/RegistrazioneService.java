@@ -7,6 +7,7 @@ import it.unipv.posw.Model.Persistence.MYSQLDAOFactory;
 /** 
 * @author rkomi-dev
 */
+
 public class RegistrazioneService {
 	
 	public RegistrazioneService() {

@@ -1,13 +1,13 @@
 package it.unipv.posw.Model;
 
+/**
+ * @author rkomi-dev
+ */
 public class Artista {
 	
 	private int id_artista;
 	private String nome_darte;
-	/**
-	 * @author rkomi-dev
-	 *
-	 */
+
 	public Artista(int id_artista, String nome_darte) {
 		super();
 		this.id_artista = id_artista;

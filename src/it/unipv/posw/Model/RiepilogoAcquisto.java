@@ -2,11 +2,11 @@ package it.unipv.posw.Model;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class RiepilogoAcquisto {
-	
-	/**
-	 * @author rkomi-dev
-	 */
 	
 	private String nomeEvento;
 	private LocalDateTime dataOraEvento;

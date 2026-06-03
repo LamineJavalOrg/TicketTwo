@@ -1,5 +1,9 @@
 package it.unipv.posw.Model;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class Biglietto {
 	
 	private int id_biglietto;
@@ -12,10 +16,7 @@ public class Biglietto {
     private String qrCode;
     private double prezzo; 
     private String tipo;
-	/**
-	 * @author rkomi-dev
-	 */
-    
+
 	public Biglietto(int id_biglietto, int id_evento, Integer id_posto, int id_settore, String email_cliente,
 			String nominativo, String stato, String qrCode, double prezzo, String tipo) {
 		super();
