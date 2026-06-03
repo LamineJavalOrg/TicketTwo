@@ -13,6 +13,15 @@ public class Organizzatore extends Utente {
 		this.nome_organizzazione = nome_organizzazione;
 	}
 	
+	public String getNome_organizzazione() {
+		return nome_organizzazione;
+	}
+	public void setNome_organizzazione(String nome_organizzazione) {
+		this.nome_organizzazione = nome_organizzazione;
+	}
+	
+	
+	
 	
 	
 
