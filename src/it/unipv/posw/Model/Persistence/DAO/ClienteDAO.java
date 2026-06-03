@@ -3,6 +3,7 @@ package it.unipv.posw.Model.Persistence.DAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import it.unipv.posw.Model.Cliente;
@@ -49,5 +50,38 @@ public class ClienteDAO implements IClienteDAO {
         }
         return false;
 	}
+	
+	@Override
+    public Cliente trovaClientePerEmail(String email) {
+        PreparedStatement ps;
+        ResultSet rs;
+        Cliente cliente = null;
+
+        String query = "SELECT * FROM Utente WHERE email = ?";
+
+        try {
+            c = DBConnection.getInstance().startConnection();
+            ps = c.prepareStatement(query);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+              
+                cliente = new Cliente(
+                    
+                    rs.getString("nome"),
+                    rs.getString("cognome"),
+                    rs.getDate("data_nascita").toLocalDate(),
+                    rs.getString("email"),
+                    rs.getString("password")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnection.getInstance().closeConnection(c);
+        }
+        return cliente;
+    }
 
 }
