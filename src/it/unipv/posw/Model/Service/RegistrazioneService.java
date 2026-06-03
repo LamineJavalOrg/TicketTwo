@@ -1,6 +1,7 @@
 package it.unipv.posw.Model.Service;
 
 import it.unipv.posw.Model.Cliente;
+import it.unipv.posw.Model.Organizzatore;
 import it.unipv.posw.Model.Persistence.MYSQLDAOFactory;
 
 /** 
@@ -16,5 +17,10 @@ public class RegistrazioneService {
         return MYSQLDAOFactory.getInstance().getClienteDAO().salvaCliente(cliente);
         
     }
-
+	
+	public boolean registraNuovoOrganizzatore(Organizzatore org) {
+		
+	return MYSQLDAOFactory.getInstance().getOrganizzatoreDAO().salvaOrganizzatore(org);
+	
+	}
 }
