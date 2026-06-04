@@ -8,6 +8,9 @@ import it.unipv.posw.model.exception.SedeEsistenteException;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 
 
+/**
+ * @author gpelle
+ */
 public class SedeService {
 	public Sede configuraSede(Sede sede, List<Settore> settori) throws SedeEsistenteException {
         if (MYSQLDAOFactory.getInstance().getSedeDAO()

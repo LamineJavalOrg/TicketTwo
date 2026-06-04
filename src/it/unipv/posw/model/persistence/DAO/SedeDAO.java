@@ -12,8 +12,10 @@ import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.persistence.DBConnection;
 import it.unipv.posw.model.persistence.DAO.interfaces.ISedeDAO;
 
+/**
+ * @author gpelle
+ */
 public class SedeDAO implements ISedeDAO {
-    private Connection c;
     
     
     @Override
@@ -21,6 +23,7 @@ public class SedeDAO implements ISedeDAO {
     	PreparedStatement ps;
     	ResultSet rs;
         String query = "SELECT COUNT(*) FROM Sede WHERE nome = ? AND indirizzo = ?";
+        Connection c = null;
         
         try {
             c = DBConnection.getInstance().startConnection();            
@@ -45,6 +48,7 @@ public class SedeDAO implements ISedeDAO {
     public Sede salvaSede(Sede sede) {
 		PreparedStatement ps;
 	    String query = "INSERT INTO Sede (nome, indirizzo) VALUES (?,?)";
+	    Connection c = null;
 	    
 	    try {
 	        c = DBConnection.getInstance().startConnection();
@@ -75,7 +79,8 @@ public class SedeDAO implements ISedeDAO {
         String qSettore = "INSERT INTO Settore (id_sede, nome_settore, tipo_posti, capienza_max, "
         		+ "num_file, posti_per_fila, prefisso) VALUES (?,?,?,?,?,?,?)";
         String qPosto = "INSERT INTO Posto (id_settore, fila, colonna, prefisso) VALUES (?,?,?,?)";
-         
+        Connection c = null;
+        
         int idSettore=-1;
         
         try {

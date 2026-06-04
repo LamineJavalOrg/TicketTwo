@@ -3,6 +3,9 @@ package it.unipv.posw.model.persistence.DAO.interfaces;
 import it.unipv.posw.model.Sede;
 import it.unipv.posw.model.Settore; 
 
+/**
+ * @author gpelle
+ */
 public interface ISedeDAO {
 
 	public Sede salvaSede(Sede sede);
