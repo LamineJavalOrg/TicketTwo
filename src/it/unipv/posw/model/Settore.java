@@ -28,4 +28,48 @@ public class Settore {
 		this.posti_per_fila = posti_per_fila;
 		this.prefisso = prefisso;
 	}
+
+	public int getId_settore() {
+		return id_settore;
+	}
+
+	public int getId_sede() {
+		return id_sede;
+	}
+
+	public TipologiaSettore getNome_settore() {
+		return nome_settore;
+	}
+
+	public TipologiaPosto getTipo() {
+		return tipo;
+	}
+
+	public int getCapienza_max() {
+		return capienza_max;
+	}
+
+	public int getNum_file() {
+		return num_file;
+	}
+
+	public int getPosti_per_fila() {
+		return posti_per_fila;
+	}
+
+	public String getPrefisso() {
+		return prefisso;
+	}
+
+	public void setId_sede(int id_sede) {
+		this.id_sede = id_sede;
+	}
+
+	public void setId_settore(int id_settore) {
+		this.id_settore = id_settore;
+	}
+
+	
+	
+	
 }

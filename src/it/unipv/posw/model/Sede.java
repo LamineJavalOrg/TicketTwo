@@ -18,6 +18,34 @@ public class Sede {
 		this.indirizzo = indirizzo;
 		this.settori = settori;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+
+	public int getId_sede() {
+		return id_sede;
+	}
+
+	public void setId_sede(int id_sede) {
+		this.id_sede = id_sede;
+	}
+	
+	
+	
+	
     
     
 }
