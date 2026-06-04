@@ -55,7 +55,7 @@ public class ClienteDAO implements IClienteDAO {
         ResultSet rs;
         Cliente cliente = null;
 
-        String query = "SELECT * FROM Utente WHERE email = ?";
+        String query = "SELECT * FROM Utente WHERE email = ? AND nome_organizzazione IS NULL";
         Connection c = null;
         try {
             c = DBConnection.getInstance().startConnection();
