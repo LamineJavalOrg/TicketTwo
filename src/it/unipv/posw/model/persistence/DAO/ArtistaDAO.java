@@ -17,7 +17,6 @@ import it.unipv.posw.model.persistence.DAO.interfaces.IArtistaDAO;
 
 public class ArtistaDAO implements IArtistaDAO {
 
-private Connection c;
 	
 	public ArtistaDAO() {
 	}
@@ -28,7 +27,7 @@ private Connection c;
 		List<Artista> risultati = new ArrayList<>();
 		PreparedStatement ps;
 	    String query = "SELECT * FROM Artista WHERE nome_darte LIKE ?";
-
+	    Connection c = null;
 	    try {
 	        c = DBConnection.getInstance().startConnection();
 	        ps = c.prepareStatement(query);

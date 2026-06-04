@@ -17,8 +17,6 @@ import it.unipv.posw.model.persistence.DAO.interfaces.IEventoDAO;
  */
 
 public class EventoDAO implements IEventoDAO {
-
-private Connection c;
 	
 	public EventoDAO() {
 	}
@@ -28,7 +26,7 @@ private Connection c;
 	    List<Evento> risultati = new ArrayList<>();
 	    PreparedStatement ps;
 	    String query = "SELECT * FROM Evento WHERE nome LIKE ?"; 
-	    
+	    Connection c = null;
 	
 	    try {
 	    	

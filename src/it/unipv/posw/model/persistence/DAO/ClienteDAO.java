@@ -16,8 +16,6 @@ import it.unipv.posw.model.persistence.DAO.interfaces.IClienteDAO;
 
 public class ClienteDAO implements IClienteDAO {
 	
-	private Connection c;
-	
 	public ClienteDAO() {
 		super();
 	}
@@ -26,7 +24,7 @@ public class ClienteDAO implements IClienteDAO {
 	public boolean salvaCliente(Cliente cliente) {
 		PreparedStatement ps;
         String query = "INSERT INTO Utente (nome, cognome, email, password, data_nascita) VALUES (?, ?, ?, ?, ?)";
-
+        Connection c = null;
         try {
         	
             c = DBConnection.getInstance().startConnection();
@@ -58,7 +56,7 @@ public class ClienteDAO implements IClienteDAO {
         Cliente cliente = null;
 
         String query = "SELECT * FROM Utente WHERE email = ?";
-
+        Connection c = null;
         try {
             c = DBConnection.getInstance().startConnection();
             ps = c.prepareStatement(query);

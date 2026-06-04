@@ -14,7 +14,6 @@ import it.unipv.posw.model.persistence.DAO.interfaces.IOrganizzatoreDAO;
  * @author gpelle
  */
 public class OrganizzatoreDAO implements IOrganizzatoreDAO {
-	private Connection c;
 	
 	public OrganizzatoreDAO() {
 		super();
@@ -26,7 +25,7 @@ public class OrganizzatoreDAO implements IOrganizzatoreDAO {
 		PreparedStatement ps;
        
 		String query = "INSERT INTO Utente (nome, cognome, email, password, data_nascita, nome_organizzazione) VALUES (?,?,?,?,?,?)";
-        
+        Connection c = null;
 		try {
             c = DBConnection.getInstance().startConnection();
             ps = c.prepareStatement(query);
@@ -57,7 +56,7 @@ public class OrganizzatoreDAO implements IOrganizzatoreDAO {
         Organizzatore org = null;
         
         String query = "SELECT * FROM Utente WHERE email = ? AND nome_organizzazione IS NOT NULL";
-        
+        Connection c = null;
         try {
             c = DBConnection.getInstance().startConnection();
             ps = c.prepareStatement(query);
