@@ -4,10 +4,12 @@ import it.unipv.posw.model.persistence.DAO.ArtistaDAO;
 import it.unipv.posw.model.persistence.DAO.ClienteDAO;
 import it.unipv.posw.model.persistence.DAO.EventoDAO;
 import it.unipv.posw.model.persistence.DAO.OrganizzatoreDAO;
+import it.unipv.posw.model.persistence.DAO.SedeDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IArtistaDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IClienteDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IEventoDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IOrganizzatoreDAO;
+import it.unipv.posw.model.persistence.DAO.interfaces.ISedeDAO;
 
 /**
  * @author gpelle
@@ -44,6 +46,10 @@ public class MYSQLDAOFactory implements IDAOFactory {
 	@Override
 	public IEventoDAO getEventoDAO() {
 		return new EventoDAO();
+	}
+
+	public ISedeDAO getSedeDAO() {
+		return new SedeDAO();
 	}
 
 }
