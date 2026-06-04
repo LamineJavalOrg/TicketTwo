@@ -4,3 +4,8 @@ db.url=jdbc:mysql://localhost:3306/Ticket2ProvaPlus
 db.username=user
 db.password=change123
 db.driver=com.mysql.cj.jdbc.Driver
+
+#configurazione strategie di ricerca
+
+Ricerca.PER_ARTISTA = it.unipv.posw.model.service.ricerca.RicercaPerArtistaStrategy
+Ricerca.PER_EVENTO = it.unipv.posw.model.service.ricerca.RicercaPerEventoStrategy
