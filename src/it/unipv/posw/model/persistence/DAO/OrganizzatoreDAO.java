@@ -82,5 +82,27 @@ public class OrganizzatoreDAO implements IOrganizzatoreDAO {
         }
         return org;
     }
+    
+    @Override
+    public boolean isEmailEsistente(String email) {
+    	PreparedStatement ps;
+    	
+        String query = "SELECT COUNT(*) FROM Utente WHERE email = ?";
+        Connection c = null;
+        try {
+            c = DBConnection.getInstance().startConnection();
+            ps = c.prepareStatement(query);
+            ps.setString(1, email);
+            
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt(1) > 0;
+        } catch (SQLException e) { 
+        	e.printStackTrace(); 
+        }
+        finally { 
+        	DBConnection.getInstance().closeConnection(c);
+        }
+        return false;
+    }
 
 }

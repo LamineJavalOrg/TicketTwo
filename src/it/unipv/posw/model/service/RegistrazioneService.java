@@ -35,9 +35,22 @@ public class RegistrazioneService {
         return MYSQLDAOFactory.getInstance().getClienteDAO().salvaCliente(cliente);
     }
 	
-	public boolean registraNuovoOrganizzatore(Organizzatore org) {
+	public boolean registraNuovoOrganizzatore(Organizzatore org) throws EmptyFieldException, WrongEmailFormatException, EmailEsistenteException {
 		
+		if (org.getNome().isEmpty() || org.getCognome().isEmpty() ||org.getEmail().isEmpty()
+	        	 ||	org.getPassword().isEmpty() || org.getData_nascita() == null || org.getNome_organizzazione().isEmpty()) {
+			throw new EmptyFieldException();
+		}
+		
+		if (!org.getEmail().contains("@")) {
+			throw new WrongEmailFormatException();
+		}
+		
+		if (MYSQLDAOFactory.getInstance().getOrganizzatoreDAO().isEmailEsistente(org.getEmail())){
+			throw new EmailEsistenteException();
+		}
 	return MYSQLDAOFactory.getInstance().getOrganizzatoreDAO().salvaOrganizzatore(org);
 	
-	}
+	
+}
 }
