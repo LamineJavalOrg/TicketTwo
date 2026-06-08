@@ -33,6 +33,14 @@ public class Biglietto {
 	public double getPrezzoAcquisto() {
 		return prezzoAcquisto;
 	}
+
+	public Tariffa getTariffa() {
+		return tariffa;
+	}
+
+	public void setPrezzoAcquisto(double prezzoAcquisto) {
+		this.prezzoAcquisto = prezzoAcquisto;
+	}
 	
     
     

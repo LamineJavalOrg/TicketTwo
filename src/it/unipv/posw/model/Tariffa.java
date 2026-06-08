@@ -24,5 +24,13 @@ public class Tariffa {
 		this.id_tappa = id_tappa;
 	}
 
+	public int getId_evento() {
+		return id_evento;
+	}
+
+	public double getPrezzo() {
+		return prezzo;
+	}
+
     
 }

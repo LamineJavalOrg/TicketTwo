@@ -1,6 +1,7 @@
 package it.unipv.posw.model.persistence;
 
 import it.unipv.posw.model.persistence.DAO.interfaces.IArtistaDAO;
+import it.unipv.posw.model.persistence.DAO.interfaces.IBigliettoDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IClienteDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IEventoDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IOrganizzatoreDAO;
@@ -16,4 +17,5 @@ public interface IDAOFactory {
 	IArtistaDAO getArtistaDAO();
 	IEventoDAO getEventoDAO();
 	ISedeDAO getSedeDAO();
+	IBigliettoDAO getBigliettoDAO();
 }
