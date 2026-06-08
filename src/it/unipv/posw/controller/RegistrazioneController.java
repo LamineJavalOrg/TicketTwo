@@ -1,10 +1,17 @@
 package it.unipv.posw.controller;
 
 import it.unipv.posw.model.Cliente;
+import it.unipv.posw.model.exception.EmailEsistenteException;
+import it.unipv.posw.model.exception.EmptyFieldException;
+import it.unipv.posw.model.exception.WrongEmailFormatException;
 import it.unipv.posw.model.service.RegistrazioneService;
 import it.unipv.posw.view.RegistrazioneView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
+/**
+ * @author rkomi-dev
+ */
 
 public class RegistrazioneController {
 	
@@ -33,7 +40,15 @@ public class RegistrazioneController {
             view.getTxtPassword().getText()
         );
 
-        rService.registraNuovoCliente(c);
+        try {
+        	rService.registraNuovoCliente(c);
+        }catch (EmptyFieldException ex) {
+        	ex.getMessage();
+        }catch (WrongEmailFormatException ex) {
+        	ex.getMessage();
+        }catch (EmailEsistenteException ex) {
+			ex.getMessage();
+		}
        
     }
 }

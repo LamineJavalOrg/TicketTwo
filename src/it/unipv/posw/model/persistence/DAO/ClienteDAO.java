@@ -82,4 +82,28 @@ public class ClienteDAO implements IClienteDAO {
         return cliente;
     }
 
+	@Override
+	public boolean isEmailEsistente(String email) {
+		PreparedStatement ps;
+		ResultSet rs;
+		String query = "SELECT COUNT(*) FROM Utente WHERE email = ?";
+		Connection c = null;
+		try {
+			c = DBConnection.getInstance().startConnection();
+			ps = c.prepareStatement(query);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt(1) > 0;
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+	        DBConnection.getInstance().closeConnection(c);
+	    }
+		return false;
+	}
+
 }

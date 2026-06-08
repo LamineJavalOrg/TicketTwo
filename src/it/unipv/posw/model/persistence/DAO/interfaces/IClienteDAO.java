@@ -10,4 +10,5 @@ public interface IClienteDAO {
 	
 	boolean salvaCliente(Cliente cliente);
 	Cliente trovaClientePerEmail(String email);
+	boolean isEmailEsistente(String email);
 }
