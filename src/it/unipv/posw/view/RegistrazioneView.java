@@ -9,6 +9,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class RegistrazioneView extends VBox implements IView {
     
     private TextField txtNome;

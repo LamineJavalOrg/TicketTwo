@@ -3,8 +3,11 @@ package it.unipv.posw.view;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class HomeView extends VBox implements IView {
-	
    
     public HomeView() {
     	
