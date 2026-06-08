@@ -39,6 +39,7 @@ public class RegistrazioneService {
 	    if(MYSQLDAOFactory.getInstance().getClienteDAO().isEmailEsistente(cliente.getEmail())) {
 	        	throw new EmailEsistenteException();
 	        }
+	        
         
         return MYSQLDAOFactory.getInstance().getClienteDAO().salvaCliente(cliente);
     }
