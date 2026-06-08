@@ -1,0 +1,20 @@
+.background {
+	-fx-background-image: url("/images/sfondo_TicketTwo.png");
+	-fx-background-size: cover;
+    
+    /* Mantiene l'immagine al centro durante il ridimensionamento */
+    /*-fx-background-position: center center;*/
+    
+    /* Impedisce all'immagine di ripetersi se la finestra è enorme */
+    -fx-background-repeat: no-repeat;
+}
+
+.topbar {
+
+	-fx-background-color: white;
+	
+}
+
+.sfondopred {
+	-fx-background-color: white;
+}

@@ -21,6 +21,8 @@ public class AutenticazioneService {
 	    if(cliente == null || !cliente.getEmail().equals(email) || !cliente.getPassword().equals(password)) {
 	    	throw new CredenzialiErrateException();
 	    }
+	    
+	    System.out.println("login effettuato con successo");
 		return cliente;
 	}
 	
