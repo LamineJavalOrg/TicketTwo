@@ -9,6 +9,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
+/**
+ * @author gpelle
+ */
 public class AutenticazioneOrgView extends VBox implements IView {
 	
 	private TextField txtEmail;
@@ -31,6 +34,7 @@ public class AutenticazioneOrgView extends VBox implements IView {
 	     txtPassword.setMaxWidth(300);
 	     btnLogin.setMinWidth(120);
 	     
+	        
 		 this.getChildren().addAll(
 			new Label("Autenticazione organizzatore"),
 			new Label("Email:"), txtEmail,
@@ -54,6 +58,8 @@ public class AutenticazioneOrgView extends VBox implements IView {
 	 public Node getNodo() {
 		return this;
 	 }
+	 
+
 	 
 	 
 

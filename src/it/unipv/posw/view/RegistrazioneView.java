@@ -23,7 +23,7 @@ public class RegistrazioneView extends VBox implements IView {
     private DatePicker dateNascita;
     private Button btnRegistratiC;
     private Button btnRegistratiO;
-
+    
     public RegistrazioneView() {
     	
         this.setPadding(new Insets(20));
@@ -39,7 +39,7 @@ public class RegistrazioneView extends VBox implements IView {
     	dateNascita = new DatePicker();
     	btnRegistratiC = new Button("Registrati come cliente");
     	btnRegistratiO = new Button("Registrati come organizzatore");
-    	
+
     	
 	    btnRegistratiC.setMinWidth(120);
 	    btnRegistratiO.setMinWidth(120);
@@ -90,9 +90,10 @@ public class RegistrazioneView extends VBox implements IView {
 
 	@Override
 	public Node getNodo() {
-		// TODO Auto-generated method stub
 		return this;
 	}
+
+
     
     
 }

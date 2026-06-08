@@ -55,6 +55,8 @@ public class AutenticazioneView extends VBox implements IView {
 	 public Node getNodo() {
 		return this;
 	 }
+
+
 	 
 	 
 	 

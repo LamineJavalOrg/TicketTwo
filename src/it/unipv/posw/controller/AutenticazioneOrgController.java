@@ -4,10 +4,14 @@ import it.unipv.posw.model.Organizzatore;
 import it.unipv.posw.model.SessioneOrganizzatore;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
 import it.unipv.posw.model.service.AutenticazioneService;
+import it.unipv.posw.view.AlertView;
 import it.unipv.posw.view.AutenticazioneOrgView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+/**
+ * @author gpelle
+ */
 public class AutenticazioneOrgController {
 	
 	private AutenticazioneOrgView view;
@@ -36,7 +40,7 @@ public class AutenticazioneOrgController {
 			SessioneOrganizzatore.getInstance().setOrganizzatoreLoggato(loggato);
 		
 		}catch (CredenzialiErrateException ex) {
-			ex.printStackTrace();
+			AlertView.mostraErrore(ex.getMessage());
 		}finally {
 			view.getTxtEmail().setText("");
 	        view.getTxtPassword().setText("");

@@ -1,13 +1,11 @@
 package it.unipv.posw.model.persistence;
 
 import it.unipv.posw.model.persistence.DAO.ArtistaDAO;
-import it.unipv.posw.model.persistence.DAO.BigliettoDAO;
 import it.unipv.posw.model.persistence.DAO.ClienteDAO;
 import it.unipv.posw.model.persistence.DAO.EventoDAO;
 import it.unipv.posw.model.persistence.DAO.OrganizzatoreDAO;
 import it.unipv.posw.model.persistence.DAO.SedeDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IArtistaDAO;
-import it.unipv.posw.model.persistence.DAO.interfaces.IBigliettoDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IClienteDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IEventoDAO;
 import it.unipv.posw.model.persistence.DAO.interfaces.IOrganizzatoreDAO;
@@ -50,6 +48,7 @@ public class MYSQLDAOFactory implements IDAOFactory {
 		return new EventoDAO();
 	}
 
+	@Override
 	public ISedeDAO getSedeDAO() {
 		return new SedeDAO();
 	}

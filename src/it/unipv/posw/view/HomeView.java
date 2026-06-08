@@ -24,6 +24,8 @@ public class HomeView extends VBox implements IView {
 		return this;
 	}
 
+
+
 	
 
     

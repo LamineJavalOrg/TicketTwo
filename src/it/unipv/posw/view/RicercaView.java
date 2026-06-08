@@ -74,4 +74,6 @@ public class RicercaView extends HBox implements IView {
 		// TODO Auto-generated method stub
 		return this;
 	}
+
+
 }
