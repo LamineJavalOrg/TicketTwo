@@ -105,5 +105,27 @@ public class ClienteDAO implements IClienteDAO {
 	    }
 		return false;
 	}
+	
+	@Override
+	public boolean deleteCliente(String email) {
+		
+		PreparedStatement ps;
+	    String query = "DELETE FROM Utente WHERE email = ?";
+	    Connection c = null;
+	    try {
+	        c = DBConnection.getInstance().startConnection();
+	        ps = c.prepareStatement(query);
+	        ps.setString(1, email);
+	        
+	        int result = ps.executeUpdate();
+	        return result > 0; 
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBConnection.getInstance().closeConnection(c);
+	    }
+	    
+        return false;
+	}
 
 }
