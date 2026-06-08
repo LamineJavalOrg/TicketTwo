@@ -43,6 +43,15 @@ public class MainController {
 	            handleRegistrazione(event);
 	         }
 	    });
+	     
+	   // Listener per l'item Login organizzatore
+	    mainF.getItemLoginOrg().setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				handleLoginOrganizzatore(event);
+				
+			}
+		});
 	 }
 	    
 	 private void handleHome(ActionEvent e) {
@@ -54,6 +63,12 @@ public class MainController {
 		 mainF.mostraSchermata(mainF.getaView());
 		 mainF.setVisibilitaBarraRicerca(false);
 		 new AutenticazioneController(mainF.getaView());
+	 }
+	 
+	 private void handleLoginOrganizzatore(ActionEvent e) {
+		 mainF.mostraSchermata(mainF.getAorView());
+		 mainF.setVisibilitaBarraRicerca(false);
+		 new AutenticazioneOrgController(mainF.getAorView());
 	 }
 	    
 	 private void handleRegistrazione(ActionEvent e) {

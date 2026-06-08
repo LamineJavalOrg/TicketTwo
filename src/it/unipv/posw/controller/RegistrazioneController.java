@@ -1,6 +1,7 @@
 package it.unipv.posw.controller;
 
 import it.unipv.posw.model.Cliente;
+import it.unipv.posw.model.Organizzatore;
 import it.unipv.posw.model.exception.EmailEsistenteException;
 import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.WrongEmailFormatException;
@@ -28,6 +29,13 @@ public class RegistrazioneController {
                 handleRegistrazioneCliente(event);
             }
         });
+        
+        this.view.getBtnRegistratiO().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                handleRegistrazioneOrganizzatore(event);
+            }
+        });
     }
 
     private void handleRegistrazioneCliente(ActionEvent e) {
@@ -42,6 +50,28 @@ public class RegistrazioneController {
 
         try {
         	rService.registraNuovoCliente(c);
+        }catch (EmptyFieldException ex) {
+        	ex.getMessage();
+        }catch (WrongEmailFormatException ex) {
+        	ex.getMessage();
+        }catch (EmailEsistenteException ex) {
+			ex.getMessage();
+		}
+       
+    }
+    
+    private void handleRegistrazioneOrganizzatore(ActionEvent e) {
+
+        Organizzatore o = new Organizzatore(
+        		view.getTxtNome().getText(), 
+        		view.getTxtCognome().getText(),
+                view.getDateNascita().getValue(),
+                view.getTxtEmail().getText(),
+                view.getTxtPassword().getText(), 
+        		view.getTxtOrganizzazione().getText());
+
+        try {
+        	rService.registraNuovoOrganizzatore(o);
         }catch (EmptyFieldException ex) {
         	ex.getMessage();
         }catch (WrongEmailFormatException ex) {

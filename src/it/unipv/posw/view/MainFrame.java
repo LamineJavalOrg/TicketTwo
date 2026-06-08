@@ -16,11 +16,13 @@ public class MainFrame extends BorderPane {
     private Menu menuAccount = new Menu("\u2630"); 
     private MenuItem itemHome = new MenuItem("Home");
     private MenuItem itemLogin = new MenuItem("Login");
+    private MenuItem itemLoginOrg = new MenuItem("Login organizzatore");
     private MenuItem itemRegistrati = new MenuItem("Registrati");
     private HBox topBar;
-
+ 
     private HomeView hView;
     private AutenticazioneView aView;
+    private AutenticazioneOrgView aorView;
     private RegistrazioneView regView;
     private RicercaView rView;
 	
@@ -31,9 +33,10 @@ public class MainFrame extends BorderPane {
         
         hView = new HomeView();
         aView = new AutenticazioneView();
+        aorView = new AutenticazioneOrgView();
         regView = new RegistrazioneView();
         
-        menuAccount.getItems().addAll(itemHome, itemLogin, itemRegistrati);
+        menuAccount.getItems().addAll(itemHome, itemLogin, itemLoginOrg, itemRegistrati);
         menuBar.getMenus().add(menuAccount);
         
         Region spacerSinistra = new Region();
@@ -82,12 +85,23 @@ public class MainFrame extends BorderPane {
     	return aView; 
     }
     
-    public RegistrazioneView getRegView() { 
+    public AutenticazioneOrgView getAorView() {
+		return aorView;
+	}
+    
+	public RegistrazioneView getRegView() { 
     	return regView; 
     }
     
-    public RicercaView getrView() {
+	
+    public MenuItem getItemLoginOrg() {
+		return itemLoginOrg;
+	}
+
+	public RicercaView getrView() {
     	return rView;
     	
     }
+    
+    
 }

@@ -28,12 +28,19 @@ public class SessioneOrganizzatore {
     	return organizzatoreLoggato != null; 
     }
     
+    public void svuotaSessione() {
+    	this.organizzatoreLoggato = null; 
+    }
+    
     public Organizzatore getOrganizzatoreLoggato() { 
     	return organizzatoreLoggato; 
     }
     
-    public void svuotaSessione() {
-    	this.organizzatoreLoggato = null; 
-    }
+
+	public void setOrganizzatoreLoggato(Organizzatore organizzatoreLoggato) {
+		this.organizzatoreLoggato = organizzatoreLoggato;
+	}
+    
+    
 
 }

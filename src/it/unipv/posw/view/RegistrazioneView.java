@@ -22,7 +22,7 @@ public class RegistrazioneView extends VBox implements IView {
     private PasswordField txtPassword;
     private DatePicker dateNascita;
     private Button btnRegistratiC;
-    private Button btnRegistratiR;
+    private Button btnRegistratiO;
 
     public RegistrazioneView() {
     	
@@ -38,11 +38,11 @@ public class RegistrazioneView extends VBox implements IView {
     	txtPassword = new PasswordField();
     	dateNascita = new DatePicker();
     	btnRegistratiC = new Button("Registrati come cliente");
-    	btnRegistratiR = new Button("Registrati come organizzatore");
+    	btnRegistratiO = new Button("Registrati come organizzatore");
     	
     	
 	    btnRegistratiC.setMinWidth(120);
-	    btnRegistratiR.setMinWidth(120);
+	    btnRegistratiO.setMinWidth(120);
     	
         this.getChildren().addAll(
             new Label("Nome:"), txtNome,
@@ -51,7 +51,7 @@ public class RegistrazioneView extends VBox implements IView {
             new Label("Password:"), txtPassword,
             new Label("Data di Nascita:"), dateNascita,
             new Label("Nome organizzazione (solo per organizzatori):"), txtOrganizzazione,
-            btnRegistratiC, btnRegistratiR
+            btnRegistratiC, btnRegistratiO
         );
         
     }
@@ -84,8 +84,8 @@ public class RegistrazioneView extends VBox implements IView {
 		return btnRegistratiC;
 	}
 
-	public Button getBtnRegistratiR() {
-		return btnRegistratiR;
+	public Button getBtnRegistratiO() {
+		return btnRegistratiO;
 	}
 
 	@Override
