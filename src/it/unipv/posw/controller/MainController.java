@@ -1,5 +1,6 @@
 package it.unipv.posw.controller;
 
+import it.unipv.posw.model.gestori.GestoreHome;
 import it.unipv.posw.view.MainFrame;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,11 +8,13 @@ import javafx.event.EventHandler;
 public class MainController {
 	
 	private MainFrame mainF;
+	private GestoreHome model;
 	
-	public MainController(MainFrame mainF) {
+	public MainController(MainFrame mainF, GestoreHome model) {
 		
 		this.mainF = mainF;
-
+		this.model = model;
+		
 		mainF.mostraSchermata(mainF.gethView());
 		new RicercaController(mainF.getrView());
 		
@@ -52,7 +55,8 @@ public class MainController {
 				
 			}
 		});
-	 }
+	}
+	 
 	    
 	 private void handleHome(ActionEvent e) {
 		 mainF.mostraSchermata(mainF.gethView());
@@ -62,7 +66,7 @@ public class MainController {
 	 private void handleLogin(ActionEvent e) {
 		 mainF.mostraSchermata(mainF.getaView());
 		 mainF.setVisibilitaBarraRicerca(false);
-		 new AutenticazioneController(mainF.getaView());
+		 new AutenticazioneController(mainF.getaView(), model.getAutenticazioneService());
 	 }
 	 
 	 private void handleLoginOrganizzatore(ActionEvent e) {
@@ -74,8 +78,10 @@ public class MainController {
 	 private void handleRegistrazione(ActionEvent e) {
 		 mainF.mostraSchermata(mainF.getRegView());
 		 mainF.setVisibilitaBarraRicerca(false);
-		 new RegistrazioneController(mainF.getRegView());
+		 new RegistrazioneController(mainF.getRegView(), model.getRegistrazioneService());
 	 }
+	 
+	
 	    
 }
 

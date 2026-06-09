@@ -12,12 +12,12 @@ import javafx.scene.layout.Region;
 
 public class MainFrame extends BorderPane {
 	
-    private MenuBar menuBar = new MenuBar();
-    private Menu menuAccount = new Menu("\u2630"); 
-    private MenuItem itemHome = new MenuItem("Home");
-    private MenuItem itemLogin = new MenuItem("Login");
-    private MenuItem itemLoginOrg = new MenuItem("Login organizzatore");
-    private MenuItem itemRegistrati = new MenuItem("Registrati");
+    private MenuBar menuBar;
+    private Menu menuAccount;
+    private MenuItem itemHome;
+    private MenuItem itemLogin;
+    private MenuItem itemLoginOrg;
+    private MenuItem itemRegistrati;
     private HBox topBar;
  
     private HomeView hView;
@@ -35,6 +35,13 @@ public class MainFrame extends BorderPane {
         aView = new AutenticazioneView();
         aorView = new AutenticazioneOrgView();
         regView = new RegistrazioneView();
+        
+        menuBar = new MenuBar();
+        menuAccount = new Menu("\u2630"); 
+        itemHome = new MenuItem("Home");
+        itemLogin = new MenuItem("Login");
+        itemLoginOrg = new MenuItem("Login organizzatore");
+        itemRegistrati = new MenuItem("Registrati");
         
         menuAccount.getItems().addAll(itemHome, itemLogin, itemLoginOrg, itemRegistrati);
         menuBar.getMenus().add(menuAccount);
@@ -102,6 +109,5 @@ public class MainFrame extends BorderPane {
     	return rView;
     	
     }
-    
-    
+	
 }
