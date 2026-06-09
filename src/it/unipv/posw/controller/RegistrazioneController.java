@@ -22,9 +22,9 @@ public class RegistrazioneController {
     private RegistrazioneView view;
     private RegistrazioneService rService;
 
-    public RegistrazioneController(RegistrazioneView view) {
+    public RegistrazioneController(RegistrazioneView view, RegistrazioneService rService) {
         this.view = view;
-        this.rService = new RegistrazioneService();
+        this.rService = rService;
 
         this.view.getBtnRegistratiC().setOnAction(new EventHandler<ActionEvent>() {
             @Override

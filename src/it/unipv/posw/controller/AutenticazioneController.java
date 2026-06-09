@@ -9,14 +9,18 @@ import it.unipv.posw.view.AutenticazioneView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class AutenticazioneController {
 	
 	private AutenticazioneView view;
 	private AutenticazioneService aService;
 
-	public AutenticazioneController(AutenticazioneView view) {
+	public AutenticazioneController(AutenticazioneView view, AutenticazioneService aService) {
 	    this.view = view;
-	    this.aService = new AutenticazioneService();
+	    this.aService = aService;
 	    
 	    this.view.getBtnLogin().setOnAction(new EventHandler<ActionEvent>() {
             @Override
