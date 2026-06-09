@@ -1,4 +1,4 @@
-package it.unipv.posw.model.persistence.DAO.interfaces;
+package it.unipv.posw.model.persistence.dao.interfaces;
 
 import it.unipv.posw.model.Sede;
 import it.unipv.posw.model.Settore; 

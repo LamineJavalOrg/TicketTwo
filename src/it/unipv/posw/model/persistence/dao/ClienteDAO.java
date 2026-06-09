@@ -1,4 +1,4 @@
-package it.unipv.posw.model.persistence.DAO;
+package it.unipv.posw.model.persistence.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import it.unipv.posw.model.Cliente;
 import it.unipv.posw.model.persistence.DBConnection;
-import it.unipv.posw.model.persistence.DAO.interfaces.IClienteDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IClienteDAO;
 
 /**
  * @author rkomi-dev

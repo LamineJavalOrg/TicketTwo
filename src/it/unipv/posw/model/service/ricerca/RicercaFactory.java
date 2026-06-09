@@ -22,7 +22,7 @@ private static final String STRATEGY = "Ricerca.";
 		
 		try {
 			Properties p = new Properties(System.getProperties());
-			p.load(new FileInputStream("Properties/properties"));
+			p.load(new FileInputStream("properties/properties"));
 			StrategyClassName = p.getProperty(STRATEGY + tipo.name());
 		
 			Constructor<?> c = Class.forName(StrategyClassName).getConstructor();

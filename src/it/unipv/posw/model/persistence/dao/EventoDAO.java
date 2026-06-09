@@ -1,4 +1,4 @@
-package it.unipv.posw.model.persistence.DAO;
+package it.unipv.posw.model.persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.List;
 import it.unipv.posw.model.Evento;
 import it.unipv.posw.model.enums.TipologiaEvento;
 import it.unipv.posw.model.persistence.DBConnection;
-import it.unipv.posw.model.persistence.DAO.interfaces.IEventoDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IEventoDAO;
 
 /**
  * @author rkomi-dev

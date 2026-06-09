@@ -1,18 +1,17 @@
 package it.unipv.posw.model.persistence;
 
-import it.unipv.posw.model.persistence.DAO.ArtistaDAO;
-
-import it.unipv.posw.model.persistence.DAO.BigliettoDAO;
-import it.unipv.posw.model.persistence.DAO.ClienteDAO;
-import it.unipv.posw.model.persistence.DAO.EventoDAO;
-import it.unipv.posw.model.persistence.DAO.OrganizzatoreDAO;
-import it.unipv.posw.model.persistence.DAO.SedeDAO;
-import it.unipv.posw.model.persistence.DAO.interfaces.IArtistaDAO;
-import it.unipv.posw.model.persistence.DAO.interfaces.IBigliettoDAO;
-import it.unipv.posw.model.persistence.DAO.interfaces.IClienteDAO;
-import it.unipv.posw.model.persistence.DAO.interfaces.IEventoDAO;
-import it.unipv.posw.model.persistence.DAO.interfaces.IOrganizzatoreDAO;
-import it.unipv.posw.model.persistence.DAO.interfaces.ISedeDAO;
+import it.unipv.posw.model.persistence.dao.ArtistaDAO;
+import it.unipv.posw.model.persistence.dao.BigliettoDAO;
+import it.unipv.posw.model.persistence.dao.ClienteDAO;
+import it.unipv.posw.model.persistence.dao.EventoDAO;
+import it.unipv.posw.model.persistence.dao.OrganizzatoreDAO;
+import it.unipv.posw.model.persistence.dao.SedeDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IArtistaDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IBigliettoDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IClienteDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IEventoDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IOrganizzatoreDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
 
 /**
  * @author gpelle

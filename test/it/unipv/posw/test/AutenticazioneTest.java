@@ -11,8 +11,8 @@ import org.junit.Test;
 import it.unipv.posw.model.Cliente;
 import it.unipv.posw.model.Organizzatore;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
-import it.unipv.posw.model.persistence.DAO.ClienteDAO;
-import it.unipv.posw.model.persistence.DAO.OrganizzatoreDAO;
+import it.unipv.posw.model.persistence.dao.ClienteDAO;
+import it.unipv.posw.model.persistence.dao.OrganizzatoreDAO;
 import it.unipv.posw.model.service.AutenticazioneService;
 
 /**

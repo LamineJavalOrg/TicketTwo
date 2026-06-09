@@ -1,4 +1,4 @@
-package it.unipv.posw.model.persistence.DAO;
+package it.unipv.posw.model.persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import it.unipv.posw.model.Tariffa;
 import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.Biglietto;
 import it.unipv.posw.model.persistence.DBConnection;
-import it.unipv.posw.model.persistence.DAO.interfaces.IBigliettoDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IBigliettoDAO;
 
 public class BigliettoDAO implements IBigliettoDAO {
 

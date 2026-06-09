@@ -8,9 +8,14 @@ import it.unipv.posw.model.exception.IndisponibilitàException;
 import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class CarrelloService {
 	
 	final int MAX_BIGLIETTI = 4;
+	
 	public CarrelloService() {
     }
 

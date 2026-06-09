@@ -1,4 +1,4 @@
-package it.unipv.posw.model.persistence.DAO;
+package it.unipv.posw.model.persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.util.List;
 
 import it.unipv.posw.model.Artista;
 import it.unipv.posw.model.persistence.DBConnection;
-import it.unipv.posw.model.persistence.DAO.interfaces.IArtistaDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IArtistaDAO;
 
 /**
  * @author rkomi-dev

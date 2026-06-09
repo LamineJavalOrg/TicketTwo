@@ -1,4 +1,4 @@
-package it.unipv.posw.model.persistence.DAO.interfaces;
+package it.unipv.posw.model.persistence.dao.interfaces;
 
 import java.util.List;
 

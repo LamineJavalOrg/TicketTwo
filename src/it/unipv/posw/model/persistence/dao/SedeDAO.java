@@ -1,4 +1,4 @@
-package it.unipv.posw.model.persistence.DAO;
+package it.unipv.posw.model.persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import it.unipv.posw.model.Sede;
 import it.unipv.posw.model.Settore;
 import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.persistence.DBConnection;
-import it.unipv.posw.model.persistence.DAO.interfaces.ISedeDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
 
 /**
  * @author gpelle

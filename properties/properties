@@ -9,3 +9,4 @@ db.driver=com.mysql.cj.jdbc.Driver
 
 Ricerca.PER_ARTISTA = it.unipv.posw.model.service.ricerca.RicercaPerArtistaStrategy
 Ricerca.PER_EVENTO = it.unipv.posw.model.service.ricerca.RicercaPerEventoStrategy
+

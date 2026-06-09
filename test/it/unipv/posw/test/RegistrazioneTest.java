@@ -11,8 +11,8 @@ import it.unipv.posw.model.exception.DataNascitaException;
 import it.unipv.posw.model.exception.EmailEsistenteException;
 import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.WrongEmailFormatException;
-import it.unipv.posw.model.persistence.DAO.ClienteDAO;
-import it.unipv.posw.model.persistence.DAO.OrganizzatoreDAO;
+import it.unipv.posw.model.persistence.dao.ClienteDAO;
+import it.unipv.posw.model.persistence.dao.OrganizzatoreDAO;
 import it.unipv.posw.model.service.RegistrazioneService;
 
 /**
