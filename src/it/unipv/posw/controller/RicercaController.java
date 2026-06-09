@@ -3,9 +3,10 @@ package it.unipv.posw.controller;
 import java.util.ArrayList;
 
 import java.util.List;
+
+import it.unipv.posw.model.enums.RicercaType;
 import it.unipv.posw.model.service.ricerca.IRicercaStrategy;
 import it.unipv.posw.model.service.ricerca.RicercaFactory;
-import it.unipv.posw.model.service.ricerca.RicercaType;
 import it.unipv.posw.view.RicercaView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

@@ -2,6 +2,8 @@ package it.unipv.posw.model.service.ricerca;
 
 import java.util.List;
 
+import it.unipv.posw.model.enums.RicercaType;
+
 /**
  * @author rkomi-dev
  */

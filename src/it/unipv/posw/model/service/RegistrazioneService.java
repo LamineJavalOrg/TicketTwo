@@ -1,8 +1,6 @@
 package it.unipv.posw.model.service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import it.unipv.posw.model.Cliente;
 import it.unipv.posw.model.Organizzatore;
 import it.unipv.posw.model.exception.DataNascitaException;

@@ -2,7 +2,14 @@ package it.unipv.posw.model.service.ricerca;
 
 import java.lang.reflect.Constructor;
 import java.util.Properties;
+
+import it.unipv.posw.model.enums.RicercaType;
+
 import java.io.FileInputStream;
+
+/**
+ * @author rkomi-dev
+ */
 
 public class RicercaFactory {
 	

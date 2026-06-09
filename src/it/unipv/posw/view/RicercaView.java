@@ -2,6 +2,7 @@ package it.unipv.posw.view;
 
 import java.util.List;
 
+import it.unipv.posw.model.enums.RicercaType;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Node;
@@ -10,7 +11,6 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import it.unipv.posw.model.service.ricerca.RicercaType;
 
 /**
  * @author rkomi-dev
