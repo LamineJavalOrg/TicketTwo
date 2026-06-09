@@ -9,4 +9,5 @@ public interface IOrganizzatoreDAO {
 	boolean salvaOrganizzatore(Organizzatore organizzatore);
 	Organizzatore trovaOrganizzatorePerEmail(String email);
 	boolean isEmailEsistente(String email);
+	boolean deleteOrganizzatore(String email);
 }
