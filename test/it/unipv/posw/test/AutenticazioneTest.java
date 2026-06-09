@@ -9,12 +9,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.unipv.posw.model.Cliente;
+import it.unipv.posw.model.Organizzatore;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
 import it.unipv.posw.model.persistence.DAO.ClienteDAO;
+import it.unipv.posw.model.persistence.DAO.OrganizzatoreDAO;
 import it.unipv.posw.model.service.AutenticazioneService;
 
 /**
  * @author rkomi-dev
+ * @author gpelle
  */
 
 public class AutenticazioneTest {
@@ -23,13 +26,20 @@ public class AutenticazioneTest {
 	private ClienteDAO dao;
 	private Cliente c;
 	
+	private OrganizzatoreDAO daoOrg;
+	private Organizzatore o;
+	
 	@Before
 	public void iniTest() {
 		service = new AutenticazioneService();
 		dao = new ClienteDAO();
-		c = new Cliente("Luigi", "Bianchi", LocalDate.of(1984, 11, 9), "luigi.bianchi@gmail.com", "prova123" );
+		daoOrg = new OrganizzatoreDAO();
 		
+		c = new Cliente("Luigi", "Bianchi", LocalDate.of(1984, 11, 9), "luigi.bianchi@gmail.com", "prova123" );
 		dao.salvaCliente(c);
+		
+		o = new Organizzatore("Mario", "Rossi", LocalDate.of(1980, 5, 20), "mario.rossi@eventi.it", "prova123", "VivaConcerti");
+		daoOrg.salvaOrganizzatore(o);
 	}
 
 	@Test
@@ -69,9 +79,48 @@ public class AutenticazioneTest {
 	}
 	
 	
+	
+	
+	
+	@Test
+	public void testAutenticazioneOrganizzatoreOK() throws CredenzialiErrateException {
+		service.loginOrganizzatore(o.getEmail(), o.getPassword());
+		
+		assertTrue(true);
+	}
+	
+	// organizzatore inesistente
+	@Test
+	public void testAutenticazioneOrganizzatoreKO1() {
+		boolean result = true;
+		
+		try {
+			service.loginOrganizzatore("email@inesistente.com", "qualsiasi");
+		} catch (CredenzialiErrateException ex) {
+			result = false;
+		}
+		
+		assertFalse(result);
+	}
+	
+	// password organizzatore errata
+	@Test
+	public void testAutenticazioneOrganizzatoreKO2() {
+		boolean result = true;
+		
+		try {
+			service.loginOrganizzatore(o.getEmail(), "password errata");
+		} catch (CredenzialiErrateException ex) {
+			result = false;
+		}
+		
+		assertFalse(result);
+	}
+	
+	
 	@After
 	public void deleteCliente() {
 		dao.deleteCliente(c.getEmail());
+		daoOrg.deleteOrganizzatore(o.getEmail());
 	}
-
 }
