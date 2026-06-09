@@ -14,6 +14,7 @@ import javafx.event.EventHandler;
 
 /**
  * @author rkomi-dev
+ * @author gpelle
  */
 
 public class RegistrazioneController {

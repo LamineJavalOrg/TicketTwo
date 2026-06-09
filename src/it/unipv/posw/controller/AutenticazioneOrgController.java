@@ -38,7 +38,7 @@ public class AutenticazioneOrgController {
 			
 			SessioneOrganizzatore.getInstance().svuotaSessione();
 			SessioneOrganizzatore.getInstance().setOrganizzatoreLoggato(loggato);
-		
+					
 		}catch (CredenzialiErrateException ex) {
 			AlertView.mostraErrore(ex.getMessage());
 		}finally {
