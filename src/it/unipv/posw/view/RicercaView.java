@@ -68,6 +68,10 @@ public class RicercaView extends HBox implements IView {
     public TextField getTxtRicerca() { 
     	return txtRicerca; 
     }
+    
+    public ContextMenu getPopupSuggerimenti() {
+        return popupSuggerimenti;
+    }
 
 	@Override
 	public Node getNodo() {

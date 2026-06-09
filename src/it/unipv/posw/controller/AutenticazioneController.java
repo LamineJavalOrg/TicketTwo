@@ -34,7 +34,7 @@ public class AutenticazioneController {
 	    
 	    	SessioneCliente.getInstance().svuotaSessione();
 	    	SessioneCliente.getInstance().setUtenteLoggato(loggato);
-	    
+	    	
 		}catch (CredenzialiErrateException ex) {
 			AlertView.mostraErrore(ex.getMessage());
 		} finally {
@@ -42,5 +42,5 @@ public class AutenticazioneController {
 	        view.getTxtPassword().setText("");
 		}
 	}
-
+	
 }
