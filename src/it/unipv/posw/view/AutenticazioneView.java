@@ -14,6 +14,9 @@ public class AutenticazioneView extends VBox implements IView {
 	 private TextField txtEmail;
 	 private PasswordField txtPassword;
 	 private Button btnLogin;
+	 private Label lblTitolo;
+	 private Label lblEmail;
+	 private Label lblPassword;
 	 
 	 public AutenticazioneView() {
 		 
@@ -31,10 +34,14 @@ public class AutenticazioneView extends VBox implements IView {
 	     txtPassword.setMaxWidth(300);
 	     btnLogin.setMinWidth(120);
 	     
+	     lblTitolo = new Label("Autenticazione");
+	     lblEmail = new Label("Email:");
+	     lblPassword = new Label("Password");
+	     
 		 this.getChildren().addAll(
-			new Label("Autenticazione"),
-			new Label("Email:"), txtEmail,
-			new Label("Password"), txtPassword,
+			lblTitolo,
+			lblEmail, txtEmail,
+			lblPassword, txtPassword,
 			btnLogin);
 		 
 	 }

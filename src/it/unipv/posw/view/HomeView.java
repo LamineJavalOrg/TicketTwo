@@ -11,9 +11,7 @@ public class HomeView extends VBox implements IView {
    
     public HomeView() {
     	
-    
-
-        this.getStylesheets().add(getClass().getResource("/css/home-css.css").toExternalForm());
+    	this.getStylesheets().add(getClass().getResource("/css/home-css.css").toExternalForm());
         this.getStyleClass().add("background");
 
     }
