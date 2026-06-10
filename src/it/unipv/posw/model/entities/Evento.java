@@ -32,6 +32,10 @@ public class Evento {
 	public String getNome() {
 		return nome;
 	}
+
+	public List<Tappa> getTappe() {
+		return tappe;
+	}
 	
 	
 }
