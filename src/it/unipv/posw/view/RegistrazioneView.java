@@ -23,6 +23,12 @@ public class RegistrazioneView extends VBox implements IView {
     private DatePicker dateNascita;
     private Button btnRegistratiC;
     private Button btnRegistratiO;
+    private Label lblNome;
+    private Label lblCognome;
+    private Label lblEmail;
+    private Label lblPassword;
+    private Label lblData;
+    private Label lblNomeOrg;
     
     public RegistrazioneView() {
     	
@@ -39,18 +45,24 @@ public class RegistrazioneView extends VBox implements IView {
     	dateNascita = new DatePicker();
     	btnRegistratiC = new Button("Registrati come cliente");
     	btnRegistratiO = new Button("Registrati come organizzatore");
-
+    	
+    	lblNome = new Label("Nome:");
+    	lblCognome = new Label("Cognome:");
+    	lblEmail = new Label("Email:");
+    	lblPassword = new Label("Password:");
+    	lblData = new Label("Data di Nascita:");
+    	lblNomeOrg = new Label("Nome organizzazione (solo per organizzatori):");
     	
 	    btnRegistratiC.setMinWidth(120);
 	    btnRegistratiO.setMinWidth(120);
     	
         this.getChildren().addAll(
-            new Label("Nome:"), txtNome,
-            new Label("Cognome:"), txtCognome,
-            new Label("Email:"), txtEmail,
-            new Label("Password:"), txtPassword,
-            new Label("Data di Nascita:"), dateNascita,
-            new Label("Nome organizzazione (solo per organizzatori):"), txtOrganizzazione,
+            lblNome, txtNome,
+            lblCognome, txtCognome,
+            lblEmail, txtEmail,
+            lblPassword, txtPassword,
+            lblData, dateNascita,
+            lblNomeOrg, txtOrganizzazione,
             btnRegistratiC, btnRegistratiO
         );
         
