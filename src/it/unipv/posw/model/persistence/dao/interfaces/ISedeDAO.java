@@ -1,16 +1,24 @@
 package it.unipv.posw.model.persistence.dao.interfaces;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
 import it.unipv.posw.model.Sede;
-import it.unipv.posw.model.Settore; 
 
 /**
  * @author gpelle
  */
 public interface ISedeDAO {
 
-	public Sede salvaSede(Sede sede);
 	public boolean isSedeEsistente(String nome, String indirizzo);
-	public Settore salvaSettore(Settore settore);
+	public Sede salvaSede(Sede sede, Connection c) throws SQLException;
+	public boolean eliminaSede(int idSede);
+	public List<Sede> getTutteLeSedi();
+
+
+	
+	
 	
 
 }
