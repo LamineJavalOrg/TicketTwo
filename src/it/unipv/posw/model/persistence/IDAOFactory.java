@@ -5,7 +5,10 @@ import it.unipv.posw.model.persistence.dao.interfaces.IBigliettoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IClienteDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IEventoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IOrganizzatoreDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IPostoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
 
 /**
  * @author gpelle
@@ -18,4 +21,7 @@ public interface IDAOFactory {
 	IEventoDAO getEventoDAO();
 	ISedeDAO getSedeDAO();
 	IBigliettoDAO getBigliettoDAO();
+	ISettoreDAO getSettoreDAO();
+	IPostoDAO getPostoDAO();
+	ITappaDAO getTappaDAO();
 }

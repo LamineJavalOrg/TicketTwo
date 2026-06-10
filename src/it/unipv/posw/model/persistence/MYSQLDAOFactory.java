@@ -5,13 +5,19 @@ import it.unipv.posw.model.persistence.dao.BigliettoDAO;
 import it.unipv.posw.model.persistence.dao.ClienteDAO;
 import it.unipv.posw.model.persistence.dao.EventoDAO;
 import it.unipv.posw.model.persistence.dao.OrganizzatoreDAO;
+import it.unipv.posw.model.persistence.dao.PostoDAO;
 import it.unipv.posw.model.persistence.dao.SedeDAO;
+import it.unipv.posw.model.persistence.dao.SettoreDAO;
+import it.unipv.posw.model.persistence.dao.TappaDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IArtistaDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IBigliettoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IClienteDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IEventoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IOrganizzatoreDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IPostoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
 
 /**
  * @author gpelle
@@ -60,6 +66,18 @@ public class MYSQLDAOFactory implements IDAOFactory {
 		return new BigliettoDAO();
 	}
 
-	
-	
+	@Override
+	public ISettoreDAO getSettoreDAO() {
+		return new SettoreDAO();
+	}
+
+	@Override
+	public IPostoDAO getPostoDAO() {
+		return new PostoDAO();
+	}
+
+	@Override
+	public ITappaDAO getTappaDAO() {
+		return new TappaDAO();
+	}
 }
