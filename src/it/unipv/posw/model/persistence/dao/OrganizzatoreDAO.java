@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import it.unipv.posw.model.Organizzatore;
+import it.unipv.posw.model.entities.Organizzatore;
 import it.unipv.posw.model.persistence.DBConnection;
 import it.unipv.posw.model.persistence.dao.interfaces.IOrganizzatoreDAO;
 

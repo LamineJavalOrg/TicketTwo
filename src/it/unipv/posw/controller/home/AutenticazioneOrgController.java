@@ -1,25 +1,26 @@
-package it.unipv.posw.controller;
+package it.unipv.posw.controller.home;
 
-import it.unipv.posw.model.Organizzatore;
-import it.unipv.posw.model.SessioneOrganizzatore;
+import it.unipv.posw.model.entities.Organizzatore;
+import it.unipv.posw.model.entities.SessioneOrganizzatore;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
 import it.unipv.posw.model.service.AutenticazioneService;
-import it.unipv.posw.view.AlertView;
-import it.unipv.posw.view.AutenticazioneOrgView;
+import it.unipv.posw.view.home.AutenticazioneOrgView;
+import it.unipv.posw.view.utility.AlertView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 /**
  * @author gpelle
  */
+
 public class AutenticazioneOrgController {
 	
 	private AutenticazioneOrgView view;
-	private AutenticazioneService aservice;
+	private AutenticazioneService aService;
 	
-	public AutenticazioneOrgController(AutenticazioneOrgView view) {
+	public AutenticazioneOrgController(AutenticazioneOrgView view, AutenticazioneService aService) {
 		this.view = view;
-		this.aservice = new AutenticazioneService();
+		this.aService = aService;
 		
 		this.view.getBtnLogin().setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -32,7 +33,7 @@ public class AutenticazioneOrgController {
 	private void handleLoginOrganizzatore(ActionEvent e) {
 		
 		try {
-			Organizzatore loggato = aservice.loginOrganizzatore(
+			Organizzatore loggato = aService.loginOrganizzatore(
 					view.getTxtEmail().getText(), 
 					view.getTxtPassword().getText());
 			

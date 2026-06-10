@@ -1,8 +1,9 @@
-package it.unipv.posw.view;
+package it.unipv.posw.view.home;
 
 import java.util.List;
 
 import it.unipv.posw.model.enums.RicercaType;
+import it.unipv.posw.view.IView;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Node;

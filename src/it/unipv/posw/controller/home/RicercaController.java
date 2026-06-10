@@ -1,4 +1,4 @@
-package it.unipv.posw.controller;
+package it.unipv.posw.controller.home;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import it.unipv.posw.model.enums.RicercaType;
 import it.unipv.posw.model.service.ricerca.IRicercaStrategy;
 import it.unipv.posw.model.service.ricerca.RicercaFactory;
-import it.unipv.posw.view.RicercaView;
+import it.unipv.posw.view.home.RicercaView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.MenuItem;

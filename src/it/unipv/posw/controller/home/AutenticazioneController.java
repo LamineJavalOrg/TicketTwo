@@ -1,11 +1,11 @@
-package it.unipv.posw.controller;
+package it.unipv.posw.controller.home;
 
-import it.unipv.posw.model.Cliente;
-import it.unipv.posw.model.SessioneCliente;
+import it.unipv.posw.model.entities.Cliente;
+import it.unipv.posw.model.entities.SessioneCliente;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
 import it.unipv.posw.model.service.AutenticazioneService;
-import it.unipv.posw.view.AlertView;
-import it.unipv.posw.view.AutenticazioneView;
+import it.unipv.posw.view.home.AutenticazioneView;
+import it.unipv.posw.view.utility.AlertView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

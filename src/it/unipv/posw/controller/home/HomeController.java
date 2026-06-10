@@ -1,16 +1,19 @@
-package it.unipv.posw.controller;
+package it.unipv.posw.controller.home;
 
+import it.unipv.posw.model.entities.SessioneOrganizzatore;
 import it.unipv.posw.model.gestori.GestoreHome;
-import it.unipv.posw.view.MainFrame;
+import it.unipv.posw.view.admin.PannelloAdminFrame;
+import it.unipv.posw.view.home.HomeFrame;
+import it.unipv.posw.view.utility.AlertView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class MainController {
+public class HomeController {
 	
-	private MainFrame mainF;
+	private HomeFrame mainF;
 	private GestoreHome model;
 	
-	public MainController(MainFrame mainF, GestoreHome model) {
+	public HomeController(HomeFrame mainF, GestoreHome model) {
 		
 		this.mainF = mainF;
 		this.model = model;
@@ -55,9 +58,20 @@ public class MainController {
 				
 			}
 		});
+	    
+		// Listener per l'item Area Admin
+	    mainF.getItemPanAdm().setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				handleAreaAdmin(event);
+				
+			}
+		});
+
 	}
 	 
-	    
+	    	    
+	
 	 private void handleHome(ActionEvent e) {
 		 mainF.mostraSchermata(mainF.gethView());
 		 mainF.setVisibilitaBarraRicerca(true);
@@ -71,10 +85,25 @@ public class MainController {
 	 
 	 private void handleLoginOrganizzatore(ActionEvent e) {
 		 mainF.mostraSchermata(mainF.getAorView());
-		 mainF.setVisibilitaBarraRicerca(false);
-		 new AutenticazioneOrgController(mainF.getAorView());
-	 }
+         mainF.setVisibilitaBarraRicerca(false);
+         new AutenticazioneOrgController(mainF.getAorView(), model.getAutenticazioneService());
+         }
+	 
 	    
+	 private void handleAreaAdmin(ActionEvent e) {
+		 if (!SessioneOrganizzatore.getInstance().isLoggato()) {
+			 AlertView.mostraErrore("Effettua il login organizzatore per accedere all'area admin");
+			 return;
+		 }
+		 PannelloAdminFrame panAdm = mainF.creaPannelloAdminFrame();
+		 panAdm.mostraSchermata(panAdm.getPannelloAdminView());
+		 
+		 mainF.mostraSchermata(panAdm);
+		 mainF.setVisibilitaBarraRicerca(false);
+		 
+		 }
+	 
+	 
 	 private void handleRegistrazione(ActionEvent e) {
 		 mainF.mostraSchermata(mainF.getRegView());
 		 mainF.setVisibilitaBarraRicerca(false);

@@ -1,7 +1,7 @@
 package it.unipv.posw.model.service;
 
-import it.unipv.posw.model.Cliente;
-import it.unipv.posw.model.Organizzatore;
+import it.unipv.posw.model.entities.Cliente;
+import it.unipv.posw.model.entities.Organizzatore;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 

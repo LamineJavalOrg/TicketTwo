@@ -2,7 +2,7 @@ package it.unipv.posw.model.persistence.dao.interfaces;
 
 import java.util.List;
 
-import it.unipv.posw.model.Biglietto;
+import it.unipv.posw.model.entities.Biglietto;
 
 public interface IBigliettoDAO {
 	

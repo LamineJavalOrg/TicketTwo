@@ -1,6 +1,6 @@
 package it.unipv.posw.model.persistence.dao.interfaces;
 
-import it.unipv.posw.model.Cliente;
+import it.unipv.posw.model.entities.Cliente;
 
 /**
 * @author rkomi-dev

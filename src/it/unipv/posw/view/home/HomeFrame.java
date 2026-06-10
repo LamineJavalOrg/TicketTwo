@@ -1,5 +1,7 @@
-package it.unipv.posw.view;
+package it.unipv.posw.view.home;
 
+import it.unipv.posw.view.IView;
+import it.unipv.posw.view.admin.PannelloAdminFrame;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Menu;
@@ -10,14 +12,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 
-public class MainFrame extends BorderPane {
+public class HomeFrame extends BorderPane {
 	
+
     private MenuBar menuBar;
     private Menu menuAccount;
     private MenuItem itemHome;
     private MenuItem itemLogin;
     private MenuItem itemLoginOrg;
     private MenuItem itemRegistrati;
+    private MenuItem itemPanAdm;
     private HBox topBar;
  
     private HomeView hView;
@@ -25,8 +29,10 @@ public class MainFrame extends BorderPane {
     private AutenticazioneOrgView aorView;
     private RegistrazioneView regView;
     private RicercaView rView;
-	
-    public MainFrame() {
+
+  
+    
+    public HomeFrame() {
         
         this.getStylesheets().add(getClass().getResource("/css/home-css.css").toExternalForm());
         this.getStyleClass().add("background");
@@ -39,11 +45,12 @@ public class MainFrame extends BorderPane {
         menuBar = new MenuBar();
         menuAccount = new Menu("\u2630"); 
         itemHome = new MenuItem("Home");
+        itemRegistrati = new MenuItem("Registrati");
         itemLogin = new MenuItem("Login");
         itemLoginOrg = new MenuItem("Login organizzatore");
-        itemRegistrati = new MenuItem("Registrati");
+        itemPanAdm = new MenuItem("Area Admin");
         
-        menuAccount.getItems().addAll(itemHome, itemLogin, itemLoginOrg, itemRegistrati);
+        menuAccount.getItems().addAll(itemHome, itemRegistrati, itemLogin, itemLoginOrg, itemPanAdm);
         menuBar.getMenus().add(menuAccount);
         
         Region spacerSinistra = new Region();
@@ -71,6 +78,7 @@ public class MainFrame extends BorderPane {
             rView.setManaged(visibile); 
         }
     }
+    
  
     public MenuItem getItemHome() { 
     	return itemHome;
@@ -110,4 +118,13 @@ public class MainFrame extends BorderPane {
     	
     }
 	
+	public MenuItem getItemPanAdm() {
+		return itemPanAdm;
+	}
+
+	public PannelloAdminFrame creaPannelloAdminFrame() {
+		return new PannelloAdminFrame();
+	}
+
+
 }

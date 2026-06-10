@@ -2,7 +2,7 @@ package it.unipv.posw.model.persistence.dao.interfaces;
 
 import java.util.List;
 
-import it.unipv.posw.model.Evento;
+import it.unipv.posw.model.entities.Evento;
 
 /**
  * @author rkomi-dev

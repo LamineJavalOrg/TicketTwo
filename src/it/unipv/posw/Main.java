@@ -1,8 +1,8 @@
 package it.unipv.posw;
 
-import it.unipv.posw.controller.MainController;
+import it.unipv.posw.controller.home.HomeController;
 import it.unipv.posw.model.gestori.GestoreHome;
-import it.unipv.posw.view.MainFrame;
+import it.unipv.posw.view.home.HomeFrame;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -12,9 +12,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		   
-		MainFrame view = new MainFrame();
+		HomeFrame view = new HomeFrame();
 		
-	    new MainController(view, GestoreHome.getInstance());
+	    new HomeController(view, GestoreHome.getInstance());
 
 	       Scene scene = new Scene(view, 800, 600);
 

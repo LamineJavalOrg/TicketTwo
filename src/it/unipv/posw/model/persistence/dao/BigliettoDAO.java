@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.posw.model.Tariffa;
+import it.unipv.posw.model.entities.Biglietto;
+import it.unipv.posw.model.entities.Tariffa;
 import it.unipv.posw.model.enums.TipologiaBiglietto;
-import it.unipv.posw.model.Biglietto;
 import it.unipv.posw.model.persistence.DBConnection;
 import it.unipv.posw.model.persistence.dao.interfaces.IBigliettoDAO;
 

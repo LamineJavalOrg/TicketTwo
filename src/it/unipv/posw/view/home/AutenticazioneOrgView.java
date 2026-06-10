@@ -1,5 +1,6 @@
-package it.unipv.posw.view;
+package it.unipv.posw.view.home;
 
+import it.unipv.posw.view.IView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -9,16 +10,19 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class AutenticazioneView extends VBox implements IView {
+/**
+ * @author gpelle
+ */
+public class AutenticazioneOrgView extends VBox implements IView {
 	
-	 private TextField txtEmail;
-	 private PasswordField txtPassword;
-	 private Button btnLogin;
-	 private Label lblTitolo;
-	 private Label lblEmail;
-	 private Label lblPassword;
+	private TextField txtEmail;
+	private PasswordField txtPassword;
+	private Button btnLogin;
+	private Label lblTitolo;
+	private Label lblEmail;
+	private Label lblPassword;
 	 
-	 public AutenticazioneView() {
+	 public AutenticazioneOrgView() {
 		 
 		 this.setPadding(new Insets(20));
 	     this.setSpacing(10);
@@ -34,16 +38,15 @@ public class AutenticazioneView extends VBox implements IView {
 	     txtPassword.setMaxWidth(300);
 	     btnLogin.setMinWidth(120);
 	     
-	     lblTitolo = new Label("Autenticazione");
+	     lblTitolo = new Label("Autenticazione organizzatore");
 	     lblEmail = new Label("Email:");
 	     lblPassword = new Label("Password");
-	     
+	        
 		 this.getChildren().addAll(
 			lblTitolo,
 			lblEmail, txtEmail,
 			lblPassword, txtPassword,
 			btnLogin);
-		 
 	 }
 
 	 public TextField getTxtEmail() {
@@ -62,9 +65,8 @@ public class AutenticazioneView extends VBox implements IView {
 	 public Node getNodo() {
 		return this;
 	 }
-
-
 	 
+
 	 
 	 
 

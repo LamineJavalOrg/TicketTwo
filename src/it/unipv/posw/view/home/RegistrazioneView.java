@@ -1,5 +1,6 @@
-package it.unipv.posw.view;
+package it.unipv.posw.view.home;
 
+import it.unipv.posw.view.IView;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;

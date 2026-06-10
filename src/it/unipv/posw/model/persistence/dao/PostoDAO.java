@@ -3,7 +3,8 @@ package it.unipv.posw.model.persistence.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import it.unipv.posw.model.Settore;
+
+import it.unipv.posw.model.entities.Settore;
 import it.unipv.posw.model.persistence.dao.interfaces.IPostoDAO;
 
 /**

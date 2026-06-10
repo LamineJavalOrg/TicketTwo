@@ -1,8 +1,9 @@
 package it.unipv.posw.model.service;
 
 import java.time.LocalDate;
-import it.unipv.posw.model.Cliente;
-import it.unipv.posw.model.Organizzatore;
+
+import it.unipv.posw.model.entities.Cliente;
+import it.unipv.posw.model.entities.Organizzatore;
 import it.unipv.posw.model.exception.DataNascitaException;
 import it.unipv.posw.model.exception.EmailEsistenteException;
 import it.unipv.posw.model.exception.EmptyFieldException;

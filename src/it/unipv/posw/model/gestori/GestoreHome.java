@@ -16,6 +16,7 @@ public class GestoreHome {
 	private RegistrazioneService registrazioneService;
 	private AutenticazioneService autenticazioneService;
 	private IRicercaStrategy strategyDefault;
+
 	
 	public static GestoreHome getInstance() {
 		if (instance == null) {
@@ -41,8 +42,4 @@ public class GestoreHome {
 	public IRicercaStrategy getStrategyDefault() {
 		return strategyDefault;
 	}
-	
-	
-	
-
 }

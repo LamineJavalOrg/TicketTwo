@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import it.unipv.posw.model.Sede;
+import it.unipv.posw.model.entities.Sede;
 
 /**
  * @author gpelle

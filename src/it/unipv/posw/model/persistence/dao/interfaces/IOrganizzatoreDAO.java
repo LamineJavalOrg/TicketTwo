@@ -1,6 +1,6 @@
 package it.unipv.posw.model.persistence.dao.interfaces;
 
-import it.unipv.posw.model.Organizzatore;
+import it.unipv.posw.model.entities.Organizzatore;
 
 /**
  * @author gpelle

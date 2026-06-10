@@ -2,8 +2,8 @@ package it.unipv.posw.model.service;
 
 import java.util.List;
 
-import it.unipv.posw.model.Biglietto;
-import it.unipv.posw.model.Carrello;
+import it.unipv.posw.model.entities.Biglietto;
+import it.unipv.posw.model.entities.Carrello;
 import it.unipv.posw.model.exception.IndisponibilitàException;
 import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;

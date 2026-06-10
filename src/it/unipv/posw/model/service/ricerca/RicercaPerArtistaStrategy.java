@@ -2,7 +2,7 @@ package it.unipv.posw.model.service.ricerca;
 
 import java.util.List;
 
-import it.unipv.posw.model.Artista;
+import it.unipv.posw.model.entities.Artista;
 import it.unipv.posw.model.enums.RicercaType;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 

@@ -1,4 +1,4 @@
-package it.unipv.posw.model;
+package it.unipv.posw.model.entities;
 
 /**
  * @author gpelle

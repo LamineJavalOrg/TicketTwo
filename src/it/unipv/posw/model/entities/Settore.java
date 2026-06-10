@@ -1,4 +1,4 @@
-package it.unipv.posw.model;
+package it.unipv.posw.model.entities;
 
 import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
