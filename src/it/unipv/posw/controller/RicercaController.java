@@ -21,9 +21,9 @@ public class RicercaController {
     private RicercaView view;
     private IRicercaStrategy strategiaAttuale;
 
-    public RicercaController(RicercaView view) {
+    public RicercaController(RicercaView view, IRicercaStrategy strategiaAttuale) {
         this.view = view;
-        this.strategiaAttuale = RicercaFactory.getRicercaStrategy(RicercaType.PER_EVENTO); 
+        this.strategiaAttuale = strategiaAttuale; 
 
         inizializzaListener();
     }

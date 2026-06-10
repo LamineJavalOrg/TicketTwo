@@ -16,7 +16,7 @@ public class MainController {
 		this.model = model;
 		
 		mainF.mostraSchermata(mainF.gethView());
-		new RicercaController(mainF.getrView());
+		new RicercaController(mainF.getrView(), model.getStrategyDefault());
 		
 		this.inizializzaListener();
 	}
