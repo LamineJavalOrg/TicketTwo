@@ -1,6 +1,8 @@
 package it.unipv.posw.controller.home;
 
+import it.unipv.posw.controller.admin.PannelloAdminController;
 import it.unipv.posw.model.entities.SessioneOrganizzatore;
+import it.unipv.posw.model.gestori.GestoreAdmin;
 import it.unipv.posw.model.gestori.GestoreHome;
 import it.unipv.posw.view.admin.PannelloAdminFrame;
 import it.unipv.posw.view.home.HomeFrame;
@@ -100,7 +102,7 @@ public class HomeController {
 		 
 		 mainF.mostraSchermata(panAdm);
 		 mainF.setVisibilitaBarraRicerca(false);
-		 
+		 new PannelloAdminController(panAdm, GestoreAdmin.getInstance());
 		 }
 	 
 	 
