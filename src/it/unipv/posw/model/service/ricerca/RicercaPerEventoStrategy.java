@@ -35,4 +35,10 @@ public class RicercaPerEventoStrategy implements IRicercaStrategy {
 		return RicercaType.PER_EVENTO;
 	}
 
+	@Override
+	public List<Evento> eseguiPostRicerca(Object scelta) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

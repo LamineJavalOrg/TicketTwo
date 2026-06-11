@@ -10,6 +10,7 @@ import it.unipv.posw.view.utility.AlertView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+
 public class HomeController {
 	
 	private HomeFrame mainF;
@@ -21,7 +22,7 @@ public class HomeController {
 		this.model = model;
 		
 		mainF.mostraSchermata(mainF.gethView());
-		new RicercaController(mainF.getrView(), model.getStrategyDefault());
+		new RicercaController(mainF.getRicercaF(), model.getStrategyDefault());
 		
 		this.inizializzaListener();
 	}
@@ -69,10 +70,17 @@ public class HomeController {
 				
 			}
 		});
+	    
+	    mainF.getRicercaF().getRicercaView().getPopupSuggerimenti().setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				handleRicerca(event);
+				
+			}
+		});
 
 	}
 	 
-	    	    
 	
 	 private void handleHome(ActionEvent e) {
 		 mainF.mostraSchermata(mainF.gethView());
@@ -112,7 +120,11 @@ public class HomeController {
 		 new RegistrazioneController(mainF.getRegView(), model.getRegistrazioneService());
 	 }
 	 
+	 private void handleRicerca(ActionEvent e) {
 	
+		 mainF.mostraSchermata(mainF.getRicercaF());
+         mainF.setVisibilitaBarraRicerca(false);
+	 }
 	    
 }
 

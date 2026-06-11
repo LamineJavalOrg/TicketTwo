@@ -11,5 +11,6 @@ import it.unipv.posw.model.entities.Evento;
 public interface IEventoDAO {
 	
 	public List<Evento> trovaEventiPerNome(String parziale);
+	List<Evento> trovaEventiPerArtista(String parziale);
 
 }

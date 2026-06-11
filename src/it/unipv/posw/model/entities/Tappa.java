@@ -19,6 +19,10 @@ public class Tappa {
 		this.nomeSede = nomeSede;
 		this.data_ora = data_ora;
 	}
+
+	public LocalDateTime getData_ora() {
+		return data_ora;
+	}
     
     
     

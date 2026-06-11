@@ -3,6 +3,7 @@ package it.unipv.posw.model.service.ricerca;
 import java.util.List;
 
 import it.unipv.posw.model.entities.Artista;
+import it.unipv.posw.model.entities.Evento;
 import it.unipv.posw.model.enums.RicercaType;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 
@@ -33,6 +34,13 @@ public class RicercaPerArtistaStrategy implements IRicercaStrategy {
 		
 		return ((Artista)o).getNome_darte();
 	}
+	
+	@Override
+	public List<Evento> eseguiPostRicerca(Object scelta) {
+		Artista a = (Artista)scelta;
+		List<Evento> eventi_per_artista = MYSQLDAOFactory.getInstance().getEventoDAO().trovaEventiPerArtista(a.getNome_darte());
+		
+		return eventi_per_artista;
 
-
+	}
 }

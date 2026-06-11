@@ -1,7 +1,9 @@
 package it.unipv.posw.view.home;
 
 import it.unipv.posw.view.IView;
+import it.unipv.posw.view.acquisto.AcquistoFrame;
 import it.unipv.posw.view.admin.PannelloAdminFrame;
+import it.unipv.posw.view.ricerca.RicercaFrame;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Menu;
@@ -28,10 +30,9 @@ public class HomeFrame extends BorderPane {
     private AutenticazioneView aView;
     private AutenticazioneOrgView aorView;
     private RegistrazioneView regView;
-    private RicercaView rView;
+    private RicercaFrame ricercaF;
 
   
-    
     public HomeFrame() {
         
         this.getStylesheets().add(getClass().getResource("/css/home-css.css").toExternalForm());
@@ -41,6 +42,7 @@ public class HomeFrame extends BorderPane {
         aView = new AutenticazioneView();
         aorView = new AutenticazioneOrgView();
         regView = new RegistrazioneView();
+        ricercaF = new RicercaFrame();
         
         menuBar = new MenuBar();
         menuAccount = new Menu("\u2630"); 
@@ -58,8 +60,8 @@ public class HomeFrame extends BorderPane {
         HBox.setHgrow(spacerSinistra, Priority.ALWAYS);
         HBox.setHgrow(spacerDestra, Priority.ALWAYS);
         
-        rView = new RicercaView();
-        topBar = new HBox(menuBar, spacerSinistra, rView, spacerDestra);
+       
+        topBar = new HBox(menuBar, spacerSinistra, ricercaF.getRicercaView(), spacerDestra);
         topBar.setAlignment(Pos.CENTER);
         topBar.setPadding(new Insets(10));
         topBar.getStyleClass().add("topbar");
@@ -73,9 +75,9 @@ public class HomeFrame extends BorderPane {
     }
     
     public void setVisibilitaBarraRicerca(boolean visibile) {
-        if (rView != null) {
-            rView.setVisible(visibile);
-            rView.setManaged(visibile); 
+        if (ricercaF.getRicercaView() != null) {
+        	ricercaF.getRicercaView().setVisible(visibile);
+        	ricercaF.getRicercaView().setManaged(visibile); 
         }
     }
     
@@ -109,14 +111,13 @@ public class HomeFrame extends BorderPane {
     }
     
 	
-    public MenuItem getItemLoginOrg() {
-		return itemLoginOrg;
+    public RicercaFrame getRicercaF() {
+		return ricercaF;
 	}
 
-	public RicercaView getrView() {
-    	return rView;
-    	
-    }
+	public MenuItem getItemLoginOrg() {
+		return itemLoginOrg;
+	}
 	
 	public MenuItem getItemPanAdm() {
 		return itemPanAdm;
@@ -126,5 +127,7 @@ public class HomeFrame extends BorderPane {
 		return new PannelloAdminFrame();
 	}
 
-
+	public AcquistoFrame creAcquistoFrame() {
+		return new AcquistoFrame();
+	}
 }

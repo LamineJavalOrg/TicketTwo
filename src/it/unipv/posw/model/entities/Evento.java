@@ -36,6 +36,10 @@ public class Evento {
 	public List<Tappa> getTappe() {
 		return tappe;
 	}
+
+	public int getId_evento() {
+		return id_evento;
+	}
 	
 	
 }

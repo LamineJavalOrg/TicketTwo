@@ -55,5 +55,42 @@ public class EventoDAO implements IEventoDAO {
 	    
 	    return risultati;
 	}
+	
+	@Override
+	public List<Evento> trovaEventiPerArtista(String parziale) {
+		List<Evento> risultati = new ArrayList<>();
+		PreparedStatement ps;
+	    String query = "SELECT * FROM Evento JOIN Artista ON Evento.id_artista = Artista.id_artista WHERE nome_darte LIKE ?"; // Usiamo LIKE
+	    Connection c = null;
+	
+	    try {
+	    	
+	    	c = DBConnection.getInstance().startConnection();
+	    	
+	        ps = c.prepareStatement(query);
+	        
+	        ps.setString(1, parziale + "%"); // Cerca tutto ciò che inizia con 'parziale'
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            risultati.add(new Evento(
+	            		rs.getInt("id_evento"),
+	 	                rs.getString("nome"),
+	 	                TipologiaEvento.valueOf((rs.getString("tipologia")).toUpperCase()),
+	 	                rs.getString("email_organizzatore"),
+	 	                rs.getInt("id_artista")
+	              
+	            ));
+	        }
+	        
+	    } catch (SQLException e) { 
+	    	e.printStackTrace(); 
+	    } finally {
+	        DBConnection.getInstance().closeConnection(c);
+	    }
+	    
+	    return risultati;
+	}
+	
 
 }
