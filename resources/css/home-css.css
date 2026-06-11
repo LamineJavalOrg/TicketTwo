@@ -18,3 +18,8 @@
 .sfondopred {
 	-fx-background-color: white;
 }
+
+.titolo {
+	-fx-font-weight: bold; 
+	-fx-font-size: 14px;
+}
