@@ -5,11 +5,14 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import it.unipv.posw.controller.acquisto.AcquistoController;
 import it.unipv.posw.model.entities.Artista;
 import it.unipv.posw.model.entities.Evento;
 import it.unipv.posw.model.enums.RicercaType;
+import it.unipv.posw.model.gestori.GestoreAcquisto;
 import it.unipv.posw.model.service.ricerca.IRicercaStrategy;
 import it.unipv.posw.model.service.ricerca.RicercaFactory;
+import it.unipv.posw.view.acquisto.AcquistoFrame;
 import it.unipv.posw.view.ricerca.RicercaFrame;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -92,20 +95,29 @@ public class RicercaController {
     }
     public void gestisciPostRicerca(RicercaType tipo, Object scelta) {
     	
+    	AcquistoFrame acquistoFrame = ricercaF.creAcquistoFrame();
+        
     	switch (tipo) {
-		case PER_EVENTO:
-			// ricercaF.mostraSchermata(ricercaF.geteView()); EventoView che deve fare gpelle
-			break;
+		// case PER_EVENTO:
+
+            // acquistoFrame.mostraSchermata(acquistoFrame.geteView()); commentato perchè la view deve farla gpelle
+            
+            // ricercaF.mostraSchermata(acquistoFrame);
+
+			// break;
 		case PER_ARTISTA:
 			
 			Artista artista = (Artista)scelta;
-			ricercaF.getEventiPerArtistaView().getLblTitolo().setText(artista.getNome_darte());
+			acquistoFrame.getEventiPerArtistaView().getLblTitolo().setText(artista.getNome_darte());
 			List<Evento> lista = RicercaFactory.getRicercaStrategy(RicercaType.PER_ARTISTA).eseguiPostRicerca(scelta);
 			
 			for(Evento e: lista) {
-				ricercaF.getEventiPerArtistaView().aggiungiEventoAllaLista(e);
+				acquistoFrame.getEventiPerArtistaView().aggiungiEventoAllaLista(e);
 			}
-			ricercaF.mostraSchermata(ricercaF.getEventiPerArtistaView());
+			
+			acquistoFrame.mostraSchermata(acquistoFrame.getEventiPerArtistaView());
+            ricercaF.mostraSchermata(acquistoFrame);
+            
 			break;
 		}
 		

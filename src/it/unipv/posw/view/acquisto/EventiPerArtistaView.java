@@ -1,4 +1,4 @@
-package it.unipv.posw.view.ricerca;
+package it.unipv.posw.view.acquisto;
 
 
 import it.unipv.posw.model.entities.Evento;

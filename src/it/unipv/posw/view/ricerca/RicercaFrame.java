@@ -1,6 +1,8 @@
 package it.unipv.posw.view.ricerca;
 
+
 import it.unipv.posw.view.IView;
+import it.unipv.posw.view.acquisto.AcquistoFrame;
 import it.unipv.posw.view.home.RicercaView;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
@@ -12,24 +14,12 @@ import javafx.scene.layout.BorderPane;
 public class RicercaFrame extends BorderPane implements IView {
 	
 	private RicercaView ricercaView;
-	private EventiPerArtistaView eventiPerArtistaView;
-	// private EventoView eView; view che deve fare gpelle
 
 	public RicercaFrame() {
 		
 		ricercaView = new RicercaView();
-		eventiPerArtistaView = new EventiPerArtistaView();
-		// eView = new EventoView();
-	}
-	
-	public EventiPerArtistaView getEventiPerArtistaView() {
-		return eventiPerArtistaView;
 	}
 
-//	public EventoView geteView() {
-//		return eView;
-//	}
-	
 	public RicercaView getRicercaView() {
 		return ricercaView;
 	}
@@ -42,6 +32,10 @@ public class RicercaFrame extends BorderPane implements IView {
 	public Node getNodo() {
 		// TODO Auto-generated method stub
 		return this;
+	}
+	
+	public AcquistoFrame creAcquistoFrame() {
+		return new AcquistoFrame();
 	}
 
 }
