@@ -2,6 +2,10 @@ package it.unipv.posw.model.gestori;
 
 import it.unipv.posw.model.service.SedeService;
 
+/**
+ * @author gpelle
+ */
+
 public class GestoreAdmin {
 
 	private static GestoreAdmin instance;

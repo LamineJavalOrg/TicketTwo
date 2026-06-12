@@ -16,13 +16,13 @@ import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
 
-
 /**
  * @author gpelle
  */
+
 public class SedeService {
-	public Sede configuraSede(Sede sede, List<Settore> settori) throws SedeEsistenteException {
-		if (settori == null || settori.isEmpty()) {
+	public Sede configuraSede(Sede sede) throws SedeEsistenteException {
+		if (!sede.possiedeSettori()) {
 			throw new IllegalArgumentException("La configurazione deve includere almeno un settore.");
 		}
 		
@@ -36,35 +36,33 @@ public class SedeService {
         	throw new SedeEsistenteException();
         }
         
-        // scritture atomiche: connessione condivisa + transazione
-        try (Connection c = DBConnection.getInstance().startConnection()){
-        	try {
-        		c.setAutoCommit(false);
+        // connessione condivisa + transazione
+        Connection c = null;
+        try {
+        	c = DBConnection.getInstance().startConnection();
+        	c.setAutoCommit(false);
+        	     		
+        	Sede sedeSalvata = sedeDAO.salvaSede(sede, c);
         		
-        		Sede sedeSalvata = sedeDAO.salvaSede(sede, c);
-        		
-        		for (Settore s : settori) {
-                    s.setId_sede(sedeSalvata.getId_sede()); 
-                    settoreDAO.salvaSettore(s, c);
+        	for (Settore s : sede.getSettori()) {
+        		s.setId_sede(sedeSalvata.getId_sede()); 
+                settoreDAO.salvaSettore(s, c);
                     
-                    if (s.getTipo() == TipologiaPosto.NUMERATO) {
-                    	postoDAO.salvaPostiPerSettore(s, c);
-                    }
+                if (s.getTipo() == TipologiaPosto.NUMERATO) {
+                  	postoDAO.salvaPostiPerSettore(s, c);
                 }
-        		c.commit();
-                return sedeSalvata;
-                
-        	} catch (SQLException e) {
-				c.rollback();
-				e.printStackTrace();
-				return null;
-			}
-		} catch (SQLException e) {
+            }
+        	c.commit();
+            return sedeSalvata;
+        } catch (SQLException e) {
+        	eseguiRollback(c);
 			e.printStackTrace();
 			return null;
+		} finally {
+			attivaAutoCommit(c);
+			DBConnection.getInstance().closeConnection(c);
 		}
-	}  
-        
+	}
     
 	
     public List<Sede> getTutteLeSedi() {
@@ -86,4 +84,27 @@ public class SedeService {
 		}
         return sedeDAO.eliminaSede(idSede);
 		}
+	
+	
+	
+	// metodi di aiuto per gestione transazione
+	private void eseguiRollback(Connection c) {
+		if (c != null) {
+			try {
+				c.rollback();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
+ 
+	private void attivaAutoCommit(Connection c) {
+		if (c != null) {
+			try {
+				c.setAutoCommit(true);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

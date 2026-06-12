@@ -6,6 +6,7 @@ import it.unipv.posw.model.enums.TipologiaSettore;
 /**
  * @author gpelle
  */
+
 public class Settore {
 	private int id_settore;
 	private int id_sede;
@@ -28,6 +29,36 @@ public class Settore {
 		this.posti_per_fila = posti_per_fila;
 		this.prefisso = prefisso;
 	}
+	
+	public static Settore creaNumerato(TipologiaSettore nome, String prefisso, int numFile, int postiPerFila) {
+		controlloComune(nome, prefisso);
+		if (nome.isSoloNonNumerato()) {
+			throw new IllegalArgumentException("Il settore " + nome + " ammette solo posti non numerati.");
+		}
+		if (numFile <= 0 || postiPerFila <=0) {
+			throw new IllegalArgumentException("File e colonne devono essere maggiori di 0.");
+		}
+		int capienza = numFile * postiPerFila;
+		return new Settore(0, 0, nome, TipologiaPosto.NUMERATO, capienza, numFile, postiPerFila, prefisso.trim());
+	}
+	
+	public static Settore creaNonNumerato(TipologiaSettore nome, String prefisso, int capienza) {
+		controlloComune(nome, prefisso);
+		if (capienza <= 0) {
+			throw new IllegalArgumentException("La capienza deve essere maggiore di 0.");
+		}
+		return new Settore(0, 0, nome, TipologiaPosto.NON_NUMERATO, capienza, 0, 0, prefisso.trim());
+	}
+	
+	public static void controlloComune(TipologiaSettore nome, String prefisso) {
+		if (nome == null) {
+			throw new IllegalArgumentException("Seleziona un tipo di settore.");
+		}
+		if (prefisso == null || prefisso.trim().isEmpty()) {
+			throw new IllegalArgumentException("Il prefisso è obbligatorio.");
+		}
+	}
+	
 
 	public int getId_settore() {
 		return id_settore;
@@ -68,8 +99,4 @@ public class Settore {
 	public void setId_settore(int id_settore) {
 		this.id_settore = id_settore;
 	}
-
-	
-	
-	
 }

@@ -2,9 +2,11 @@ package it.unipv.posw.model.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * @author gpelle
  */
+
 public class Sede {
 	private int id_sede;
     private String nome;
@@ -17,6 +19,10 @@ public class Sede {
 		this.nome = nome;
 		this.indirizzo = indirizzo;
 		this.settori = settori;
+	}
+
+	// Costruttore vuoto per nuova sede in configurazione
+	public Sede() {
 	}
 
 	public String getNome() {
@@ -43,9 +49,45 @@ public class Sede {
 		this.id_sede = id_sede;
 	}
 	
+	public List<Settore> getSettori() {
+		if (settori == null) {
+	        return new ArrayList<>();
+	    }
+		return settori;
+	}
 	
+	public void svuotaSettori() {
+		settori.clear();
+	}
+
+	public void aggiungiSettore(Settore settore) {
+		if (contienePrefisso(settore.getPrefisso())) {
+			throw new IllegalArgumentException("Esiste già un settore con il prefisso \"" + settore.getPrefisso() + "\". Usane uno diverso.");
+		}
+		settori.add(settore);
+	}
 	
+	public boolean contienePrefisso(String prefisso) {
+		for (Settore s : settori) {
+			if (s.getPrefisso().equalsIgnoreCase(prefisso)) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
-    
-    
+	public int getCapienzaTotale() {
+		int totale = 0;
+		for (Settore s : settori) {
+			totale += s.getCapienza_max();
+		}
+		return totale;
+	}
+	
+	public boolean possiedeSettori() {
+		if (settori != null || !settori.isEmpty()) {
+			return true;
+		}
+		return false;
+	}    
 }
