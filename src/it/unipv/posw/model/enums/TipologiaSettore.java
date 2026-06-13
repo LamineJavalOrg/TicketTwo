@@ -19,4 +19,10 @@ public enum TipologiaSettore {
 	public boolean isSoloNonNumerato() {
 		return soloNonNumerato;
 	}
+	
+	@Override
+	public String toString() {
+		String nome = name().toLowerCase();
+		return nome.substring(0, 1).toUpperCase() + nome.substring(1);
+	}
 }

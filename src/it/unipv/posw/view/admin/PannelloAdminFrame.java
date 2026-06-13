@@ -8,11 +8,11 @@ import javafx.scene.layout.BorderPane;
 /**
  * @author gpelle
  */
+
 public class PannelloAdminFrame extends BorderPane implements IView {
 	
 	private PannelloAdminView pannelloAdminView;
 	private ConfiguraSedeView configuraSedeView;
-
 	
 	public PannelloAdminFrame() {
 		pannelloAdminView = new PannelloAdminView();
@@ -30,7 +30,8 @@ public class PannelloAdminFrame extends BorderPane implements IView {
 	public ConfiguraSedeView getConfiguraSedeView() {
 		return configuraSedeView;
 	}
-
+	
+	
 	@Override
 	public Node getNodo() {
 		return this;

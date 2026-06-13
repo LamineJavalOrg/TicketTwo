@@ -54,7 +54,7 @@ public class SedeService {
             }
         	c.commit();
             return sedeSalvata;
-        } catch (SQLException e) {
+        } catch (Exception e) {
         	eseguiRollback(c);
 			e.printStackTrace();
 			return null;

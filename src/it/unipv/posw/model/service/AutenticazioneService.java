@@ -33,6 +33,7 @@ public class AutenticazioneService {
 		if (org == null || !org.getEmail().equals(email) || !org.getPassword().equals(password)) {
 			throw new CredenzialiErrateException();
 		}
+		System.out.println("login organizzatore effettuato con successo");
 		return org;
 	}
 
