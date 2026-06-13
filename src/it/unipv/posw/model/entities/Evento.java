@@ -25,9 +25,6 @@ public class Evento {
 		this.tappe = new ArrayList<Tappa>();
 	}
 	
-	public void aggiungiTappa(Tappa tp) {
-        this.tappe.add(tp);
-    }
 
 	public String getNome() {
 		return nome;
@@ -40,6 +37,24 @@ public class Evento {
 	public int getId_evento() {
 		return id_evento;
 	}
+
+	public TipologiaEvento getTipo() {
+		return tipo;
+	}
+
+	public String getEmail_organizzatore() {
+		return email_organizzatore;
+	}
+
+	public int getId_artista() {
+		return id_artista;
+	}
+	
+	
+	public void aggiungiTappa(Tappa tp) {
+        this.tappe.add(tp);
+    }
+	
 	
 	
 }

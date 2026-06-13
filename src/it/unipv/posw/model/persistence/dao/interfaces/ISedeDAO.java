@@ -9,6 +9,7 @@ import it.unipv.posw.model.entities.Sede;
 /**
  * @author gpelle
  */
+
 public interface ISedeDAO {
 
 	public boolean isSedeEsistente(String nome, String indirizzo);

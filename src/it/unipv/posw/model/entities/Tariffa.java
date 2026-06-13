@@ -28,9 +28,22 @@ public class Tariffa {
 		return id_evento;
 	}
 
+	public int getId_settore() {
+		return id_settore;
+	}
+
+	public TipologiaBiglietto getTipob() {
+		return tipob;
+	}
+
 	public double getPrezzo() {
 		return prezzo;
 	}
+
+	public int getQuantita_massima() {
+		return quantita_massima;
+	}
+	
 
     
 }

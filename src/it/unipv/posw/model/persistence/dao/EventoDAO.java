@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +93,33 @@ public class EventoDAO implements IEventoDAO {
 	    
 	    return risultati;
 	}
+	
+	// percorso transazionale
+	@Override
+	public int salvaEvento(Evento evento, Connection c) throws SQLException {
+		String query = "INSERT INTO Evento (nome, tipologia, email_organizzatore, id_artista) VALUES (?,?,?,?)";
+		PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
+		ps.setString(1, evento.getNome());
+		ps.setString(2, evento.getTipo().name());
+		ps.setString(3, evento.getEmail_organizzatore());
+		
+		if (evento.getId_artista() > 0) {
+			ps.setInt(4, evento.getId_artista());
+		} else {
+			ps.setNull(4, Types.INTEGER);
+		}
+			ps.executeUpdate();
+
+		ResultSet rs = ps.getGeneratedKeys();
+		if (rs.next()) {
+			return rs.getInt(1);
+		}
+		throw new SQLException("ID evento non generato.");
+	}
+	
+	
+	
 	
 
 }

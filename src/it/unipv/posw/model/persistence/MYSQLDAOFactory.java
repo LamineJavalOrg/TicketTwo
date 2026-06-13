@@ -9,6 +9,7 @@ import it.unipv.posw.model.persistence.dao.PostoDAO;
 import it.unipv.posw.model.persistence.dao.SedeDAO;
 import it.unipv.posw.model.persistence.dao.SettoreDAO;
 import it.unipv.posw.model.persistence.dao.TappaDAO;
+import it.unipv.posw.model.persistence.dao.TariffaDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IArtistaDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IBigliettoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IClienteDAO;
@@ -18,6 +19,7 @@ import it.unipv.posw.model.persistence.dao.interfaces.IPostoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ITariffaDAO;
 
 /**
  * @author gpelle
@@ -79,5 +81,10 @@ public class MYSQLDAOFactory implements IDAOFactory {
 	@Override
 	public ITappaDAO getTappaDAO() {
 		return new TappaDAO();
+	}
+
+	@Override
+	public ITariffaDAO getTariffaDAO() {
+		return new TariffaDAO();
 	}
 }

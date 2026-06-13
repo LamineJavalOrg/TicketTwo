@@ -20,7 +20,7 @@ import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 
 public class SettoreDAO implements ISettoreDAO {
 	
-	// percorso transazionale: connessione iniettata
+	// percorso transazionale
 	@Override
 	public Settore salvaSettore(Settore settore, Connection c) throws SQLException {
 		String query = "INSERT INTO Settore (id_sede, nome_settore, tipo_posti, capienza_max, "

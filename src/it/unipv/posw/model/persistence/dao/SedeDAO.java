@@ -48,7 +48,7 @@ public class SedeDAO implements ISedeDAO {
     }
 
     
-	// percorso transazionale: connessione iniettata dal service
+	// percorso transazionale
 	@Override
     public Sede salvaSede(Sede sede, Connection c) throws SQLException {
 	    String query = "INSERT INTO Sede (nome, indirizzo) VALUES (?,?)";

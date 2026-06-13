@@ -9,6 +9,7 @@ import it.unipv.posw.model.entities.Settore;
 /**
  * @author gpelle
  */
+
 public interface ISettoreDAO {
 
 	Settore salvaSettore(Settore settore, Connection c) throws SQLException;

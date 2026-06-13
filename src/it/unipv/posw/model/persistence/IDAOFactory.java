@@ -9,6 +9,7 @@ import it.unipv.posw.model.persistence.dao.interfaces.IPostoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.ITariffaDAO;
 
 /**
  * @author gpelle
@@ -24,4 +25,5 @@ public interface IDAOFactory {
 	ISettoreDAO getSettoreDAO();
 	IPostoDAO getPostoDAO();
 	ITappaDAO getTappaDAO();
+	ITariffaDAO getTariffaDAO();
 }
