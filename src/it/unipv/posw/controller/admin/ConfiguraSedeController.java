@@ -6,7 +6,10 @@ import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.entities.Settore;
 import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
+import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.SedeEsistenteException;
+import it.unipv.posw.model.exception.SedeSenzaSettoriException;
+import it.unipv.posw.model.exception.SettoreNonValidoException;
 import it.unipv.posw.model.service.SedeService;
 import it.unipv.posw.view.admin.ConfiguraSedeView;
 import it.unipv.posw.view.utility.AlertView;
@@ -77,9 +80,15 @@ public class ConfiguraSedeController {
     
     private void handleAggiungiSettore(ActionEvent e) {
     	try {
-            Settore settore = creaSettoreDaInput();
+    		Settore settore = service.creaSettore(
+    				view.getNomeSettoreSelezionato(),
+                    view.getPrefisso(),
+                    view.getTipoPostiSelezionato(),
+                    view.getNumFile(),
+                    view.getNumColonne(),
+                    view.getCapienza());
             nuovaSede.aggiungiSettore(settore);
-        } catch (IllegalArgumentException ex) {
+        } catch (SettoreNonValidoException ex) {
             AlertView.mostraErrore(ex.getMessage());
             return;
         }
@@ -89,46 +98,25 @@ public class ConfiguraSedeController {
         view.resetCampiSettore();
     }
     
-    private Settore creaSettoreDaInput() {
-        TipologiaSettore nomeSettore = view.getNomeSettoreSelezionato();
-        if (nomeSettore == null) {
-            throw new IllegalArgumentException("Seleziona un tipo di settore.");
-        }
- 
-        boolean numerato = !nomeSettore.isSoloNonNumerato() && TipologiaPosto.NUMERATO == view.getTipoPostiSelezionato();
- 
-        if (numerato) {
-            return Settore.creaNumerato(nomeSettore, view.getPrefisso(), view.getNumFile(), view.getNumColonne());
-        }
-        return Settore.creaNonNumerato(nomeSettore, view.getPrefisso(), view.getCapienza());
-    }
-    
     
     private void handleSalvaSede(ActionEvent e) {
-        String nomeSede = view.getNomeSede();
-        String indirizzo = view.getIndirizzo();
-
-        if (nomeSede.isEmpty() || indirizzo.isEmpty()) {
-            AlertView.mostraErrore("Nome e indirizzo della sede non possono essere vuoti.");
-            return;
-        }
-        if (!nuovaSede.possiedeSettori()) {
-            AlertView.mostraErrore("Aggiungi almeno un settore prima di salvare.");
-            return;
-        }
-
-        nuovaSede.setNome(nomeSede);
-        nuovaSede.setIndirizzo(indirizzo);
-
+    	nuovaSede.setNome(view.getNomeSede());
+        nuovaSede.setIndirizzo(view.getIndirizzo());
+ 
         try {
             Sede salvata = service.configuraSede(nuovaSede);
             if (salvata == null) {
                 AlertView.mostraErrore("Errore durante il salvataggio della sede. Riprova.");
                 return;
             }
-            AlertView.mostraInfo("Sede \"" + nomeSede + "\" configurata con successo!");
+            AlertView.mostraInfo("Sede " + salvata.getNome() + " configurata con successo!");
+            
             resetStato();
             aggiornaListaSedi();
+        } catch (EmptyFieldException ex) {
+        	AlertView.mostraErrore(ex.getMessage());
+        } catch (SedeSenzaSettoriException ex) {
+            AlertView.mostraErrore(ex.getMessage());
         } catch (SedeEsistenteException ex) {
             AlertView.mostraErrore(ex.getMessage());
         }

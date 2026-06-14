@@ -48,5 +48,8 @@ public class PannelloAdminController {
 	}
 
 		private void handleCreaEvento(ActionEvent e) {
+			pannelloAdmF.mostraSchermata(pannelloAdmF.getCreaEventoView());
+			new CreaEventoController(pannelloAdmF.getCreaEventoView(), model.getSedeService(), 
+					model.getEventoService());
 	}
 }
