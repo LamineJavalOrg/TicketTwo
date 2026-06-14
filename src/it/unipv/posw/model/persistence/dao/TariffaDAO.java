@@ -1,6 +1,6 @@
 package it.unipv.posw.model.persistence.dao;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import it.unipv.posw.model.entities.Tariffa;
-import it.unipv.posw.model.exception.PostiInsufficientiException;
 import it.unipv.posw.model.persistence.dao.interfaces.ITariffaDAO;
 
 /**
@@ -55,10 +54,7 @@ public class TariffaDAO implements ITariffaDAO {
 			}
 
 			if (posti != null && !posti.isEmpty()) {
-				// settore numerato: ogni biglietto riceve un posto
-				if (posti.size() < t.getQuantita_massima()) {
-					throw new SQLException("Posti insufficienti per il settore " + t.getId_settore());
-				}
+				
 				PreparedStatement psBiglietto = c.prepareStatement(queryBigliettoNumerato);
 				for (int i = 0; i < t.getQuantita_massima(); i++) {
 					psBiglietto.setInt(1, idTariffa);

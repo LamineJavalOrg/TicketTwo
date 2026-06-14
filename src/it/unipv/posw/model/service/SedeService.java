@@ -7,8 +7,12 @@ import java.util.List;
 import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.entities.Settore;
 import it.unipv.posw.model.enums.TipologiaPosto;
+import it.unipv.posw.model.enums.TipologiaSettore;
+import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.SedeEsistenteException;
 import it.unipv.posw.model.exception.SedeNonEliminabileException;
+import it.unipv.posw.model.exception.SedeSenzaSettoriException;
+import it.unipv.posw.model.exception.SettoreNonValidoException;
 import it.unipv.posw.model.persistence.DBConnection;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 import it.unipv.posw.model.persistence.dao.interfaces.IPostoDAO;
@@ -21,9 +25,25 @@ import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
  */
 
 public class SedeService {
-	public Sede configuraSede(Sede sede) throws SedeEsistenteException {
+	public Settore creaSettore(TipologiaSettore nome, String prefisso, TipologiaPosto tipoPosto,
+			int numFile, int numColonne, int capienza) throws SettoreNonValidoException {
+		Settore.controlloComune(nome, prefisso);
+ 
+		boolean numerato = !nome.isSoloNonNumerato() && TipologiaPosto.NUMERATO == tipoPosto;
+		if (numerato) {
+			return Settore.creaNumerato(nome, prefisso, numFile, numColonne);
+		}
+		return Settore.creaNonNumerato(nome, prefisso, capienza);
+	}
+	
+	
+	public Sede configuraSede(Sede sede) throws EmptyFieldException, SedeSenzaSettoriException, SedeEsistenteException {
+		if (sede.getNome() == null || sede.getNome().trim().isEmpty()
+				|| sede.getIndirizzo() == null || sede.getIndirizzo().trim().isEmpty()) {
+			throw new EmptyFieldException();
+		}
 		if (!sede.possiedeSettori()) {
-			throw new IllegalArgumentException("La configurazione deve includere almeno un settore.");
+			throw new SedeSenzaSettoriException();
 		}
 		
 		ISedeDAO sedeDAO = MYSQLDAOFactory.getInstance().getSedeDAO();
@@ -54,6 +74,7 @@ public class SedeService {
             }
         	c.commit();
             return sedeSalvata;
+            
         } catch (Exception e) {
         	eseguiRollback(c);
 			e.printStackTrace();

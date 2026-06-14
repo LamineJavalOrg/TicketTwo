@@ -12,4 +12,6 @@ public interface IArtistaDAO {
 	
 	List<Artista> trovaArtisti(String parziale);
 
+	int salvaArtista(Artista artista);
+
 }

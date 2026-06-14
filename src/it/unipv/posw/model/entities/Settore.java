@@ -2,6 +2,7 @@ package it.unipv.posw.model.entities;
 
 import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
+import it.unipv.posw.model.exception.SettoreNonValidoException;
 
 /**
  * @author gpelle
@@ -30,32 +31,34 @@ public class Settore {
 		this.prefisso = prefisso;
 	}
 	
-	public static Settore creaNumerato(TipologiaSettore nome, String prefisso, int numFile, int postiPerFila) {
+	public static Settore creaNumerato(TipologiaSettore nome, String prefisso, int numFile, int postiPerFila) 
+			throws SettoreNonValidoException {
 		controlloComune(nome, prefisso);
 		if (nome.isSoloNonNumerato()) {
-			throw new IllegalArgumentException("Il settore " + nome + " ammette solo posti non numerati.");
+			throw new SettoreNonValidoException ("Il settore " + nome + " ammette solo posti non numerati.");
 		}
 		if (numFile <= 0 || postiPerFila <=0) {
-			throw new IllegalArgumentException("File e colonne devono essere maggiori di 0.");
+			throw new SettoreNonValidoException("File e colonne devono essere maggiori di 0.");
 		}
 		int capienza = numFile * postiPerFila;
 		return new Settore(0, 0, nome, TipologiaPosto.NUMERATO, capienza, numFile, postiPerFila, prefisso.trim());
 	}
 	
-	public static Settore creaNonNumerato(TipologiaSettore nome, String prefisso, int capienza) {
+	public static Settore creaNonNumerato(TipologiaSettore nome, String prefisso, int capienza) 
+			throws SettoreNonValidoException {
 		controlloComune(nome, prefisso);
 		if (capienza <= 0) {
-			throw new IllegalArgumentException("La capienza deve essere maggiore di 0.");
+			throw new SettoreNonValidoException("La capienza deve essere maggiore di 0.");
 		}
 		return new Settore(0, 0, nome, TipologiaPosto.NON_NUMERATO, capienza, 0, 0, prefisso.trim());
 	}
 	
-	public static void controlloComune(TipologiaSettore nome, String prefisso) {
+	public static void controlloComune(TipologiaSettore nome, String prefisso) throws SettoreNonValidoException {
 		if (nome == null) {
-			throw new IllegalArgumentException("Seleziona un tipo di settore.");
+			throw new SettoreNonValidoException ("Seleziona un tipo di settore.");
 		}
 		if (prefisso == null || prefisso.trim().isEmpty()) {
-			throw new IllegalArgumentException("Il prefisso è obbligatorio.");
+			throw new SettoreNonValidoException ("Il prefisso è obbligatorio.");
 		}
 	}
 	

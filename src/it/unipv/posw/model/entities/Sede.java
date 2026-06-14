@@ -62,7 +62,7 @@ public class Sede {
 
 	public void aggiungiSettore(Settore settore) {
 		if (contienePrefisso(settore.getPrefisso())) {
-			throw new IllegalArgumentException("Esiste già un settore con il prefisso \"" + settore.getPrefisso() + "\". Usane uno diverso.");
+			throw new IllegalArgumentException("Esiste già un settore con il prefisso " + settore.getPrefisso() + ". Usane uno diverso.");
 		}
 		settori.add(settore);
 	}
@@ -89,5 +89,10 @@ public class Sede {
 			return true;
 		}
 		return false;
-	}    
+	}
+	
+	@Override
+	public String toString() {
+	    return nome + " - " + indirizzo;
+	}
 }

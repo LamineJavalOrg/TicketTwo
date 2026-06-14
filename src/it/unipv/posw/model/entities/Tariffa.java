@@ -43,8 +43,4 @@ public class Tariffa {
 	public int getQuantita_massima() {
 		return quantita_massima;
 	}
-	
-
-
-    
 }
