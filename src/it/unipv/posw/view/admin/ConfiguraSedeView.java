@@ -8,6 +8,7 @@ import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
 import it.unipv.posw.view.IView;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -26,6 +27,8 @@ import javafx.scene.layout.VBox;
 
 public class ConfiguraSedeView extends VBox implements IView {
 
+	private final Label lblTitolo;
+	
     private final Button btnAggiungiSettore;
     private final Button btnConferma;
 
@@ -53,7 +56,7 @@ public class ConfiguraSedeView extends VBox implements IView {
     private final GridPane gridSede;
     private final Label lblSediEs;
     
-    private final HBox bottoniFondo;
+    private final HBox bottoneFondo;
 
     public ConfiguraSedeView() {
         this.getStylesheets().add(getClass().getResource("/css/home-css.css").toExternalForm());
@@ -61,8 +64,15 @@ public class ConfiguraSedeView extends VBox implements IView {
         this.setSpacing(20);
         this.setPadding(new Insets(20));
 
+        lblTitolo = new Label("CONFIGURA NUOVA SEDE");
+        lblTitolo.getStyleClass().add("titolo");
+        lblTitolo.setMaxWidth(Double.MAX_VALUE);
+        lblTitolo.setAlignment(Pos.CENTER); 
+        
         btnAggiungiSettore = new Button("Aggiungi Settore");
+        
         btnConferma = new Button("Salva Sede");
+        btnConferma.setPrefWidth(300);
 
         comboNomeSettore = new ComboBox<>();
         comboNomeSettore.getItems().addAll(TipologiaSettore.values());
@@ -83,10 +93,10 @@ public class ConfiguraSedeView extends VBox implements IView {
         spinnerCapienza.setEditable(true);
 
         txtNomeSede = new TextField();
-        txtNomeSede.setPromptText("Nome della sede");
+        txtNomeSede.setPromptText("Inserisci nome sede");
 
         txtIndirizzo = new TextField();
-        txtIndirizzo.setPromptText("Indirizzo");
+        txtIndirizzo.setPromptText("Inserisci indirizzo");
 
         listaSettori = new VBox(6);
         scrollSettori = new ScrollPane(listaSettori);
@@ -124,20 +134,23 @@ public class ConfiguraSedeView extends VBox implements IView {
         gridSede.add(new Label("Indirizzo:"), 0, 1); gridSede.add(txtIndirizzo, 1, 1);
         gridSede.add(new Label("Capienza tot:"), 0, 2); gridSede.add(txtCapienzaTotale, 1, 2);
         lblSediEs = new Label("Sedi esistenti:");
-        bottoniFondo = new HBox(10, btnConferma);
+        
+        bottoneFondo = new HBox(10, btnConferma);
+        bottoneFondo.setAlignment(Pos.CENTER);
 
         this.getChildren().addAll(
-            lblSezione1,
-            gridSettore,
-            lblSettAgg,
-            scrollSettori,
-            btnAggiungiSettore,
-            lblSezione2,
-            gridSede,
-            lblSediEs,
-            scrollSedi,
-            bottoniFondo
-        );
+        		lblTitolo,
+        		lblSezione1,
+        		gridSettore,
+            	lblSettAgg,
+	            scrollSettori,
+	            btnAggiungiSettore,
+	            lblSezione2,
+	            gridSede,
+	            lblSediEs,
+	            scrollSedi,
+	            bottoneFondo
+	            );
     }
 
     
