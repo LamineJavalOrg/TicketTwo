@@ -1,6 +1,7 @@
 package it.unipv.posw.controller.home;
 
 
+
 import java.util.ArrayList;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 
 /** Controller che gestisce ricerca e post-ricerca
@@ -96,24 +98,31 @@ public class RicercaController {
     public void gestisciPostRicerca(RicercaType tipo, Object scelta) {
     	
     	AcquistoFrame acquistoFrame = ricercaF.creAcquistoFrame();
+    	new AcquistoController(acquistoFrame, GestoreAcquisto.getInstance());
         
     	switch (tipo) {
-		// case PER_EVENTO:
+		 case PER_EVENTO:
 
-            // acquistoFrame.mostraSchermata(acquistoFrame.geteView()); commentato perchè la view deve farla gpelle
+            acquistoFrame.mostraSchermata(acquistoFrame.getEventoView()); 
             
-            // ricercaF.mostraSchermata(acquistoFrame);
+            ricercaF.mostraSchermata(acquistoFrame);
 
-			// break;
-		case PER_ARTISTA:
+			 break;
+		 case PER_ARTISTA:
 			
 			Artista artista = (Artista)scelta;
 			acquistoFrame.getEventiPerArtistaView().getLblTitolo().setText(artista.getNome_darte());
 			List<Evento> lista = RicercaFactory.getRicercaStrategy(RicercaType.PER_ARTISTA).eseguiPostRicerca(scelta);
 			
 			for(Evento e: lista) {
-				acquistoFrame.getEventiPerArtistaView().aggiungiEventoAllaLista(e);
-			}
+				Button btn = acquistoFrame.getEventiPerArtistaView().aggiungiEventoAllaLista(e);
+				
+				btn.setOnAction(new EventHandler<ActionEvent>() {
+	                @Override
+	                public void handle(ActionEvent event) {
+	                   acquistoFrame.mostraSchermata(acquistoFrame.getEventoView());
+	                }
+			});
 			
 			acquistoFrame.mostraSchermata(acquistoFrame.getEventiPerArtistaView());
             ricercaF.mostraSchermata(acquistoFrame);
@@ -121,5 +130,6 @@ public class RicercaController {
 			break;
 		}
 		
-	}
+    	}
+    }
 }
