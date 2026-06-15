@@ -27,6 +27,10 @@ public class Tappa {
 	}
 	
 
+	public int getId_tappa() {
+		return id_tappa;
+	}
+
 	public int getId_sede() {
 		return id_sede;
 	}

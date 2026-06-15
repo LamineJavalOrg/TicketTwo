@@ -18,7 +18,7 @@ import it.unipv.posw.model.exception.DataPassataException;
 import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.EventoSenzaTappeException;
 import it.unipv.posw.model.exception.TariffaNonValidaException;
-import it.unipv.posw.model.service.EventoService;
+import it.unipv.posw.model.service.CreaEventoService;
 import it.unipv.posw.model.service.SedeService;
 import it.unipv.posw.view.admin.CreaEventoView;
 import it.unipv.posw.view.utility.AlertView;
@@ -35,14 +35,14 @@ public class CreaEventoController {
 
     private CreaEventoView view;
     private SedeService sedeService;
-    private EventoService eventoService;
+    private CreaEventoService creaEventoService;
 
     private List<Tappa> tappe;
 
-    public CreaEventoController(CreaEventoView view, SedeService sedeService, EventoService eventoService) {
+    public CreaEventoController(CreaEventoView view, SedeService sedeService, CreaEventoService creaEventoService) {
         this.view = view;
         this.sedeService = sedeService;
-        this.eventoService = eventoService;
+        this.creaEventoService = creaEventoService;
         this.tappe = new ArrayList<>();
 
         inizializzaVista();
@@ -81,7 +81,7 @@ public class CreaEventoController {
         Tappa tappa = costruisciTappaDallaView();
 
         try {
-            eventoService.validaTappa(tappa);
+            creaEventoService.validaTappa(tappa);
         } catch (EmptyFieldException ex) {
             AlertView.mostraErrore(ex.getMessage());
             return;
@@ -109,7 +109,7 @@ public class CreaEventoController {
         String emailOrg = SessioneOrganizzatore.getInstance().getOrganizzatoreLoggato().getEmail();
 
         try {
-            Evento creato = eventoService.creaEvento(nome, tipo, emailOrg, nomeArtista, tappe);
+            Evento creato = creaEventoService.creaEvento(nome, tipo, emailOrg, nomeArtista, tappe);
             if (creato != null) {
                 AlertView.mostraInfo("Evento " + creato.getNome() + " creato con successo ("
                         + creato.getTappe().size() + " tappe)");
