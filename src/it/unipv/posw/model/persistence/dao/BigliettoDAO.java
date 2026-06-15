@@ -13,12 +13,16 @@ import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.persistence.DBConnection;
 import it.unipv.posw.model.persistence.dao.interfaces.IBigliettoDAO;
 
+/** 
+ * @author rkomi-dev
+ */
+
 public class BigliettoDAO implements IBigliettoDAO {
 
 	public BigliettoDAO() {}
 
 	@Override
-	public List<Biglietto> getBigliettiDisponibili(int idTappa, int idSettore, String tipo, int quantita) {
+	public List<Biglietto> getBigliettiDisponibili(int idTappa, int idSettore, TipologiaBiglietto tipo, int quantita) {
 	    List<Biglietto> risultati = new ArrayList<>();
 	    
 	    String query = "SELECT b.*, t.id_evento, t.id_tappa, t.id_settore, t.prezzo_base, t.tipologia_biglietto " +
@@ -33,7 +37,7 @@ public class BigliettoDAO implements IBigliettoDAO {
 	        
 	        ps.setInt(1, idTappa);
 	        ps.setInt(2, idSettore);
-	        ps.setString(3, tipo);
+	        ps.setString(3, tipo.name());
 	        ps.setInt(4, quantita);
 
 	        try (ResultSet rs = ps.executeQuery()) {
@@ -62,8 +66,34 @@ public class BigliettoDAO implements IBigliettoDAO {
 	        }
 	    } catch(SQLException e) {
 	        e.printStackTrace();
-	    }
+	    } finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
 	    return risultati;
+	    
+	}
+
+	@Override
+	public void updatePostAcquisto(int id_biglietto, String email, String nominativo, String qr) {
+		
+		PreparedStatement ps;
+		String query = "UPDATE Biglietto SET email_cliente = ?, nominativo = ?, qr_code = ?, stato = 'acquistato' WHERE id_biglietto = ?";
+		Connection c = null;
+		try {
+			c = DBConnection.getInstance().startConnection();
+			ps = c.prepareStatement(query); 
+			
+			ps.setString(1, email);
+	        ps.setString(2, nominativo);
+	        ps.setString(3, qr);
+	        ps.setInt(4, id_biglietto);
+	        
+	        ps.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
 	}
 	
 }
