@@ -39,6 +39,8 @@ public class AutenticazioneView extends VBox implements IView {
 	     lblEmail = new Label("Email:");
 	     lblPassword = new Label("Password");
 	     
+	     lblTitolo.getStyleClass().add("titolo");
+	     
 		 this.getChildren().addAll(
 			lblTitolo,
 			lblEmail, txtEmail,
