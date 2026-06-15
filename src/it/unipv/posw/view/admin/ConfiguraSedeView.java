@@ -27,36 +27,36 @@ import javafx.scene.layout.VBox;
 
 public class ConfiguraSedeView extends VBox implements IView {
 
-	private final Label lblTitolo;
+	private Label lblTitolo;
 	
-    private final Button btnAggiungiSettore;
-    private final Button btnConferma;
+    private Button btnAggiungiSettore;
+    private Button btnConferma;
 
-    private final ComboBox<TipologiaSettore> comboNomeSettore;
-    private final ComboBox<TipologiaPosto> comboTipoPosto;
-    private final TextField txtPrefisso;
-    private final Spinner<Integer> spinnerFile;
-    private final Spinner<Integer> spinnerColonne;
-    private final Spinner<Integer> spinnerCapienza;
+    private ComboBox<TipologiaSettore> comboNomeSettore;
+    private ComboBox<TipologiaPosto> comboTipoPosto;
+    private TextField txtPrefisso;
+    private Spinner<Integer> spinnerFile;
+    private Spinner<Integer> spinnerColonne;
+    private Spinner<Integer> spinnerCapienza;
 
-    private final TextField txtNomeSede;
-    private final TextField txtIndirizzo;
-    private final VBox listaSettori;
-    private final VBox listaSedi;
-    private final TextField txtCapienzaTotale;
+    private TextField txtNomeSede;
+    private TextField txtIndirizzo;
+    private VBox listaSettori;
+    private VBox listaSedi;
+    private TextField txtCapienzaTotale;
     
-    private final ScrollPane scrollSettori;
-    private final ScrollPane scrollSedi;
+    private ScrollPane scrollSettori;
+    private ScrollPane scrollSedi;
     
-    private final Label lblSezione1;
-    private final GridPane gridSettore;
-    private final Label lblSettAgg;
+    private Label lblSezione1;
+    private GridPane gridSettore;
+    private Label lblSettAgg;
     
-    private final Label lblSezione2;
-    private final GridPane gridSede;
-    private final Label lblSediEs;
+    private Label lblSezione2;
+    private GridPane gridSede;
+    private Label lblSediEs;
     
-    private final HBox bottoneFondo;
+    private HBox bottoneFondo;
 
     public ConfiguraSedeView() {
         this.getStylesheets().add(getClass().getResource("/css/home-css.css").toExternalForm());

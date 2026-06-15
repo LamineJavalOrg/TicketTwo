@@ -85,10 +85,7 @@ public class Sede {
 	}
 	
 	public boolean possiedeSettori() {
-		if (settori != null || !settori.isEmpty()) {
-			return true;
-		}
-		return false;
+		return settori != null && !settori.isEmpty();
 	}
 	
 	@Override

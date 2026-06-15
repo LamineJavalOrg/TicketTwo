@@ -31,45 +31,45 @@ import javafx.scene.layout.VBox;
  */
 
 public class CreaEventoView extends VBox implements IView {
-	private final Label lblTitolo;
+	private Label lblTitolo;
 	
-    private final GridPane gridInfoBase;
-    private final Label lblEvento;
-    private final TextField txtNomeEvento;
-    private final Label lblArtista;
-    private final TextField txtArtista;
-    private final Label lblTipoEvento;
-    private final ComboBox<TipologiaEvento> comboTipoEvento;
+    private GridPane gridInfoBase;
+    private Label lblEvento;
+    private TextField txtNomeEvento;
+    private Label lblArtista;
+    private TextField txtArtista;
+    private Label lblTipoEvento;
+    private ComboBox<TipologiaEvento> comboTipoEvento;
 
-    private final GridPane gridTappa;
-    private final Label lblSede;
-    private final ComboBox<Sede> comboSede;
-    private final Label lblData;
-    private final DatePicker datePicker;
-    private final Spinner<Integer> spinnerOra;
-    private final Spinner<Integer> spinnerMinuti;
-    private final HBox boxOrario;
-    private final Label lblOra;
-    private final Label lblMinuti;
+    private GridPane gridTappa;
+    private Label lblSede;
+    private ComboBox<Sede> comboSede;
+    private Label lblData;
+    private DatePicker datePicker;
+    private Spinner<Integer> spinnerOra;
+    private Spinner<Integer> spinnerMinuti;
+    private HBox boxOrario;
+    private Label lblOra;
+    private Label lblMinuti;
 
-    private final Button btnAggiungiTappa;
-    private final Button btnCreaEvento;
+    private Button btnAggiungiTappa;
+    private Button btnCreaEvento;
 
-    private final VBox listaPiantina;
-    private final ScrollPane scrollPiantina;
-    private final VBox listaRiepilogo;
-    private final ScrollPane scrollRiepilogo;
+    private VBox listaPiantina;
+    private ScrollPane scrollPiantina;
+    private VBox listaRiepilogo;
+    private ScrollPane scrollRiepilogo;
 
-    private final Label lblSezione1;
-    private final Label lblSezione2;
-    private final Label lblSezionePrezzi;
-    private final Label lblSezioneRiepilogo;
+    private Label lblSezione1;
+    private Label lblSezione2;
+    private Label lblSezionePrezzi;
+    private Label lblSezioneRiepilogo;
     
-    private final HBox bottoneFondo;
+    private HBox bottoneFondo;
 
-    private final Map<Settore, ComboBox<TipologiaBiglietto>> comboTipiBiglietto = new LinkedHashMap<>();
-    private final Map<Settore, TextField> campiPrezzo = new LinkedHashMap<>();
-    private final Map<Settore, Spinner<Integer>> spinnerQuantita = new LinkedHashMap<>();
+    private Map<Settore, ComboBox<TipologiaBiglietto>> comboTipiBiglietto = new LinkedHashMap<>();
+    private Map<Settore, TextField> campiPrezzo = new LinkedHashMap<>();
+    private Map<Settore, Spinner<Integer>> spinnerQuantita = new LinkedHashMap<>();
 
     public CreaEventoView() {
         this.getStylesheets().add(getClass().getResource("/css/home-css.css").toExternalForm());

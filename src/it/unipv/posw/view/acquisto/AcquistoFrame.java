@@ -12,26 +12,24 @@ import javafx.scene.layout.BorderPane;
 public class AcquistoFrame extends BorderPane implements IView {
 	
 	private EventiPerArtistaView eventiPerArtistaView;
-	// private EventoView eView; view di gpelle
+	private EventoView eventoView;
 
 	public AcquistoFrame() {
 		
 		eventiPerArtistaView = new EventiPerArtistaView();
-		// eView = new EventoViewP();
+		eventoView = new EventoView();
 
 	}
-
-//	public EventoViewP geteView() {
-//		return eView;
-//	}
 	
 
 	
 	public EventiPerArtistaView getEventiPerArtistaView() {
 		return eventiPerArtistaView;
 	}
-	
 
+	public EventoView getEventoView() {
+		return eventoView;
+	}
 
 	public void mostraSchermata(IView s) {
     	this.setCenter(s.getNodo());

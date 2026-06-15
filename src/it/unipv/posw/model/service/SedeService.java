@@ -27,10 +27,8 @@ import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
 public class SedeService {
 	public Settore creaSettore(TipologiaSettore nome, String prefisso, TipologiaPosto tipoPosto,
 			int numFile, int numColonne, int capienza) throws SettoreNonValidoException {
-		Settore.controlloComune(nome, prefisso);
  
-		boolean numerato = !nome.isSoloNonNumerato() && TipologiaPosto.NUMERATO == tipoPosto;
-		if (numerato) {
+		if (tipoPosto == TipologiaPosto.NUMERATO) {
 			return Settore.creaNumerato(nome, prefisso, numFile, numColonne);
 		}
 		return Settore.creaNonNumerato(nome, prefisso, capienza);
