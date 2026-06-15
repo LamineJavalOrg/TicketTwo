@@ -1,14 +1,17 @@
 package it.unipv.posw.model.persistence.dao;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import it.unipv.posw.model.entities.Tariffa;
+import it.unipv.posw.model.enums.TipologiaBiglietto;
+import it.unipv.posw.model.persistence.DBConnection;
 import it.unipv.posw.model.persistence.dao.interfaces.ITariffaDAO;
 
 /**
@@ -73,5 +76,64 @@ public class TariffaDAO implements ITariffaDAO {
 			}
 		}
 	}
+	
+	@Override
+	public Tariffa getTariffaCompleta(int id_tappa, int id_settore, TipologiaBiglietto tipo) {
+		Tariffa tariffa = null;
+	    String query = "SELECT * FROM Tariffa WHERE id_tappa = ? AND id_settore = ? AND tipologia_biglietto = ?";
+	    Connection c = null;
+	    
+	    try {
+	    	c = DBConnection.getInstance().startConnection();
+	    	PreparedStatement ps = c.prepareStatement(query);
+	    	
+	    	ps.setInt(1, id_tappa);
+	        ps.setInt(2, id_settore);
+	        ps.setString(3, tipo.name()); 
+	        
+	        ResultSet rs = ps.executeQuery();
+	        if (rs.next()) {
+                return new Tariffa(
+                        rs.getInt("id_evento"),
+                        rs.getInt("id_settore"),
+                        TipologiaBiglietto.valueOf(rs.getString("tipologia_biglietto")),
+                        rs.getDouble("prezzo_base"),
+                        rs.getInt("qta_max"),
+                        rs.getInt("id_tappa")
+                    );
+                }
+	        
+	    } catch (SQLException e) { 
+	        e.printStackTrace(); 
+	    } finally {
+	    	DBConnection.getInstance().closeConnection(c);
+	    }	    
+	    return tariffa;
+	}
+	
+	@Override
+	public List<TipologiaBiglietto> trovaTipologieTappaSettore(int idTappa, int idSettore) {
+	    List<TipologiaBiglietto> tipologie = new ArrayList<>();
+	    String query = "SELECT DISTINCT tipologia_biglietto FROM Tariffa WHERE id_tappa = ? AND id_settore = ?";
 
+	    Connection c = null;
+	    try {
+	    	c = DBConnection.getInstance().startConnection();
+	    	PreparedStatement ps = c.prepareStatement(query);
+	    	
+	    	ps.setInt(1, idTappa);
+	        ps.setInt(2, idSettore);
+	        
+	        ResultSet rs = ps.executeQuery();
+	        while (rs.next()) {
+	        	String tipoString = rs.getString("tipologia_biglietto");
+                tipologie.add(TipologiaBiglietto.valueOf(tipoString));
+            }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBConnection.getInstance().closeConnection(c);
+	    }
+	    return tipologie;
+	}
 }
