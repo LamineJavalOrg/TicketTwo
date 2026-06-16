@@ -41,6 +41,10 @@ public class Biglietto {
 	public void setPrezzoAcquisto(double prezzoAcquisto) {
 		this.prezzoAcquisto = prezzoAcquisto;
 	}
+
+	public int getId_biglietto() {
+		return id_biglietto;
+	}
 	
     
     

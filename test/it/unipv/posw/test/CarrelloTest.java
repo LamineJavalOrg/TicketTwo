@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.unipv.posw.model.entities.Carrello;
+import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.exception.IndisponibilitàException;
 import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
 import it.unipv.posw.model.service.CarrelloService;
@@ -23,8 +24,7 @@ public class CarrelloTest {
 	private final int ID_EVENTO = 99;
 	private final int ID_TAPPA = 999;
 	private final int ID_SETTORE = 9;
-	private final String TIPO_BIGLIETTO = "STANDARD"; 
-	private final double PREZZO = 50.0;
+	private final TipologiaBiglietto TIPO_BIGLIETTO = TipologiaBiglietto.STANDARD; 
 	
 	@Before
     public void iniTest() {
@@ -37,7 +37,7 @@ public class CarrelloTest {
 	@Test
     public void testCarrelloOK() throws IndisponibilitàException, SuperamentoLimiteBigliettiException {
         int quantita = 2;
-        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantita, PREZZO);
+        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantita);
         assertEquals(quantita, Carrello.getInstance().getItems().size());
     }
 	
@@ -47,7 +47,7 @@ public class CarrelloTest {
 	   int quantitaOltreLimite = 5; // Supera il limite MAX_BIGLIETTI = 4 
 	        
 	   try {
-	        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantitaOltreLimite, PREZZO);
+	        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantitaOltreLimite);
 	   } catch (SuperamentoLimiteBigliettiException ex) {
 	      result = false; 
 	   }
@@ -60,7 +60,7 @@ public class CarrelloTest {
         int quantitaEccessiva = 10; // inseriti 5 nel db
         
         try {
-            service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantitaEccessiva, PREZZO);
+            service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantitaEccessiva);
         } catch (IndisponibilitàException ex) {
             result = false; 
         } 

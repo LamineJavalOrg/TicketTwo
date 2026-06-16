@@ -4,6 +4,7 @@ import java.util.List;
 
 import it.unipv.posw.model.entities.Biglietto;
 import it.unipv.posw.model.entities.Carrello;
+import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.exception.IndisponibilitàException;
 import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
@@ -19,7 +20,7 @@ public class CarrelloService {
 	public CarrelloService() {
     }
 
-	public void aggiungiAlCarrello(int idEvento, int idTappa, int idSettore, String tipo, int quantita, double prezzoAcquisto) 
+	public void aggiungiAlCarrello(int idEvento, int idTappa, int idSettore, TipologiaBiglietto tipo, int quantita) 
             throws IndisponibilitàException, SuperamentoLimiteBigliettiException {
         
 		List<Biglietto> listaBiglietti = MYSQLDAOFactory.getInstance().getBigliettoDAO().getBigliettiDisponibili(idTappa, idSettore, tipo, quantita);
