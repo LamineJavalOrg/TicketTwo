@@ -30,7 +30,7 @@ public class BigliettoDAO implements IBigliettoDAO {
 	                   "FROM Biglietto b " +
 	                   "JOIN Tariffa t ON b.id_tariffa = t.id_tariffa " +
 	                   "WHERE t.id_tappa = ? AND t.id_settore = ? AND t.tipologia_biglietto = ? " +
-	                   "AND b.stato IS NULL LIMIT ?";
+	                   "AND b.stato = 'disponibile' LIMIT ?";
 	    Connection c= null;
 	    try {
 	    	c = DBConnection.getInstance().startConnection();

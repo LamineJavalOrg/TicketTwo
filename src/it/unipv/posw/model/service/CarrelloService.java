@@ -1,5 +1,6 @@
 package it.unipv.posw.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.posw.model.entities.Biglietto;
@@ -15,7 +16,8 @@ import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 
 public class CarrelloService {
 	
-	final int MAX_BIGLIETTI = 4;
+	final int MAX_BIGLIETTI = 5;
+	final int PLUS = 10;
 	
 	public CarrelloService() {
     }
@@ -23,27 +25,42 @@ public class CarrelloService {
 	public void aggiungiAlCarrello(int idEvento, int idTappa, int idSettore, TipologiaBiglietto tipo, int quantita) 
             throws IndisponibilitàException, SuperamentoLimiteBigliettiException {
         
-		List<Biglietto> listaBiglietti = MYSQLDAOFactory.getInstance().getBigliettoDAO().getBigliettiDisponibili(idTappa, idSettore, tipo, quantita);
+		List<Biglietto> listaBiglietti = MYSQLDAOFactory.getInstance().getBigliettoDAO().getBigliettiDisponibili(idTappa, idSettore, tipo, quantita + PLUS);
     	
-    	int giàInCarrello = 0;
+		int giàInCarrelloPerEvento = 0;
+        List<Integer> idBigliettiNelCarrello = new ArrayList<>();
+        
+
         for (Biglietto b : Carrello.getInstance().getItems()) {
             if (b.getTariffa().getId_evento() == idEvento) {
-                giàInCarrello++;
+                giàInCarrelloPerEvento++;
             }
+            idBigliettiNelCarrello.add(b.getId_biglietto()); 
         }
         
-        //verifico disponibilità
-    	if(listaBiglietti.size() < quantita) {
-    		throw new IndisponibilitàException();
-    	}
-    	
-        // Verifico il limite dei 4 biglietti
-        if (giàInCarrello + quantita > MAX_BIGLIETTI) {
+        if (giàInCarrelloPerEvento + quantita > MAX_BIGLIETTI) {
             throw new SuperamentoLimiteBigliettiException();
         }
         
+        // prendo solo quelli non ancora nel carrello
+        List<Biglietto> bigliettiFiltrati = new ArrayList<>();
+        for (Biglietto b : listaBiglietti) {
+            if (!idBigliettiNelCarrello.contains(b.getId_biglietto())) {
+                bigliettiFiltrati.add(b);
+            }
+            // se viene raggiunta la quantità richiesta stoppo
+            if (bigliettiFiltrati.size() == quantita) {
+                break;
+            }
+        }
+        
+        // verifico disponibilità finale
+        if (bigliettiFiltrati.size() < quantita) {
+            throw new IndisponibilitàException();
+        }
+        
     	
-    	for(Biglietto b: listaBiglietti) {
+    	for(Biglietto b: bigliettiFiltrati) {
     		Carrello.getInstance().aggiungi(b);
     	}
     	

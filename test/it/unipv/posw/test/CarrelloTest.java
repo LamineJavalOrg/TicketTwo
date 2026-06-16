@@ -24,7 +24,6 @@ public class CarrelloTest {
 	private final int ID_EVENTO = 99;
 	private final int ID_TAPPA = 999;
 	private final int ID_SETTORE = 9;
-	private final TipologiaBiglietto TIPO_BIGLIETTO = TipologiaBiglietto.STANDARD; 
 	
 	@Before
     public void iniTest() {
@@ -37,17 +36,17 @@ public class CarrelloTest {
 	@Test
     public void testCarrelloOK() throws IndisponibilitàException, SuperamentoLimiteBigliettiException {
         int quantita = 2;
-        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantita);
+        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TipologiaBiglietto.STANDARD, quantita);
         assertEquals(quantita, Carrello.getInstance().getItems().size());
     }
 	
 	@Test
 	public void testCarrelloKO1() throws IndisponibilitàException {
 	   boolean result = true;
-	   int quantitaOltreLimite = 5; // Supera il limite MAX_BIGLIETTI = 4 
+	   int quantitaOltreLimite = 6; // Supera il limite MAX_BIGLIETTI = 5 
 	        
 	   try {
-	        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantitaOltreLimite);
+	        service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TipologiaBiglietto.STANDARD, quantitaOltreLimite);
 	   } catch (SuperamentoLimiteBigliettiException ex) {
 	      result = false; 
 	   }
@@ -57,10 +56,10 @@ public class CarrelloTest {
 	@Test
     public void testCarrelloKO2() throws SuperamentoLimiteBigliettiException {
         boolean result = true;
-        int quantitaEccessiva = 10; // inseriti 5 nel db
+        int quantitaEccessiva = 4; // inseriti 2 nel db
         
         try {
-            service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TIPO_BIGLIETTO, quantitaEccessiva);
+            service.aggiungiAlCarrello(ID_EVENTO, ID_TAPPA, ID_SETTORE, TipologiaBiglietto.VIP, quantitaEccessiva);
         } catch (IndisponibilitàException ex) {
             result = false; 
         } 
