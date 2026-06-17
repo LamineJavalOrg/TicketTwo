@@ -24,6 +24,7 @@ public class HomeFrame extends BorderPane {
     private MenuItem itemLoginOrg;
     private MenuItem itemRegistrati;
     private MenuItem itemPanAdm;
+    private MenuItem itemAreaC;
     private HBox topBar;
  
     private HomeView hView;
@@ -31,6 +32,7 @@ public class HomeFrame extends BorderPane {
     private AutenticazioneOrgView aorView;
     private RegistrazioneView regView;
     private RicercaFrame ricercaF;
+    private AreaClienteView aClienteView;
 
   
     public HomeFrame() {
@@ -43,6 +45,7 @@ public class HomeFrame extends BorderPane {
         aorView = new AutenticazioneOrgView();
         regView = new RegistrazioneView();
         ricercaF = new RicercaFrame();
+        aClienteView = new AreaClienteView();
         
         menuBar = new MenuBar();
         menuAccount = new Menu("\u2630"); 
@@ -51,8 +54,9 @@ public class HomeFrame extends BorderPane {
         itemLogin = new MenuItem("Login");
         itemLoginOrg = new MenuItem("Login organizzatore");
         itemPanAdm = new MenuItem("Area Admin");
+        itemAreaC = new MenuItem("Area Cliente");
         
-        menuAccount.getItems().addAll(itemHome, itemRegistrati, itemLogin, itemLoginOrg, itemPanAdm);
+        menuAccount.getItems().addAll(itemHome, itemRegistrati, itemLogin, itemLoginOrg, itemPanAdm, itemAreaC);
         menuBar.getMenus().add(menuAccount);
         
         Region spacerSinistra = new Region();
@@ -114,6 +118,10 @@ public class HomeFrame extends BorderPane {
     public RicercaFrame getRicercaF() {
 		return ricercaF;
 	}
+    
+	public AreaClienteView getaClienteView() {
+		return aClienteView;
+	}
 
 	public MenuItem getItemLoginOrg() {
 		return itemLoginOrg;
@@ -121,6 +129,10 @@ public class HomeFrame extends BorderPane {
 	
 	public MenuItem getItemPanAdm() {
 		return itemPanAdm;
+	}
+
+	public MenuItem getItemAreaC() {
+		return itemAreaC;
 	}
 
 	public PannelloAdminFrame creaPannelloAdminFrame() {

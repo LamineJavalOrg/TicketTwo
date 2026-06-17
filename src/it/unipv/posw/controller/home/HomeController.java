@@ -1,6 +1,7 @@
 package it.unipv.posw.controller.home;
 
 import it.unipv.posw.controller.admin.PannelloAdminController;
+import it.unipv.posw.model.entities.SessioneCliente;
 import it.unipv.posw.model.entities.SessioneOrganizzatore;
 import it.unipv.posw.model.gestori.GestoreAdmin;
 import it.unipv.posw.model.gestori.GestoreHome;
@@ -78,6 +79,14 @@ public class HomeController {
 				
 			}
 		});
+	    
+	    mainF.getItemAreaC().setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				handleAreaCliente(event);
+				
+			}
+		});
 
 	}
 	 
@@ -124,6 +133,18 @@ public class HomeController {
 	
 		 mainF.mostraSchermata(mainF.getRicercaF());
          mainF.setVisibilitaBarraRicerca(false);
+	 }
+	 
+	 private void handleAreaCliente(ActionEvent e) {
+		 
+		 if(!SessioneCliente.getInstance().isLoggato()) {
+				AlertView.mostraErrore("Effettua il login per accedere all'area riservata");
+				return;
+			}
+		 
+		 mainF.mostraSchermata(mainF.getaClienteView());
+		 mainF.setVisibilitaBarraRicerca(false);
+		 new AreaClienteController(mainF.getaClienteView(), model.getAreaClienteService());
 	 }
 	    
 }
