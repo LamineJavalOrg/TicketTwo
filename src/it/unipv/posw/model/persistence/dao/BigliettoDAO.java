@@ -125,5 +125,26 @@ public class BigliettoDAO implements IBigliettoDAO {
 	    }
 	    return totale;
 	}
+
+	@Override
+	public void cambiaNominativo(int id_biglietto, String nominativo) {
+		PreparedStatement ps;
+		String query = "UPDATE Biglietto SET nominativo = ? WHERE id_biglietto = ?";
+		Connection c = null;
+		try {
+			c = DBConnection.getInstance().startConnection();
+			ps = c.prepareStatement(query); 
+			
+			ps.setString(1, nominativo);
+	        ps.setInt(2, id_biglietto);
+	        
+	        ps.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
+		
+	}
 	
 }
