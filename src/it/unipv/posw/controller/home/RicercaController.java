@@ -79,11 +79,12 @@ public class RicercaController {
                                 public void handle(ActionEvent event) {
                                     MenuItem itemCliccato = (MenuItem) event.getSource();
                                     Object scelta = itemCliccato.getUserData();
-                                    
+   
                                     RicercaType tipoAttuale = ricercaF.getRicercaView().getComboTipoRicerca().getValue();
 
                                     gestisciPostRicerca(tipoAttuale, scelta);
                                     
+                                    ricercaF.getRicercaView().getTxtRicerca().clear();
                                     ricercaF.getRicercaView().nascondiSuggerimenti();
                                 }
                             });
@@ -116,19 +117,20 @@ public class RicercaController {
 			
 			for(Evento e: lista) {
 				Button btn = acquistoFrame.getEventiPerArtistaView().aggiungiEventoAllaLista(e);
-				
+
 				btn.setOnAction(new EventHandler<ActionEvent>() {
 	                @Override
 	                public void handle(ActionEvent event) {
 	                   acquistoFrame.mostraSchermata(acquistoFrame.getEventoView());
 	                }
-			});
+				});
+			}
 			
 			acquistoFrame.mostraSchermata(acquistoFrame.getEventiPerArtistaView());
             ricercaF.mostraSchermata(acquistoFrame);
             
 			break;
-		}
+		
 		
     	}
     }
