@@ -8,13 +8,15 @@ import java.time.LocalDateTime;
 
 public class RiepilogoAcquisto {
 	
+	private int id_biglietto;
 	private String nomeEvento;
 	private LocalDateTime dataOraEvento;
 	private String nominativo;
 	private double prezzo;
 
-	public RiepilogoAcquisto(String nomeEvento, LocalDateTime dataOraEvento, String nominativo, double prezzo) {
+	public RiepilogoAcquisto(int id_biglietto, String nomeEvento, LocalDateTime dataOraEvento, String nominativo, double prezzo) {
 		
+		this.id_biglietto = id_biglietto;
 		this.nomeEvento = nomeEvento;
 	    this.dataOraEvento = dataOraEvento;
 	    this.nominativo = nominativo;
@@ -37,4 +39,9 @@ public class RiepilogoAcquisto {
 		return prezzo;
 	}
 
+	public int getId_biglietto() {
+		return id_biglietto;
+	}
+	
+	
 }

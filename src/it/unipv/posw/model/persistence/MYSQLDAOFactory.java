@@ -6,6 +6,7 @@ import it.unipv.posw.model.persistence.dao.ClienteDAO;
 import it.unipv.posw.model.persistence.dao.EventoDAO;
 import it.unipv.posw.model.persistence.dao.OrganizzatoreDAO;
 import it.unipv.posw.model.persistence.dao.PostoDAO;
+import it.unipv.posw.model.persistence.dao.RiepilogoAcquistoDAO;
 import it.unipv.posw.model.persistence.dao.SedeDAO;
 import it.unipv.posw.model.persistence.dao.SettoreDAO;
 import it.unipv.posw.model.persistence.dao.TappaDAO;
@@ -16,6 +17,7 @@ import it.unipv.posw.model.persistence.dao.interfaces.IClienteDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IEventoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IOrganizzatoreDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.IPostoDAO;
+import it.unipv.posw.model.persistence.dao.interfaces.IRiepilogoAcquistoDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
@@ -86,5 +88,10 @@ public class MYSQLDAOFactory implements IDAOFactory {
 	@Override
 	public ITariffaDAO getTariffaDAO() {
 		return new TariffaDAO();
+	}
+
+	@Override
+	public IRiepilogoAcquistoDAO getRiepilogoAcquistoDAO() {
+		return new RiepilogoAcquistoDAO();
 	}
 }
