@@ -11,6 +11,11 @@ Ricerca.PER_ARTISTA = it.unipv.posw.model.service.ricerca.RicercaPerArtistaStrat
 Ricerca.PER_EVENTO = it.unipv.posw.model.service.ricerca.RicercaPerEventoStrategy
 
 #configurazione metodi di pagamento
-
 PayPal.adapter.class.name = it.unipv.posw.model.service.payment.PayPalAdapter
 Mastercard.adapter.class.name = it.unipv.posw.model.service.payment.MastercardAdapter
+
+#configurazione strategie di mercato
+#Sale.strategy.class.name = it.unipv.posw.model.service.salestrategies.NoScontiSaleStrategy
+#Sale.strategy.class.name = it.unipv.posw.model.service.salestrategies.BlackFridaySaleStrategy
+Sale.strategy.class.name = it.unipv.posw.model.service.salestrategies.XmasSaleStrategy
+#Sale.strategy.class.name = it.unipv.posw.model.service.salestrategies.EasterSaleStrategy
