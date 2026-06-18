@@ -43,10 +43,25 @@ public class Tappa {
 	public LocalDateTime getData_ora() {
 		return data_ora;
 	}
+
 	
 	@Override
 	public String toString() {
 	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	    return nomeSede + " - " + data_ora.format(formatter);
 	}
+
+
+
+	public int getId_evento() {
+		return id_evento;
+	}
+
+
+	public String getNomeSede() {
+		return nomeSede;
+	}
+	
+	
+
 }

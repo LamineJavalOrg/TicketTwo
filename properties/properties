@@ -14,6 +14,9 @@ Ricerca.PER_EVENTO = it.unipv.posw.model.service.ricerca.RicercaPerEventoStrateg
 PayPal.adapter.class.name = it.unipv.posw.model.service.payment.PayPalAdapter
 Mastercard.adapter.class.name = it.unipv.posw.model.service.payment.MastercardAdapter
 
+PagamentoStrategy.PAYPAL = it.unipv.posw.model.service.payment.PayPalStrategy
+PagamentoStrategy.MASTERCARD = it.unipv.posw.model.service.payment.MastercardStrategy
+
 #configurazione strategie di mercato
 #Sale.strategy.class.name = it.unipv.posw.model.service.salestrategies.NoScontiSaleStrategy
 #Sale.strategy.class.name = it.unipv.posw.model.service.salestrategies.BlackFridaySaleStrategy

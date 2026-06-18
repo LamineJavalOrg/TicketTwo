@@ -1,7 +1,9 @@
 package it.unipv.posw.controller.acquisto;
 
 import it.unipv.posw.model.entities.Biglietto;
+
 import it.unipv.posw.model.entities.SessioneCliente;
+import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.exception.IndisponibilitàException;
 import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
 import it.unipv.posw.model.gestori.GestoreAcquisto;
@@ -47,6 +49,24 @@ public class AcquistoController {
 			}
 		});
 		
+		acquistoF.getcView().getBtnPaga().setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				handleVaiAlPagamento(event);
+				
+			}
+		});
+		
+		acquistoF.getpView().getBtnConfermaAcquisto().setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				handlePaga(event);
+				
+			}
+		});
+		
 	}
 	
 	
@@ -57,8 +77,14 @@ public class AcquistoController {
 			return;
 		}
 		
+		int idEvento = acquistoF.getEventoView().getComboTappe().getSelectionModel().getSelectedItem().getId_evento();
+		int idTappa = acquistoF.getEventoView().getComboTappe().getSelectionModel().getSelectedItem().getId_tappa();
+		int idSettore = acquistoF.getEventoView().getComboSettori().getSelectionModel().getSelectedItem().getId_settore();
+		TipologiaBiglietto tipo = acquistoF.getEventoView().getComboBiglietti().getSelectionModel().getSelectedItem();
+		int quantità = acquistoF.getEventoView().getComboQuantita().getSelectionModel().getSelectedItem();
+		
 		try {
-			model.getCarrelloService().aggiungiAlCarrello(0, 0, 0, null, 0, 0);
+			model.getCarrelloService().aggiungiAlCarrello(idEvento, idTappa, idSettore, tipo, quantità);
 		}catch (SuperamentoLimiteBigliettiException ex) {
 			AlertView.mostraErrore(ex.getMessage());
 		}catch (IndisponibilitàException ex) {
@@ -81,6 +107,18 @@ public class AcquistoController {
 
 		acquistoF.getcView().setTotale("Totale da pagare: " + model.getCarrello().getTotale() + "€");
 		acquistoF.mostraSchermata(acquistoF.getcView());
+	}
+	
+	public void handleVaiAlPagamento(ActionEvent e) {
+		
+		acquistoF.getpView().setTotale(model.getCarrello().getTotale());
+		acquistoF.mostraSchermata(acquistoF.getpView());
+	}
+	
+	public void handlePaga(ActionEvent e) {
+		
+		acquistoF.getQrView().setCodiceTestuale(SessioneCliente.getInstance().getQr_attuale());
+		acquistoF.mostraSchermata(acquistoF.getQrView());
 	}
 
 }
