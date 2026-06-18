@@ -1,14 +1,14 @@
 package it.unipv.posw.model.entities;
 
+/** Classe per tenere traccia del Cliente loggato durante l'uso del software
+* @author rkomi-dev
+*/
+
 public class SessioneCliente {
 	
 	private static SessioneCliente instance;
-    private Cliente utenteLoggato; 
+    private Cliente clienteLoggato;
     private String qr_attuale;
-    
-    /** Classe per tenere traccia del Cliente loggato durante l'uso del software
-	 * @author rkomi-dev
-	 */
     
     private SessioneCliente() {} // Costruttore privato per il Singleton
 
@@ -21,24 +21,24 @@ public class SessioneCliente {
 
     // Metodo per il Login: salva il cliente qui dentro
     public void login(Cliente c) {
-        this.utenteLoggato = c;
+        this.clienteLoggato = c;
     }
 
     // Metodo per il Logout: svuota il riferimento
     public void logout() {
-        this.utenteLoggato = null;
+        this.clienteLoggato = null;
     }
 
     public boolean isLoggato() {
-        return utenteLoggato != null;
+        return clienteLoggato != null;
     }
     
-    public Cliente getUtenteLoggato() {
-        return utenteLoggato;
+    public Cliente getClienteLoggato() {
+        return clienteLoggato;
     }
 
-	public void setUtenteLoggato(Cliente utenteLoggato) {
-		this.utenteLoggato = utenteLoggato;
+	public void setClienteLoggato(Cliente utenteLoggato) {
+		this.clienteLoggato = utenteLoggato;
 	}
     
 	
@@ -52,7 +52,7 @@ public class SessioneCliente {
 	}
 
 	public void svuotaSessione() {
-    	this.utenteLoggato = null;
+    	this.clienteLoggato = null;
     	this.qr_attuale = null;
     }
 

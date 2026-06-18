@@ -38,7 +38,7 @@ public class Carrello {
     public double getTotale() {
         double totale = 0;
         for (Biglietto b : items) {
-            totale += b.getPrezzoAcquisto(); 
+            totale += b.getTariffa().getPrezzo(); 
         }
         return totale;
     }

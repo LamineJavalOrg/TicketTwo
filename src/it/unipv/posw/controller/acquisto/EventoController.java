@@ -147,7 +147,7 @@ public class EventoController {
             return;
         }
 
-        Utente utente = SessioneCliente.getInstance().getUtenteLoggato();
+        Utente utente = SessioneCliente.getInstance().getClienteLoggato();
         double prezzoBase = tariffa.getPrezzo();
         double prezzoFinale = model.getEventoService().calcolaPrezzoFinale(tariffa.getPrezzo(), utente);
         this.prezzoUnitarioCorrente = prezzoFinale;

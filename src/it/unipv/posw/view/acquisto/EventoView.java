@@ -197,7 +197,13 @@ public class EventoView extends VBox implements IView {
  
     
     
-    @Override
+    public Label getLblTipologiaValore() {
+		return lblTipologiaValore;
+	}
+
+
+
+	@Override
     public Node getNodo() {
         return this;
     }

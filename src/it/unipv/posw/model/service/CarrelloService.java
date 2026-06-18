@@ -5,9 +5,11 @@ import java.util.List;
 
 import it.unipv.posw.model.entities.Biglietto;
 import it.unipv.posw.model.entities.Carrello;
+import it.unipv.posw.model.entities.SessioneCliente;
 import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.exception.IndisponibilitàException;
 import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
+import it.unipv.posw.model.gestori.GestoreEvento;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 
 /**
@@ -61,6 +63,11 @@ public class CarrelloService {
         
     	
     	for(Biglietto b: bigliettiFiltrati) {
+    		double prezzoBase = b.getTariffa().getPrezzo();
+            double prezzoScontato = GestoreEvento.getInstance().getEventoService().calcolaPrezzoFinale(prezzoBase, SessioneCliente.getInstance().getClienteLoggato());
+        
+            b.getTariffa().setPrezzo(prezzoScontato);
+            
     		Carrello.getInstance().aggiungi(b);
     	}
     	

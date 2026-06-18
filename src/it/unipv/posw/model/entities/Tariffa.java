@@ -43,4 +43,10 @@ public class Tariffa {
 	public int getQuantita_massima() {
 		return quantita_massima;
 	}
+
+	public void setPrezzo(double prezzo) {
+		this.prezzo = prezzo;
+	}
+	
+	
 }

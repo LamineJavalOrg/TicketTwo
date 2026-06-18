@@ -37,7 +37,7 @@ public class AutenticazioneController {
 	    
 	    
 	    	SessioneCliente.getInstance().svuotaSessione();
-	    	SessioneCliente.getInstance().setUtenteLoggato(loggato);
+	    	SessioneCliente.getInstance().setClienteLoggato(loggato);
 	    	
 		}catch (CredenzialiErrateException ex) {
 			AlertView.mostraErrore(ex.getMessage());

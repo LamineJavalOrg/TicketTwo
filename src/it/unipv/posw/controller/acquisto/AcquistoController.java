@@ -3,10 +3,12 @@ package it.unipv.posw.controller.acquisto;
 import it.unipv.posw.model.entities.Biglietto;
 
 import it.unipv.posw.model.entities.SessioneCliente;
+import it.unipv.posw.model.enums.PaymentType;
 import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.exception.IndisponibilitàException;
 import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
 import it.unipv.posw.model.gestori.GestoreAcquisto;
+import it.unipv.posw.model.service.payment.PagamentoStrategyFactory;
 import it.unipv.posw.view.acquisto.AcquistoFrame;
 import it.unipv.posw.view.utility.AlertView;
 import javafx.event.ActionEvent;
@@ -80,7 +82,7 @@ public class AcquistoController {
 		int idEvento = acquistoF.getEventoView().getComboTappe().getSelectionModel().getSelectedItem().getId_evento();
 		int idTappa = acquistoF.getEventoView().getComboTappe().getSelectionModel().getSelectedItem().getId_tappa();
 		int idSettore = acquistoF.getEventoView().getComboSettori().getSelectionModel().getSelectedItem().getId_settore();
-		TipologiaBiglietto tipo = acquistoF.getEventoView().getComboBiglietti().getSelectionModel().getSelectedItem();
+		TipologiaBiglietto tipo = TipologiaBiglietto.valueOf(acquistoF.getEventoView().getLblTipologiaValore().getText().toUpperCase());
 		int quantità = acquistoF.getEventoView().getComboQuantita().getSelectionModel().getSelectedItem();
 		
 		try {
@@ -101,7 +103,7 @@ public class AcquistoController {
 		
 		acquistoF.getcView().svuotaVista();
 		for (Biglietto b : model.getCarrello().getItems()) {
-            String info = b.getTariffa().getTipob() + " : " + b.getPrezzoAcquisto() + "€";
+            String info = b.getTariffa().getTipob() + " : " + b.getTariffa().getPrezzo() + "€";
             acquistoF.getcView().aggiungiRigaBiglietto(info);
         }
 
@@ -117,8 +119,11 @@ public class AcquistoController {
 	
 	public void handlePaga(ActionEvent e) {
 		
+		PaymentType tipo = acquistoF.getpView().getComboMetodo().getValue();
+		model.getAcquistoService().Acquista(PagamentoStrategyFactory.getStrategia(tipo).getMetodoPagamento());
 		acquistoF.getQrView().setCodiceTestuale(SessioneCliente.getInstance().getQr_attuale());
 		acquistoF.mostraSchermata(acquistoF.getQrView());
+		
 	}
 
 }

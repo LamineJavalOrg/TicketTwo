@@ -12,7 +12,7 @@ import it.unipv.posw.model.enums.TipologiaBiglietto;
 public interface IBigliettoDAO {
 	
 	List<Biglietto> getBigliettiDisponibili(int idTappa, int idSettore, TipologiaBiglietto tipo, int quantita);
-	void updatePostAcquisto(int id_biglietto, String email, String nominativo, String qr);
+	void updatePostAcquisto(int id_biglietto, String email, String nominativo, String qr, double prezzoAcquisto);
 	int countPostiLiberi(int idTappa, int idSettore, String tipo);
 	void cambiaNominativo(int id_biglietto, String nominativo);
 }

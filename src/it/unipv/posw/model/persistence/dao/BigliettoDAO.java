@@ -75,10 +75,10 @@ public class BigliettoDAO implements IBigliettoDAO {
 	}
 
 	@Override
-	public void updatePostAcquisto(int id_biglietto, String email, String nominativo, String qr) {
+	public void updatePostAcquisto(int id_biglietto, String email, String nominativo, String qr, double prezzoAcquisto) {
 		
 		PreparedStatement ps;
-		String query = "UPDATE Biglietto SET email_cliente = ?, nominativo = ?, qr_code = ?, stato = 'acquistato' WHERE id_biglietto = ?";
+		String query = "UPDATE Biglietto SET email_cliente = ?, nominativo = ?, qr_code = ?, stato = 'acquistato', prezzo_acquisto = ? WHERE id_biglietto = ?";
 		Connection c = null;
 		try {
 			c = DBConnection.getInstance().startConnection();
@@ -87,7 +87,8 @@ public class BigliettoDAO implements IBigliettoDAO {
 			ps.setString(1, email);
 	        ps.setString(2, nominativo);
 	        ps.setString(3, qr);
-	        ps.setInt(4, id_biglietto);
+	        ps.setDouble(4, prezzoAcquisto);
+	        ps.setInt(5, id_biglietto);
 	        
 	        ps.executeUpdate();
 		} catch(SQLException e) {

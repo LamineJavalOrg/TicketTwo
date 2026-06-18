@@ -28,7 +28,7 @@ public class AreaClienteController {
 	
 	private void caricaDati() {
     	
-		List<RiepilogoAcquisto> acquisti = areaClienteService.storicoAcquisti(SessioneCliente.getInstance().getUtenteLoggato().getEmail());
+		List<RiepilogoAcquisto> acquisti = areaClienteService.storicoAcquisti(SessioneCliente.getInstance().getClienteLoggato().getEmail());
     
 		for (RiepilogoAcquisto a : acquisti) {
       

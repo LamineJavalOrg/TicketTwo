@@ -1,11 +1,6 @@
 .background {
 	-fx-background-image: url("/images/sfondo_TicketTwo.png");
 	-fx-background-size: cover;
-    
-    /* Mantiene l'immagine al centro durante il ridimensionamento */
-    /*-fx-background-position: center center;*/
-    
-    /* Impedisce all'immagine di ripetersi se la finestra è enorme */
     -fx-background-repeat: no-repeat;
 }
 
@@ -22,6 +17,7 @@
 	-fx-font-size: 15px;
 }
 
+
 .sottotitolo {
 	-fx-font-weight: bold; 
 	-fx-font-size: 13px;
@@ -31,3 +27,18 @@
 	-fx-font-weight: bold; 
 	-fx-text-fill: #27ae60; /* Verde per indicare vantaggio economico */
 }
+
+.qr {
+	-fx-background-image: url("/images/qrcode.png");
+    
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    
+    /* Dimensioni del QR */
+    -fx-min-width: 250px;
+    -fx-min-height: 250px;
+    -fx-pref-width: 250px;
+    -fx-pref-height: 250px;
+}
+

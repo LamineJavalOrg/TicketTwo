@@ -17,9 +17,9 @@ public class AcquistoService {
 	public AcquistoService() {
 	}
 	
-	public void Acquista(IPagamento metodo) throws Exception {
+	public void Acquista(IPagamento metodo) {
 		
-		boolean esito = metodo.Paga(Carrello.getInstance().getTotale());
+		metodo.Paga(Carrello.getInstance().getTotale());
 		
 		qrservice = new QRService();
 		
@@ -28,17 +28,14 @@ public class AcquistoService {
 		
 		for(Biglietto b : Carrello.getInstance().getItems()) {
 			
-			String email = SessioneCliente.getInstance().getUtenteLoggato().getEmail();
-			String nome = SessioneCliente.getInstance().getUtenteLoggato().getNome();
-			String cognome = SessioneCliente.getInstance().getUtenteLoggato().getCognome();
+			String email = SessioneCliente.getInstance().getClienteLoggato().getEmail();
+			String nome = SessioneCliente.getInstance().getClienteLoggato().getNome();
+			String cognome = SessioneCliente.getInstance().getClienteLoggato().getCognome();
 			String qr = SessioneCliente.getInstance().getQr_attuale();
 			
-			MYSQLDAOFactory.getInstance().getBigliettoDAO().updatePostAcquisto(b.getId_biglietto(), email, nome + " " + cognome, qr);
+			MYSQLDAOFactory.getInstance().getBigliettoDAO().updatePostAcquisto(b.getId_biglietto(), email, nome + " " + cognome, qr, b.getTariffa().getPrezzo());
 		}
 		
-		if(!esito) {
-			throw new Exception();
-		}
 		
 	}
 }
