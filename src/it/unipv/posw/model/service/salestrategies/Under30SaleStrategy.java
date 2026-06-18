@@ -2,6 +2,10 @@ package it.unipv.posw.model.service.salestrategies;
 
 import it.unipv.posw.model.entities.Utente;
 
+/**
+ * @author gpelle
+ */
+
 public class Under30SaleStrategy implements ISaleStrategy {
 	
 	private final static double PERCENTUALE_SCONTO = 0.3;

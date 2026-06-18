@@ -4,6 +4,9 @@ import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
 import java.util.Properties;
 
+/**
+ * @author gpelle
+ */
 
 public class SaleStrategyFactory {
 	private final String PROPERTYNAME="Sale.strategy.class.name";
@@ -35,7 +38,7 @@ public class SaleStrategyFactory {
 				p.load(new FileInputStream(PROPERYPATH));
 				DiscountClassName=p.getProperty(PROPERTYNAME);
 				
-				Constructor c = Class.forName(DiscountClassName).getConstructor();
+				Constructor<?> c = Class.forName(DiscountClassName).getConstructor();
 				sale_strategy=(ISaleStrategy)c.newInstance();
 								
 			} catch (Exception e) {

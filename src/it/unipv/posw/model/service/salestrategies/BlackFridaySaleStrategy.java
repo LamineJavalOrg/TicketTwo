@@ -2,6 +2,10 @@ package it.unipv.posw.model.service.salestrategies;
 
 import it.unipv.posw.model.entities.Utente;
 
+/**
+ * @author gpelle
+ */
+
 public class BlackFridaySaleStrategy implements ISaleStrategy {
 	
 	private final static double PERCENTUALE_SCONTO = 0.4;

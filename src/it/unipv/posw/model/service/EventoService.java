@@ -1,6 +1,6 @@
 package it.unipv.posw.model.service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import it.unipv.posw.model.entities.Tappa;
@@ -9,6 +9,7 @@ import it.unipv.posw.model.entities.Utente;
 import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 import it.unipv.posw.model.service.salestrategies.AnzianiSaleStrategy;
+import it.unipv.posw.model.service.salestrategies.CompositeSaleStrategy;
 import it.unipv.posw.model.service.salestrategies.ISaleStrategy;
 import it.unipv.posw.model.service.salestrategies.SaleStrategyFactory;
 import it.unipv.posw.model.service.salestrategies.Under30SaleStrategy;
@@ -17,6 +18,35 @@ import it.unipv.posw.model.service.salestrategies.Under30SaleStrategy;
  * @author gpelle
  */
 public class EventoService {
+	
+	public double calcolaPrezzoFinale(double prezzoBase, Utente u) {
+		return costruisciSconti().calcolaPrezzoFinale(prezzoBase, u);
+	}
+
+	/* restituisce nome della strategia di sconto applicata.
+	   Il composite memorizza la vincente solo dopo aver calcolato il prezzo */
+	public String getNomeStrategiaApplicata(double prezzoBase, Utente u) {
+		CompositeSaleStrategy contenitoreSconti = costruisciSconti();
+		contenitoreSconti.calcolaPrezzoFinale(prezzoBase, u);
+		return contenitoreSconti.getNomeStrategy();
+	}
+
+	private CompositeSaleStrategy costruisciSconti() {
+		CompositeSaleStrategy contSconti = new CompositeSaleStrategy();
+
+		// aggiunta strategie fisse
+		contSconti.addStrategy(new Under30SaleStrategy());
+		contSconti.addStrategy(new AnzianiSaleStrategy());
+
+		// recupero strategia dinamica
+		ISaleStrategy strategiaDinamica = SaleStrategyFactory.getInstance().getDiscountStrategy();
+		if (strategiaDinamica != null) {
+			contSconti.addStrategy(strategiaDinamica);
+		}
+
+		return contSconti;
+	}
+	
 	
 	public Tariffa getTariffaSpecifica(int idTappa, int idSettore, TipologiaBiglietto tipo) {
         return MYSQLDAOFactory.getInstance()
@@ -36,31 +66,4 @@ public class EventoService {
                               .getTappaDAO()
                               .trovaTappePerEvento(idEvento);
     }
-	
-
-	public double calcolaPrezzoFinale(double prezzoBase, Utente u) {
-		// aggiunta strategie fisse
-	    List<ISaleStrategy> strategie = new ArrayList<>();
-	    strategie.add(new Under30SaleStrategy());
-	    strategie.add(new AnzianiSaleStrategy());
-	    
-	    // recupero strategia dinamica dalla Factory ed aggiunta
-	    ISaleStrategy strategiaDinamica = SaleStrategyFactory.getInstance().getDiscountStrategy();
-	    if (strategiaDinamica != null) {
-	        strategie.add(strategiaDinamica);
-	    }
-	    
-	    // calcolo prezzo minimo di tutte le strategie
-	    double prezzoMinimo = prezzoBase;
-	    
-	    for (ISaleStrategy s : strategie) {
-	        double prezzoScontato = s.calcolaPrezzoFinale(prezzoBase, u);
-	     
-	        if (prezzoScontato < prezzoMinimo) {
-	            prezzoMinimo = prezzoScontato;
-	        }
-	    }
-	    
-	    return prezzoMinimo;
-	}
 }

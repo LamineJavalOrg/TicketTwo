@@ -2,9 +2,13 @@ package it.unipv.posw.model.service.salestrategies;
 
 import it.unipv.posw.model.entities.Utente;
 
+/**
+ * @author gpelle
+ */
+
 public class XmasSaleStrategy implements ISaleStrategy{
 	
-	private final static double PERCENTUALE_SCONTO = 0.5;
+	private final static double PERCENTUALE_SCONTO = 0.2;
 
 	@Override
 	public double calcolaPrezzoFinale(double prezzoBase, Utente u) {
