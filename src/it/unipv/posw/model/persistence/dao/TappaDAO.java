@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.unipv.posw.model.entities.Tappa;
 import it.unipv.posw.model.persistence.DBConnection;
@@ -58,6 +60,40 @@ public class TappaDAO implements ITappaDAO {
 			return rs.getInt(1);
 		}
 		throw new SQLException("ID tappa non generato.");
+	}
+	
+	@Override
+	public List<Tappa> trovaTappePerEvento(int idEvento) {
+		String query = "SELECT t.id_tappa, t.id_evento, t.id_sede, s.nome, t.data_ora "
+				+ "FROM Tappa t JOIN Sede s ON t.id_sede = s.id_sede "
+				+ "WHERE t.id_evento = ? ORDER BY t.data_ora";
+		
+		List<Tappa> risultati = new ArrayList<Tappa>();
+		
+		Connection c = null;
+		try {
+			c = DBConnection.getInstance().startConnection();
+			PreparedStatement ps = c.prepareStatement(query);
+			
+			ps.setInt(1, idEvento);
+			
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int idTappa = rs.getInt("id_tappa");
+				int idEv = rs.getInt("id_evento");
+				int idSede = rs.getInt("id_sede");
+				String nomeSede = rs.getString("nome");
+				Timestamp ts = rs.getTimestamp("data_ora");
+				
+				Tappa t = new Tappa(idTappa, idEv, idSede, nomeSede, ts.toLocalDateTime());
+				risultati.add(t);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
+		return risultati;
 	}
 
 }
