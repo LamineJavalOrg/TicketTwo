@@ -102,4 +102,22 @@ public class Settore {
 	public void setId_settore(int id_settore) {
 		this.id_settore = id_settore;
 	}
+	
+	
+	@Override
+	public String toString() {
+	    StringBuilder sb = new StringBuilder();
+	    
+	    sb.append(nome_settore);
+	    sb.append(" (").append(prefisso).append(")");
+	    sb.append(" | ");
+	    sb.append(tipo.toString());
+	    sb.append(" | Capienza: ").append(getCapienza_max());
+	    
+	    if (tipo == TipologiaPosto.NUMERATO) {
+	        sb.append(" (").append(num_file).append(" file × ").append(posti_per_fila).append(")");
+	    }
+	    
+	    return sb.toString();
+	}
 }

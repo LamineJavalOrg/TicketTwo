@@ -1,6 +1,7 @@
 package it.unipv.posw.model.entities;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * @author gpelle
@@ -35,6 +36,11 @@ public abstract class Utente {
 	}
 	public String getPassword() {
 		return password;
+	}
+	
+	
+	public int getEta() {
+		return Period.between(this.data_nascita, LocalDate.now()).getYears();		
 	}
 	
 	

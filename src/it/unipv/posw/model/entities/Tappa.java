@@ -1,6 +1,7 @@
 package it.unipv.posw.model.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +42,11 @@ public class Tappa {
 
 	public LocalDateTime getData_ora() {
 		return data_ora;
+	}
+	
+	@Override
+	public String toString() {
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+	    return nomeSede + " - " + data_ora.format(formatter);
 	}
 }

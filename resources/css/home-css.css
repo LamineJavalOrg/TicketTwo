@@ -10,9 +10,7 @@
 }
 
 .topbar {
-
 	-fx-background-color: white;
-	
 }
 
 .sfondopred {
@@ -21,5 +19,15 @@
 
 .titolo {
 	-fx-font-weight: bold; 
-	-fx-font-size: 14px;
+	-fx-font-size: 15px;
+}
+
+.sottotitolo {
+	-fx-font-weight: bold; 
+	-fx-font-size: 13px;
+}
+
+.prezzoscontato {
+	-fx-font-weight: bold; 
+	-fx-text-fill: #27ae60; /* Verde per indicare vantaggio economico */
 }

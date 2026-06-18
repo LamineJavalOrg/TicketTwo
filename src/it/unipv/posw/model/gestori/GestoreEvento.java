@@ -1,0 +1,46 @@
+package it.unipv.posw.model.gestori;
+
+import it.unipv.posw.model.entities.Evento;
+import it.unipv.posw.model.service.CarrelloService;
+import it.unipv.posw.model.service.EventoService;
+import it.unipv.posw.model.service.SedeService;
+
+/**
+ * @author gpelle
+ */
+public class GestoreEvento {
+	
+	private static GestoreEvento instance;
+	private SedeService sedeService;
+    private EventoService eventoService;
+    private Evento evento;
+    
+    public static GestoreEvento getInstance() {
+		if (instance == null) {
+			instance = new GestoreEvento();
+	    }
+	    return instance;
+	}
+    
+    public GestoreEvento() {
+		this.sedeService = new SedeService();
+		this.eventoService = new EventoService();
+		this.evento = new Evento();
+	}
+
+	public SedeService getSedeService() {
+		return sedeService;
+	}
+
+	public EventoService getEventoService() {
+		return eventoService;
+	}
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+}

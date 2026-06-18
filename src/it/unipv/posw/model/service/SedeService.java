@@ -6,6 +6,7 @@ import java.util.List;
 
 import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.entities.Settore;
+import it.unipv.posw.model.entities.Tappa;
 import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
 import it.unipv.posw.model.exception.EmptyFieldException;
@@ -88,21 +89,10 @@ public class SedeService {
         return MYSQLDAOFactory.getInstance().getSedeDAO().getTutteLeSedi();
     }
     
-    public List<Settore> getSettoriPerSede(int idSede) {
-		return MYSQLDAOFactory.getInstance().getSettoreDAO().getSettoriDaSede(idSede);
+    public List<Settore> getSettoriPerSede(Tappa tappa) {
+		return MYSQLDAOFactory.getInstance().getSettoreDAO().getSettoriDaSede(tappa.getId_sede());
 	}
     
-	public boolean eliminaSede(Sede sede) throws SedeNonEliminabileException {
-		int idSede = sede.getId_sede();
-		
-		ITappaDAO tappaDAO = MYSQLDAOFactory.getInstance().getTappaDAO();
-		ISedeDAO sedeDAO = MYSQLDAOFactory.getInstance().getSedeDAO();
-		
-		if (tappaDAO.contaTappePerSede(idSede) > 0) {
-			throw new SedeNonEliminabileException();
-		}
-        return sedeDAO.eliminaSede(idSede);
-		}
 	
 	
 	

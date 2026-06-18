@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.posw.controller.acquisto.AcquistoController;
+import it.unipv.posw.controller.acquisto.EventoController;
 import it.unipv.posw.model.entities.Artista;
 import it.unipv.posw.model.entities.Evento;
 import it.unipv.posw.model.enums.RicercaType;
 import it.unipv.posw.model.gestori.GestoreAcquisto;
+import it.unipv.posw.model.gestori.GestoreEvento;
 import it.unipv.posw.model.service.ricerca.IRicercaStrategy;
 import it.unipv.posw.model.service.ricerca.RicercaFactory;
 import it.unipv.posw.view.acquisto.AcquistoFrame;
@@ -30,7 +32,7 @@ public class RicercaController {
 	
     private RicercaFrame ricercaF;
     private IRicercaStrategy strategiaAttuale;
-
+    
     public RicercaController(RicercaFrame ricercaF, IRicercaStrategy strategiaAttuale) {
         this.ricercaF = ricercaF;
         this.strategiaAttuale = strategiaAttuale; 
@@ -100,18 +102,20 @@ public class RicercaController {
     	
     	AcquistoFrame acquistoFrame = ricercaF.creAcquistoFrame();
     	new AcquistoController(acquistoFrame, GestoreAcquisto.getInstance());
-        
+    	
     	switch (tipo) {
 		 case PER_EVENTO:
-
             acquistoFrame.mostraSchermata(acquistoFrame.getEventoView()); 
+            Evento eventoScelto = (Evento) scelta;
+			GestoreEvento.getInstance().setEvento(eventoScelto);
+			new EventoController(acquistoFrame.getEventoView(), GestoreEvento.getInstance());
             
             ricercaF.mostraSchermata(acquistoFrame);
 
 			 break;
 		 case PER_ARTISTA:
 			
-			Artista artista = (Artista)scelta;
+			Artista artista = (Artista) scelta;
 			acquistoFrame.getEventiPerArtistaView().getLblTitolo().setText(artista.getNome_darte());
 			List<Evento> lista = RicercaFactory.getRicercaStrategy(RicercaType.PER_ARTISTA).eseguiPostRicerca(scelta);
 			
@@ -122,6 +126,8 @@ public class RicercaController {
 	                @Override
 	                public void handle(ActionEvent event) {
 	                   acquistoFrame.mostraSchermata(acquistoFrame.getEventoView());
+	                   GestoreEvento.getInstance().setEvento(e);
+	                   new EventoController(acquistoFrame.getEventoView(), GestoreEvento.getInstance());
 	                }
 				});
 			}

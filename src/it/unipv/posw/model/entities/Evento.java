@@ -15,6 +15,8 @@ public class Evento {
 	private int id_artista; 
     private List<Tappa> tappe;
     
+    public Evento() {};
+    
 	public Evento(int id_evento, String nome, TipologiaEvento tipo, String email_organizzatore, int id_artista) {
 		super();
 		this.id_evento = id_evento;
@@ -54,7 +56,10 @@ public class Evento {
 	public void aggiungiTappa(Tappa tp) {
         this.tappe.add(tp);
     }
-	
-	
+
+	@Override
+	public String toString() {
+	    return nome + " - " + tipo;
+	}
 	
 }
