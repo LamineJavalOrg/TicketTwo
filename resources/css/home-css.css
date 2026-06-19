@@ -28,6 +28,12 @@
 	-fx-text-fill: #27ae60; /* Verde per indicare vantaggio economico */
 }
 
+.descrizioneprezzo {
+    -fx-font-weight: bold;
+    -fx-text-fill: #27ae60; /* Verde per indicare lo sconto */
+    -fx-font-style: italic; /* Forza il testo in corsivo */
+}
+
 .qr {
 	-fx-background-image: url("/images/qrcode.png");
     

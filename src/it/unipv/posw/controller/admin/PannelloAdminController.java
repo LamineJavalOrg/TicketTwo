@@ -34,12 +34,23 @@ public class PannelloAdminController {
 			
 			// Listener per Crea Evento
 			pannelloAdmF.getPannelloAdminView().getBtnCreaEvento().setOnAction(new EventHandler<ActionEvent>() {
-				
 				@Override
 				public void handle(ActionEvent event) {
 					handleCreaEvento(event);					
 				}
-			});		
+			});
+			
+			
+			// Listener per Area riservata
+			pannelloAdmF.getPannelloAdminView().getBtnArOrg().setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					handleAreaRiservata(event);					
+				}
+			});
+			
+			
+			
 	}
 		
 		private void handleConfiguraSede(ActionEvent e) {
@@ -49,7 +60,11 @@ public class PannelloAdminController {
 
 		private void handleCreaEvento(ActionEvent e) {
 			pannelloAdmF.mostraSchermata(pannelloAdmF.getCreaEventoView());
-			new CreaEventoController(pannelloAdmF.getCreaEventoView(), model.getSedeService(), 
-					model.getCreaEventoService());
+			new CreaEventoController(pannelloAdmF.getCreaEventoView(), GestoreAdmin.getInstance());
+	}
+
+		private void handleAreaRiservata(ActionEvent e) {
+			pannelloAdmF.mostraSchermata(pannelloAdmF.getArOrganizzatoreView());
+			new ArOrganizzatoreController(pannelloAdmF.getArOrganizzatoreView(), GestoreAdmin.getInstance());
 	}
 }

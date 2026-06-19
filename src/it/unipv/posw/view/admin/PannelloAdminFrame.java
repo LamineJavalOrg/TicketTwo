@@ -14,17 +14,20 @@ public class PannelloAdminFrame extends BorderPane implements IView {
 	private PannelloAdminView pannelloAdminView;
 	private ConfiguraSedeView configuraSedeView;
 	private CreaEventoView creaEventoView;
+	private ArOrganizzatoreView arOrganizzatoreView;
 	
 	public PannelloAdminFrame() {
 		pannelloAdminView = new PannelloAdminView();
 		configuraSedeView = new ConfiguraSedeView();
 		creaEventoView = new CreaEventoView();
+		arOrganizzatoreView = new ArOrganizzatoreView();
 	}
 	
 	public void mostraSchermata(IView s) {
 		this.setCenter(s.getNodo());
 	}
 
+	
 	public PannelloAdminView getPannelloAdminView() {
 		return pannelloAdminView;
 	}
@@ -35,6 +38,10 @@ public class PannelloAdminFrame extends BorderPane implements IView {
 	
 	public CreaEventoView getCreaEventoView() {
 		return creaEventoView;
+	}
+	
+	public ArOrganizzatoreView getArOrganizzatoreView() {
+		return arOrganizzatoreView;
 	}
 
 	

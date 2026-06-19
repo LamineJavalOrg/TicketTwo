@@ -51,12 +51,13 @@ public class SedeDAO implements ISedeDAO {
 	// percorso transazionale
 	@Override
     public Sede salvaSede(Sede sede, Connection c) throws SQLException {
-	    String query = "INSERT INTO Sede (nome, indirizzo) VALUES (?,?)";
+	    String query = "INSERT INTO Sede (nome, indirizzo, email_organizzatore) VALUES (?,?,?)";
 	    
 	    PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 	        
 	    ps.setString(1, sede.getNome()); 
 	    ps.setString(2, sede.getIndirizzo());
+		ps.setString(3, sede.getEmail_organizzatore());
 	        
 	    ps.executeUpdate();
 	        
@@ -110,6 +111,38 @@ public class SedeDAO implements ISedeDAO {
 						idSede,
 						rs.getString("nome"),
 						rs.getString("indirizzo"),
+						rs.getString("email_organizzatore"),
+						settori));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
+		return sedi;
+	}
+	
+	@Override
+	public List<Sede> getSediPerOrganizzatore(String email) {
+		List<Sede> sedi = new ArrayList<>();
+		ISettoreDAO settoreDAO = MYSQLDAOFactory.getInstance().getSettoreDAO();
+		String query = "SELECT * FROM Sede WHERE email_organizzatore = ?";
+		Connection c = null;
+		try {
+			c = DBConnection.getInstance().startConnection();
+			PreparedStatement ps = c.prepareStatement(query);
+			ps.setString(1, email);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int idSede = rs.getInt("id_sede");
+				List<Settore> settori = settoreDAO.getSettoriDaSede(idSede);
+				sedi.add(new Sede(
+						idSede,
+						rs.getString("nome"),
+						rs.getString("indirizzo"),
+						rs.getString("email_organizzatore"),
 						settori));
 			}
 		} catch (SQLException e) {

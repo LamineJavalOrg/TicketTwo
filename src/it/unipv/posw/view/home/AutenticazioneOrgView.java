@@ -39,6 +39,7 @@ public class AutenticazioneOrgView extends VBox implements IView {
 	     btnLogin.setMinWidth(120);
 	     
 	     lblTitolo = new Label("Autenticazione organizzatore");
+	     lblTitolo.getStyleClass().add("titolo");
 	     lblEmail = new Label("Email:");
 	     lblPassword = new Label("Password");
 	        

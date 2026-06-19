@@ -1,5 +1,6 @@
 package it.unipv.posw.model.gestori;
 
+import it.unipv.posw.model.service.ArOrganizzatoreService;
 import it.unipv.posw.model.service.CreaEventoService;
 import it.unipv.posw.model.service.SedeService;
 
@@ -12,6 +13,7 @@ public class GestoreAdmin {
 	private static GestoreAdmin instance;
 	private SedeService sedeService;
 	private CreaEventoService creaEventoService;
+	private ArOrganizzatoreService arOrganizzatoreService;
 	
 	public static GestoreAdmin getInstance() {
 		if (instance == null) {
@@ -23,6 +25,7 @@ public class GestoreAdmin {
 	public GestoreAdmin() {
 		this.sedeService = new SedeService();
 		this.creaEventoService = new CreaEventoService();
+		this.arOrganizzatoreService = new ArOrganizzatoreService();
 	}
 
 	public SedeService getSedeService() {
@@ -31,5 +34,9 @@ public class GestoreAdmin {
 
 	public CreaEventoService getCreaEventoService() {
 		return creaEventoService;
+	}
+
+	public ArOrganizzatoreService getArOrganizzatoreService() {
+		return arOrganizzatoreService;
 	}
 }

@@ -16,6 +16,7 @@ public interface ISedeDAO {
 	public Sede salvaSede(Sede sede, Connection c) throws SQLException;
 	public boolean eliminaSede(int idSede);
 	public List<Sede> getTutteLeSedi();
+	List<Sede> getSediPerOrganizzatore(String email);
 
 
 	

@@ -119,6 +119,62 @@ public class EventoDAO implements IEventoDAO {
 	}
 	
 	
+	@Override
+	public boolean eliminaEvento(int idEvento) {
+		PreparedStatement ps;
+		String query = "DELETE FROM Evento WHERE id_evento = ?";
+		Connection c = null;
+		
+		try {
+			c = DBConnection.getInstance().startConnection();
+			ps = c.prepareStatement(query);
+			
+			ps.setInt(1, idEvento);
+			
+			int result = ps.executeUpdate();
+			return result > 0;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public List<Evento> trovaEventiPerOrganizzatore(String email) {
+		List<Evento> risultati = new ArrayList<>();
+		String query = "SELECT * FROM Evento WHERE email_organizzatore = ?"; 
+		Connection c = null;
+		
+		try {
+			c = DBConnection.getInstance().startConnection();
+			PreparedStatement ps = c.prepareStatement(query);
+			
+			ps.setString(1, email);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				risultati.add(new Evento(
+					rs.getInt("id_evento"),
+					rs.getString("nome"),
+					TipologiaEvento.valueOf((rs.getString("tipologia")).toUpperCase()),
+					rs.getString("email_organizzatore"),
+					rs.getInt("id_artista")
+				));
+			}
+			
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
+		
+		return risultati;
+	}
+	
 	
 	
 

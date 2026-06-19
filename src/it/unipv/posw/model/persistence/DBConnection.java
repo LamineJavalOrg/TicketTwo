@@ -47,6 +47,7 @@ public class DBConnection {
         return instance;
     }
 
+    
     public Connection startConnection() throws SQLException {
         	
     	try {
@@ -69,6 +70,29 @@ public class DBConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setAutoCommit(Connection c, boolean autoCommit) {
+    	if (c != null) {
+    		try {
+    			c.setAutoCommit(autoCommit);
+    		} catch (SQLException e) {
+    			System.err.println("Errore durante impostazione autocommit!");
+    			e.printStackTrace();
+    		}
+    	}
+    }
+    
+    public void rollback(Connection c) {
+    	if (c != null) {
+    		try {
+    			c.rollback();
+				System.err.println("Rollback eseguito con successo!");
+    		} catch (SQLException e) {
+    			System.err.println("Errore durante il rollback!");
+    			e.printStackTrace();
+    		}
+    	}
     }
 
 }

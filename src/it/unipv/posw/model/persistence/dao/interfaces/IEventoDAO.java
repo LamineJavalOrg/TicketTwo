@@ -15,5 +15,7 @@ public interface IEventoDAO {
 	public List<Evento> trovaEventiPerNome(String parziale);
 	List<Evento> trovaEventiPerArtista(String parziale);
 	int salvaEvento(Evento evento, Connection c) throws SQLException;
+	boolean eliminaEvento(int idEvento);
+	List<Evento> trovaEventiPerOrganizzatore(String email);
 
 }

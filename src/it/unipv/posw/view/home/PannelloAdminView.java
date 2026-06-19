@@ -12,6 +12,7 @@ public class PannelloAdminView extends VBox implements IView {
 	private Label lblBenvenuto;
 	private Button btnConfiguraSede;
     private Button btnCreaEvento;
+    private Button btnArOrg;
     
     public PannelloAdminView() {
     	
@@ -22,13 +23,16 @@ public class PannelloAdminView extends VBox implements IView {
         this.getStyleClass().add("sfondopred");
         
         lblBenvenuto = new Label("Area Organizzatore");
+        lblBenvenuto.getStyleClass().add("titolo");
         btnConfiguraSede = new Button("Configura Nuova Sede");
         btnCreaEvento = new Button("Crea Nuovo Evento");
+        btnArOrg = new Button("Area riservata");
         
         this.getChildren().addAll(
         		lblBenvenuto,
         		btnConfiguraSede,
-        		btnCreaEvento
+        		btnCreaEvento,
+        		btnArOrg
         		);
 	}
 
@@ -43,7 +47,12 @@ public class PannelloAdminView extends VBox implements IView {
 	public Button getBtnCreaEvento() {
 		return btnCreaEvento;
 	}
+	
+	public Button getBtnArOrg() {
+		return btnArOrg;
+	}
 
+	
 	@Override
 	public Node getNodo() {
 		return this;

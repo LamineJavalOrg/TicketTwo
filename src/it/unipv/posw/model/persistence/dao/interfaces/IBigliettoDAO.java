@@ -15,4 +15,5 @@ public interface IBigliettoDAO {
 	void updatePostAcquisto(int id_biglietto, String email, String nominativo, String qr, double prezzoAcquisto);
 	int countPostiLiberi(int idTappa, int idSettore, String tipo);
 	void cambiaNominativo(int id_biglietto, String nominativo);
+	int contaBigliettiVenduti(int idEvento);
 }

@@ -148,4 +148,33 @@ public class BigliettoDAO implements IBigliettoDAO {
 		
 	}
 	
+	@Override
+	public int contaBigliettiVenduti(int idEvento) {
+		int totaleVenduti = 0;
+		PreparedStatement ps;
+		String query = "SELECT COUNT(*) FROM Biglietto b " +
+		               "JOIN Tariffa t ON b.id_tariffa = t.id_tariffa " +
+		               "WHERE t.id_evento = ? AND b.stato = 'ACQUISTATO'"; 
+		Connection c = null;
+		
+		try {
+			c = DBConnection.getInstance().startConnection();
+			ps = c.prepareStatement(query);
+			
+			ps.setInt(1, idEvento);
+			
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				totaleVenduti = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally {
+			DBConnection.getInstance().closeConnection(c);
+		}
+		
+		return totaleVenduti;
+	}
+	
 }
