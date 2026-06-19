@@ -6,6 +6,6 @@ package it.unipv.posw.model.service.payment;
 
 public interface IPagamentoStrategy {
 	
-	IPagamento getMetodoPagamento();
+	IPagamentoAdapter getMetodoPagamento();
 
 }

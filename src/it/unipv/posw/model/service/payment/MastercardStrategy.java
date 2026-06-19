@@ -7,7 +7,7 @@ package it.unipv.posw.model.service.payment;
 public class MastercardStrategy implements IPagamentoStrategy {
 
 	@Override
-	public IPagamento getMetodoPagamento() {
+	public IPagamentoAdapter getMetodoPagamento() {
 		
 		return PagamentoFactory.getMastercardAdapter(new Mastercard());
 	}

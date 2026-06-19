@@ -4,7 +4,7 @@ package it.unipv.posw.model.service.payment;
  * @author rkomi-dev
  */
 
-public class MastercardAdapter implements IPagamento {
+public class MastercardAdapter implements IPagamentoAdapter {
 	
 	IMastercard mast;
 

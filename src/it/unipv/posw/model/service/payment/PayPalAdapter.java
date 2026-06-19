@@ -4,7 +4,7 @@ package it.unipv.posw.model.service.payment;
  * @author rkomi-dev
  */
 
-public class PayPalAdapter implements IPagamento {
+public class PayPalAdapter implements IPagamentoAdapter {
 	
 	IPayPal pay;
 	
