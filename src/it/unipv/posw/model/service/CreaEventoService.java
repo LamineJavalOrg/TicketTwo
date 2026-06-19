@@ -13,7 +13,10 @@ import it.unipv.posw.model.entities.Tappa;
 import it.unipv.posw.model.entities.Tariffa;
 import it.unipv.posw.model.enums.TipologiaEvento;
 import it.unipv.posw.model.exception.DataPassataException;
+import it.unipv.posw.model.exception.DataTappaDuplicataException;
 import it.unipv.posw.model.exception.EmptyFieldException;
+import it.unipv.posw.model.exception.EventoException;
+import it.unipv.posw.model.exception.EventoSalvataggioException;
 import it.unipv.posw.model.exception.EventoSenzaTappeException;
 import it.unipv.posw.model.exception.TariffaNonValidaException;
 import it.unipv.posw.model.persistence.DBConnection;
@@ -32,7 +35,7 @@ public class CreaEventoService {
 	
 	public Evento creaEvento(String nome, TipologiaEvento tipo, String emailOrganizzatore,
 			String nomeArtista, List<Tappa> tappe)
-			throws EmptyFieldException, EventoSenzaTappeException,
+			throws EmptyFieldException, EventoException,
 			TariffaNonValidaException, DataPassataException {
 
 		if (nome == null || nome.trim().isEmpty() || nomeArtista == null || nomeArtista.trim().isEmpty()
@@ -83,6 +86,25 @@ public class CreaEventoService {
 		}
 	}
 
+	public void validaDataNonDuplicata(Tappa nuova, List<Tappa> esistenti) throws DataTappaDuplicataException {
+		if (nuova == null || esistenti == null) {
+			return;
+		}
+		for (Tappa t : esistenti) {
+			if (stessaData(t, nuova)) {
+				throw new DataTappaDuplicataException();
+			}
+		}
+	}
+
+	
+	private boolean stessaData(Tappa a, Tappa b) {
+		if (a.getData_ora() == null || b.getData_ora() == null) {
+			return false;
+		}
+		return a.getData_ora().toLocalDate().equals(b.getData_ora().toLocalDate());
+	}
+	
 	private int ritornaIdArtista(String nomeArtista) {
 		String nome = nomeArtista.trim();
 		IArtistaDAO artistaDAO = MYSQLDAOFactory.getInstance().getArtistaDAO();
@@ -97,7 +119,7 @@ public class CreaEventoService {
 	}
 
 	// connessione condivisa + transazione
-	private Evento salvaInTransazione(Evento evento, List<Tappa> tappe) {
+	private Evento salvaInTransazione(Evento evento, List<Tappa> tappe) throws EventoException {
 		IEventoDAO eventoDAO = MYSQLDAOFactory.getInstance().getEventoDAO();
 		ITappaDAO tappaDAO = MYSQLDAOFactory.getInstance().getTappaDAO();
 		ITariffaDAO tariffaDAO = MYSQLDAOFactory.getInstance().getTariffaDAO();
@@ -128,11 +150,11 @@ public class CreaEventoService {
 			return salvato;
 
 		} catch (Exception e) {
-			eseguiRollback(c);
+			DBConnection.getInstance().rollback(c);
 			e.printStackTrace();
-			return null;
+			throw new EventoSalvataggioException("Errore imprevisto del database durante la creazione dell'evento", e);
 		} finally {
-			attivaAutoCommit(c);
+			DBConnection.getInstance().setAutoCommit(c, true);
 			DBConnection.getInstance().closeConnection(c);
 		}
 	}
@@ -150,27 +172,4 @@ public class CreaEventoService {
 		}
 		return postiPerSettore;
 	}
-
-	
-	// metodi di aiuto per gestione transazione
-	private void eseguiRollback(Connection c) {
-		if (c != null) {
-			try {
-				c.rollback();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	private void attivaAutoCommit(Connection c) {
-		if (c != null) {
-			try {
-				c.setAutoCommit(true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
 }

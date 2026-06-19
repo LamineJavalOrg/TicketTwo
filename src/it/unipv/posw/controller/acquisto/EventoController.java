@@ -23,12 +23,11 @@ public class EventoController {
 
     private EventoView view;
     private GestoreEvento model;
-	private TipologiaBiglietto tipologiaCorrente = null;
 
     private ChangeListener<Tappa> tappaListener;
     private ChangeListener<Settore> settoreListener;
-
-    private double prezzoUnitarioCorrente = 0.0;
+    
+	private TipologiaBiglietto tipologiaCorrente;
 
     public EventoController(EventoView view, GestoreEvento model) {
 		this.view = view;
@@ -42,6 +41,8 @@ public class EventoController {
         view.setTitolo(model.getEvento().getNome());
         view.setTipoEvento(model.getEvento().getTipo().toString());
         view.popolaTappe(model.getEventoService().getTappePerEvento(model.getEvento().getId_evento()));
+
+        
 
         Tappa iniziale = view.getComboTappe().getValue();
         if (iniziale != null) {
@@ -98,6 +99,7 @@ public class EventoController {
             pulisciCampiDipendenti();
             return;
         }
+        
         List<Settore> settori = model.getSedeService().getSettoriPerSede(tappa);
         popolaCombo(view.getComboSettori(), settoreListener, settori);
 
@@ -109,10 +111,9 @@ public class EventoController {
     }
 
     private void aggiornaListaTipologie(Settore settore) {
-    	
         Tappa tappa = view.getComboTappe().getValue();
         if (tappa == null || settore == null) {
-            resetGraficoDati();
+            resetPrezzo();
             return;
         }
 
@@ -122,20 +123,20 @@ public class EventoController {
         if (tipologie != null && !tipologie.isEmpty()) {
             this.tipologiaCorrente = tipologie.get(0);
             view.setTipologiaValore(this.tipologiaCorrente.toString());
-            aggiornaDatiPrezzoEDisponibilita();
+            aggiornaPrezzo();
         } else {
-            resetGraficoDati();
+            resetPrezzo();
         }
     }
         
 
-    private void aggiornaDatiPrezzoEDisponibilita() {
+    private void aggiornaPrezzo() {
         Tappa tappa = view.getComboTappe().getValue();
         Settore settore = view.getComboSettori().getValue();
         TipologiaBiglietto tipo = this.tipologiaCorrente;
 
         if (tappa == null || settore == null || tipo == null) {
-            resetGraficoDati();
+            resetPrezzo();
             return;
         }
 
@@ -143,31 +144,31 @@ public class EventoController {
                 tappa.getId_tappa(), settore.getId_settore(), tipo);
 
         if (tariffa == null) {
-            resetGraficoDati();
+            resetPrezzo();
             return;
         }
 
         Utente utente = SessioneCliente.getInstance().getClienteLoggato();
         double prezzoBase = tariffa.getPrezzo();
-        double prezzoFinale = model.getEventoService().calcolaPrezzoFinale(tariffa.getPrezzo(), utente);
-        this.prezzoUnitarioCorrente = prezzoFinale;
+        double prezzoFinale = model.getEventoService().calcolaPrezzoFinale(prezzoBase, utente);
 
-        view.setPrezzoBase(prezzoBase);
         if (prezzoFinale < prezzoBase) {
-            view.setPrezzoScontato(prezzoFinale);
-        } else {
-            view.nascondiAreaSconto();
-        }}
+			String nomeSconto = model.getEventoService().getNomeStrategiaApplicata(prezzoBase, utente);
+			view.mostraPrezzoScontato(prezzoBase, prezzoFinale, nomeSconto);
+		} else {
+			view.mostraPrezzo(prezzoBase);
+		}
+    }
 
  
     private void pulisciCampiDipendenti() {
         popolaCombo(view.getComboSettori(), settoreListener, null);
-        resetGraficoDati();
+        resetPrezzo();
     }
 
-    private void resetGraficoDati() {
-        this.prezzoUnitarioCorrente = 0.0;
-        view.setPrezzoBase(0.0);
-        view.nascondiAreaSconto();
+    private void resetPrezzo() {
+    	this.tipologiaCorrente = null;
+        view.resetTipologia();
+        view.resetPrezzo();
     }    
 }

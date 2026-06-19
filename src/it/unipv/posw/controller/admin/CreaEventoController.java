@@ -15,9 +15,12 @@ import it.unipv.posw.model.entities.Tariffa;
 import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.enums.TipologiaEvento;
 import it.unipv.posw.model.exception.DataPassataException;
+import it.unipv.posw.model.exception.DataTappaDuplicataException;
 import it.unipv.posw.model.exception.EmptyFieldException;
+import it.unipv.posw.model.exception.EventoException;
 import it.unipv.posw.model.exception.EventoSenzaTappeException;
 import it.unipv.posw.model.exception.TariffaNonValidaException;
+import it.unipv.posw.model.gestori.GestoreAdmin;
 import it.unipv.posw.model.service.CreaEventoService;
 import it.unipv.posw.model.service.SedeService;
 import it.unipv.posw.view.admin.CreaEventoView;
@@ -34,15 +37,13 @@ import javafx.event.EventHandler;
 public class CreaEventoController {
 
     private CreaEventoView view;
-    private SedeService sedeService;
-    private CreaEventoService creaEventoService;
+    private GestoreAdmin model;
 
     private List<Tappa> tappe;
 
-    public CreaEventoController(CreaEventoView view, SedeService sedeService, CreaEventoService creaEventoService) {
+    public CreaEventoController(CreaEventoView view, GestoreAdmin model) {
         this.view = view;
-        this.sedeService = sedeService;
-        this.creaEventoService = creaEventoService;
+        this.model = model;
         this.tappe = new ArrayList<>();
 
         inizializzaVista();
@@ -50,7 +51,7 @@ public class CreaEventoController {
     }
 
     private void inizializzaVista() {
-        view.popolaSedi(sedeService.getTutteLeSedi());
+        view.popolaSedi(model.getSedeService().getTutteLeSedi());
         aggiornaSedeSelezionata();
     }
 
@@ -81,7 +82,8 @@ public class CreaEventoController {
         Tappa tappa = costruisciTappaDallaView();
 
         try {
-            creaEventoService.validaTappa(tappa);
+            model.getCreaEventoService().validaTappa(tappa);
+            model.getCreaEventoService().validaDataNonDuplicata(tappa, tappe);
         } catch (EmptyFieldException ex) {
             AlertView.mostraErrore(ex.getMessage());
             return;
@@ -91,7 +93,10 @@ public class CreaEventoController {
         } catch (DataPassataException ex) {
             AlertView.mostraErrore(ex.getMessage());
             return;
-        }
+        } catch (DataTappaDuplicataException ex) {
+            AlertView.mostraErrore(ex.getMessage());
+            return;
+		}
 
         tappe.add(tappa);
 
@@ -109,17 +114,14 @@ public class CreaEventoController {
         String emailOrg = SessioneOrganizzatore.getInstance().getOrganizzatoreLoggato().getEmail();
 
         try {
-            Evento creato = creaEventoService.creaEvento(nome, tipo, emailOrg, nomeArtista, tappe);
-            if (creato != null) {
-                AlertView.mostraInfo("Evento " + creato.getNome() + " creato con successo ("
+            Evento creato = model.getCreaEventoService().creaEvento(nome, tipo, emailOrg, nomeArtista, tappe);
+            AlertView.mostraInfo("Evento " + creato.getNome() + " creato con successo ("
                         + creato.getTappe().size() + " tappe)");
-                resetStato();
-            } else {
-                AlertView.mostraErrore("Errore durante il salvataggio dell'evento. Riprova.");
-            }
+            resetStato();
+            
         } catch (EmptyFieldException ex) {
             AlertView.mostraErrore(ex.getMessage());
-        } catch (EventoSenzaTappeException ex) {
+        } catch (EventoException ex) {
             AlertView.mostraErrore(ex.getMessage());
         } catch (TariffaNonValidaException ex) {
             AlertView.mostraErrore(ex.getMessage());

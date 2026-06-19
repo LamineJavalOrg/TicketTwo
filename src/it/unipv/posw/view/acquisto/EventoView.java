@@ -99,6 +99,7 @@ public class EventoView extends VBox implements IView {
         boxQuantita.getChildren().addAll(lblQuantita, comboQuantita);
  
         lblDescrizioneSconto = new Label("");
+        lblDescrizioneSconto.getStyleClass().add("descrizioneprezzo");
         lblDescrizioneSconto.setVisible(false);
         lblDescrizioneSconto.setManaged(false);
  
@@ -147,31 +148,46 @@ public class EventoView extends VBox implements IView {
         if (tappe != null && !tappe.isEmpty()) {
             comboTappe.setItems(FXCollections.observableArrayList(tappe));
             comboTappe.getSelectionModel().selectFirst();
-        }
+        } else {
+			comboTappe.getItems().clear();
+		}
     }
     
     public void setTipologiaValore(String testo) {
         this.lblTipologiaValore.setText(testo);
     }
+        
+    public void resetTipologia() {
+		this.lblTipologiaValore.setText("-");
+	}
     
-    public void setPrezzoBase(double valore) {
-        this.lblPrezzoBase.setText(String.format("Prezzo base: %.2f €", valore));
-    }
+    public void mostraPrezzo(double prezzo) {
+		this.lblPrezzoBase.setText(String.format("Prezzo: %.2f €", prezzo));
+		nascondiAreaSconto();
+	}
+    
+    public void mostraPrezzoScontato(double prezzoBase, double prezzoScontato, String nomeSconto) {
+		this.lblPrezzoBase.setText(String.format("Prezzo base: %.2f €", prezzoBase));
+		this.lblPrezzoScontato.setText(String.format("Prezzo scontato: %.2f €", prezzoScontato));
+		this.lblDescrizioneSconto.setText(String.format("%s", nomeSconto));
+		mostraAreaSconto();
+	}
+    
+    public void resetPrezzo() {
+		this.lblPrezzoBase.setText("Prezzo: -- €");
+		nascondiAreaSconto();
+	}
  
-    public void setPrezzoScontato(double valore) {
-        this.lblPrezzoScontato.setText(String.format("Prezzo scontato: %.2f €", valore));
- 
-        this.lblDescrizioneSconto.setVisible(true);
-        this.lblDescrizioneSconto.setManaged(true);
- 
+    public void mostraAreaSconto() {
         this.lblPrezzoScontato.setVisible(true);
         this.lblPrezzoScontato.setManaged(true);
+        this.lblDescrizioneSconto.setVisible(true);
+        this.lblDescrizioneSconto.setManaged(true);
     }
  
     public void nascondiAreaSconto() {
         this.lblPrezzoScontato.setVisible(false);
         this.lblPrezzoScontato.setManaged(false);
- 
         this.lblDescrizioneSconto.setVisible(false);
         this.lblDescrizioneSconto.setManaged(false);
     }
@@ -195,8 +211,6 @@ public class EventoView extends VBox implements IView {
     	return btnCarrello; 
     }
  
-    
-    
     public Label getLblTipologiaValore() {
 		return lblTipologiaValore;
 	}

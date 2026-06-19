@@ -11,7 +11,9 @@ import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
 import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.SedeEsistenteException;
+import it.unipv.posw.model.exception.SedeException;
 import it.unipv.posw.model.exception.SedeNonEliminabileException;
+import it.unipv.posw.model.exception.SedeSalvataggioException;
 import it.unipv.posw.model.exception.SedeSenzaSettoriException;
 import it.unipv.posw.model.exception.SettoreNonValidoException;
 import it.unipv.posw.model.persistence.DBConnection;
@@ -36,7 +38,7 @@ public class SedeService {
 	}
 	
 	
-	public Sede configuraSede(Sede sede) throws EmptyFieldException, SedeSenzaSettoriException, SedeEsistenteException {
+	public Sede configuraSede(Sede sede) throws EmptyFieldException, SedeException {
 		if (sede.getNome() == null || sede.getNome().trim().isEmpty()
 				|| sede.getIndirizzo() == null || sede.getIndirizzo().trim().isEmpty()) {
 			throw new EmptyFieldException();
@@ -49,11 +51,10 @@ public class SedeService {
 		ISettoreDAO settoreDAO = MYSQLDAOFactory.getInstance().getSettoreDAO();
 		IPostoDAO postoDAO = MYSQLDAOFactory.getInstance().getPostoDAO();
 		
-		
-		
         if (sedeDAO.isSedeEsistente(sede.getNome(), sede.getIndirizzo())) {
         	throw new SedeEsistenteException();
         }
+        
         
         // connessione condivisa + transazione
         Connection c = null;
@@ -75,11 +76,11 @@ public class SedeService {
             return sedeSalvata;
             
         } catch (Exception e) {
-        	eseguiRollback(c);
+        	DBConnection.getInstance().rollback(c);
 			e.printStackTrace();
-			return null;
+			throw new SedeSalvataggioException("Errore imprevisto del database durante il salvataggio della sede.", e);
 		} finally {
-			attivaAutoCommit(c);
+			DBConnection.getInstance().setAutoCommit(c, true);
 			DBConnection.getInstance().closeConnection(c);
 		}
 	}
@@ -91,29 +92,5 @@ public class SedeService {
     
     public List<Settore> getSettoriPerSede(Tappa tappa) {
 		return MYSQLDAOFactory.getInstance().getSettoreDAO().getSettoriDaSede(tappa.getId_sede());
-	}
-    
-	
-	
-	
-	// metodi di aiuto per gestione transazione
-	private void eseguiRollback(Connection c) {
-		if (c != null) {
-			try {
-				c.rollback();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
- 
-	private void attivaAutoCommit(Connection c) {
-		if (c != null) {
-			try {
-				c.setAutoCommit(true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+	}	
 }

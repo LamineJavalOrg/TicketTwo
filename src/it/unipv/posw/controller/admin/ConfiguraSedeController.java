@@ -3,12 +3,12 @@ package it.unipv.posw.controller.admin;
 import java.util.List;
 
 import it.unipv.posw.model.entities.Sede;
+import it.unipv.posw.model.entities.SessioneOrganizzatore;
 import it.unipv.posw.model.entities.Settore;
 import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
 import it.unipv.posw.model.exception.EmptyFieldException;
-import it.unipv.posw.model.exception.SedeEsistenteException;
-import it.unipv.posw.model.exception.SedeSenzaSettoriException;
+import it.unipv.posw.model.exception.SedeException;
 import it.unipv.posw.model.exception.SettoreNonValidoException;
 import it.unipv.posw.model.service.SedeService;
 import it.unipv.posw.view.admin.ConfiguraSedeView;
@@ -102,22 +102,18 @@ public class ConfiguraSedeController {
     private void handleSalvaSede(ActionEvent e) {
     	nuovaSede.setNome(view.getNomeSede());
         nuovaSede.setIndirizzo(view.getIndirizzo());
+        nuovaSede.setEmail_organizzatore(
+        		SessioneOrganizzatore.getInstance().getOrganizzatoreLoggato().getEmail());
  
         try {
             Sede salvata = service.configuraSede(nuovaSede);
-            if (salvata == null) {
-                AlertView.mostraErrore("Errore durante il salvataggio della sede. Riprova.");
-                return;
-            }
             AlertView.mostraInfo("Sede " + salvata.getNome() + " configurata con successo!");
             
             resetStato();
             aggiornaListaSedi();
         } catch (EmptyFieldException ex) {
         	AlertView.mostraErrore(ex.getMessage());
-        } catch (SedeSenzaSettoriException ex) {
-            AlertView.mostraErrore(ex.getMessage());
-        } catch (SedeEsistenteException ex) {
+        } catch (SedeException ex) {
             AlertView.mostraErrore(ex.getMessage());
         }
     }
