@@ -65,7 +65,7 @@ public class CarrelloService {
     	for(Biglietto b: bigliettiFiltrati) {
     		double prezzoBase = b.getTariffa().getPrezzo();
             double prezzoScontato = GestoreEvento.getInstance().getEventoService().calcolaPrezzoFinale(prezzoBase, SessioneCliente.getInstance().getClienteLoggato());
-        
+
             b.getTariffa().setPrezzo(prezzoScontato);
             
     		Carrello.getInstance().aggiungi(b);

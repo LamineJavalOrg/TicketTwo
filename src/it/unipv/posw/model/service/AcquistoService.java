@@ -4,7 +4,7 @@ import it.unipv.posw.model.entities.Biglietto;
 import it.unipv.posw.model.entities.Carrello;
 import it.unipv.posw.model.entities.SessioneCliente;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
-import it.unipv.posw.model.service.payment.IPagamento;
+import it.unipv.posw.model.service.payment.IPagamentoAdapter;
 
 /** 
  * @author rkomi-dev
@@ -17,7 +17,7 @@ public class AcquistoService {
 	public AcquistoService() {
 	}
 	
-	public void Acquista(IPagamento metodo) {
+	public void Acquista(IPagamentoAdapter metodo) {
 		
 		metodo.Paga(Carrello.getInstance().getTotale());
 		

@@ -61,6 +61,11 @@ public class RegistrazioneController {
         	AlertView.mostraErrore(ex.getMessage());		
         } catch (DataNascitaException ex) {
 			AlertView.mostraErrore(ex.getMessage());
+		} finally {
+			view.getTxtNome().clear();
+            view.getTxtCognome().clear();
+            view.getTxtEmail().clear();
+            view.getTxtPassword().clear();
 		}
        
     }
