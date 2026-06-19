@@ -29,7 +29,9 @@ public class AreaClienteController {
 	private void caricaDati() {
     	
 		List<RiepilogoAcquisto> acquisti = areaClienteService.storicoAcquisti(SessioneCliente.getInstance().getClienteLoggato().getEmail());
-    
+		
+		areaClienteView.pulisciListaBiglietti();
+		
 		for (RiepilogoAcquisto a : acquisti) {
       
 			Button btn = areaClienteView.aggiungiBigliettoAllaLista(a);

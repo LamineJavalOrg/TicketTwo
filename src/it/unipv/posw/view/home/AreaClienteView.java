@@ -74,5 +74,9 @@ public class AreaClienteView extends VBox implements IView {
 		return mappaCampiTesto;
 	}
 	
+	public void pulisciListaBiglietti() {
+	    listaContainer.getChildren().clear();
+	    mappaCampiTesto.clear();
+	}
 	
 }
