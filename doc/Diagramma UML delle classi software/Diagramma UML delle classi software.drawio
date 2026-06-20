@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Pagina-1" id="ekuwfyGT0I-celHFKQIQ">
-    <mxGraphModel dx="2197" dy="2611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1179" dy="2458" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -31,7 +31,7 @@
         <mxCell id="tkHWN5Tr_WREsPViGvau-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;EventoDAO&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="458" x="1880" y="760" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-43" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- c: Connection&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="tkHWN5Tr_WREsPViGvau-43" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
           <mxGeometry height="30" width="458" x="1880" y="790" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-44" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ trovaEventiPerNome(String): List&amp;lt;Evento&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ trovaEventiPerArtista(String): List&amp;lt;Evento&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;div align=&quot;left&quot; style=&quot;font-size: 12px;&quot;&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ caricaTappeEvento(int, Connection): List&amp;lt;Tappa&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ eliminaEvento(int): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ salvaEventoMultiTappa(Evento, Map&amp;lt;Tappa, List&amp;lt;Tariffa&amp;gt;&amp;gt;): boolean&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
@@ -40,28 +40,28 @@
         <mxCell id="tkHWN5Tr_WREsPViGvau-45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;ClienteDAO&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="250" x="2480" y="780" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- c: Connection&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="tkHWN5Tr_WREsPViGvau-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
           <mxGeometry height="30" width="250" x="2480" y="810" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ isEmailEsistente(String): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ salvaCliente(Cliente): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ trovaClientePerEmail(String): Cliente&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ deleteCliente(String): boolean&lt;/font&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="250" x="2480" y="840" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;BigliettoDAO&lt;/font&gt;" vertex="1">
-          <mxGeometry height="30" width="390" x="3310" y="780" as="geometry" />
+          <mxGeometry height="30" width="440" x="3260" y="780" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- c: Connection&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="30" width="390" x="3310" y="810" as="geometry" />
+        <mxCell id="tkHWN5Tr_WREsPViGvau-49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
+          <mxGeometry height="30" width="440" x="3260" y="810" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;+ getBigliettiDisponibili(int, int, String, int): List&amp;lt;Biglietto&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;+ getBigliettiAcquistati(String): List&amp;lt;RiepilogoAcquisto&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ countPostiLiberi(int, int, String): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ updatePostAcquisto(int, String, String, String, double): void&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="390" x="3310" y="840" as="geometry" />
+        <mxCell id="tkHWN5Tr_WREsPViGvau-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;+ getBigliettiDisponibili(int, int, TipologiaBiglietto, int): List&amp;lt;Biglietto&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ countPostiLiberi(int, int, String): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ updatePostAcquisto(int, String, String, String, double): void&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ cambiaNominativo(int, String): void&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="440" x="3260" y="840" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;ArtistaDAO&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="250" x="3860" y="784" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- c: Connection&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="tkHWN5Tr_WREsPViGvau-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
           <mxGeometry height="25" width="250" x="3860" y="814" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ trovaPerNomeEsatto(String): Artista&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ inserisciArtista(Artista): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ trovaArtisti(String): List&amp;lt;Artista&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ recuperaTutti(): List&amp;lt;Artista&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="tkHWN5Tr_WREsPViGvau-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ inserisciArtista(Artista): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ trovaArtisti(String): List&amp;lt;Artista&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="250" x="3860" y="839" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
@@ -76,11 +76,11 @@
         <mxCell id="tkHWN5Tr_WREsPViGvau-60" parent="1" style="html=1;whiteSpace=wrap;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;«interface»&lt;br&gt;&lt;b&gt;IArtistaDAO&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="40" width="240" x="3865" y="553.5" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-61" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;trovaPerNomeEsatto(String): Artista&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;inserisciArtista(Artista): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;trovaArtisti(String): List&amp;lt;Artista&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;recuperaTutti(): List&amp;lt;Artista&amp;gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="tkHWN5Tr_WREsPViGvau-61" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;inserisciArtista(Artista): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;trovaArtisti(String): List&amp;lt;Artista&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="75" width="240" x="3865" y="593.5" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getBigliettiDisponibili(int, int, String, int): List&amp;lt;Biglietto&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getBigliettiAcquistati(String): List&amp;lt;RiepilogoAcquisto&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;countPostiLiberi(int, int, String): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;updatePostAcquisto(int, String, String, String, double): void&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="375" x="3317.5" y="590" as="geometry" />
+        <mxCell id="tkHWN5Tr_WREsPViGvau-64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getBigliettiDisponibili(int, int, TipologiaBiglietto, int): List&amp;lt;Biglietto&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;countPostiLiberi(int, int, String): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;updatePostAcquisto(int, String, String, String, double): void&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;cambiaNominativo(int, String): void&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="430" x="3260" y="590" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-67" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;isEmailEsistente(String): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;salvaCliente(Cliente): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;trovaClientePerEmail(String): Cliente&amp;nbsp; &amp;nbsp;deleteCliente(String): boolean&lt;/font&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="250" x="2480" y="590" as="geometry" />
@@ -89,7 +89,7 @@
           <mxGeometry height="40" width="440" x="1889" y="530" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-70" parent="1" style="html=1;whiteSpace=wrap;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;«interface»&lt;br&gt;&lt;b&gt;IBigliettoDAO&lt;/b&gt;&lt;/font&gt;" vertex="1">
-          <mxGeometry height="40" width="375" x="3317.5" y="550" as="geometry" />
+          <mxGeometry height="40" width="432.5" x="3260" y="550" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-71" parent="1" style="html=1;whiteSpace=wrap;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;«interface»&lt;br&gt;&lt;b&gt;IClienteDAO&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="40" width="250" x="2480" y="550" as="geometry" />
@@ -122,28 +122,28 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-87" parent="1" style="html=1;whiteSpace=wrap;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;«interface»&lt;br&gt;&lt;b&gt;IDAOFactory&lt;/b&gt;&lt;/font&gt;" vertex="1">
-          <mxGeometry height="40" width="289.5" x="1530" y="920" as="geometry" />
+          <mxGeometry height="40" width="310" x="1530" y="920" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-88" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getEventoDAO(): IEventoDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getBigliettoDAO(): IBigliettoDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getArtistaDAO(): IArtistaDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getClienteDAO(): IClienteDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getOrganizzatoreDAO(): IOrganizzatoreDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getSedeDAO(): ISedeDAO&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getEventoAdminDAO: IEventoAdminDAO&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getTariffaDAO: ITariffaDAO&lt;/font&gt;&lt;/div&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="146.5" width="289.5" x="1530" y="960" as="geometry" />
+        <mxCell id="tkHWN5Tr_WREsPViGvau-88" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getEventoDAO(): IEventoDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getBigliettoDAO(): IBigliettoDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getArtistaDAO(): IArtistaDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getClienteDAO(): IClienteDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getOrganizzatoreDAO(): IOrganizzatoreDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getSedeDAO(): ISedeDAO&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getTariffaDAO: ITariffaDAO&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getRiepilogoAqcuistoDAO: IRiepilogoAcquisto&lt;/font&gt;&lt;/div&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="310" x="1530" y="960" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-92" edge="1" parent="1" source="tkHWN5Tr_WREsPViGvau-93" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="tkHWN5Tr_WREsPViGvau-88" value="">
+        <mxCell id="tkHWN5Tr_WREsPViGvau-92" edge="1" parent="1" source="tkHWN5Tr_WREsPViGvau-93" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.391;entryY=1.005;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;" target="tkHWN5Tr_WREsPViGvau-88" value="">
           <mxGeometry relative="1" width="160" as="geometry">
             <mxPoint x="1680" y="1200" as="sourcePoint" />
             <mxPoint x="1719.5" y="1106.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-93" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="MYSQLDAOFactory" vertex="1">
-          <mxGeometry height="30" width="307" x="1521" y="1223" as="geometry" />
+          <mxGeometry height="30" width="358" x="1470" y="1223" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-94" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
           <mxGeometry height="20" width="20" x="1808" y="1223" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-95" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- &lt;u&gt;instance: MYSQLDAOFactory&lt;/u&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="307" x="1521" y="1253" as="geometry" />
+          <mxGeometry height="60" width="358" x="1470" y="1253" as="geometry" />
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ &lt;u&gt;getInstance(): MYSQLDAOFactory&lt;/u&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&amp;nbsp;&lt;font style=&quot;font-size: 14px;&quot;&gt;+&lt;/font&gt;&amp;nbsp;&lt;font style=&quot;font-size: 14px;&quot;&gt;getEventoDAO(): IEventoDAO&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getBigliettoDAO(): IBigliettoDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getArtistaDAO(): IArtistaDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getClienteDAO(): IClienteDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getOrganizzatoreDAO(): IOrganizzatoreDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getSedeDAO(): ISedeDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getEventoAdminDAO: IEventoAdminDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getTariffaDAO: ITariffaDAO&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="177" width="307" x="1521" y="1313" as="geometry" />
+        <mxCell id="tkHWN5Tr_WREsPViGvau-96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ &lt;u&gt;getInstance(): MYSQLDAOFactory&lt;/u&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&amp;nbsp;&lt;font style=&quot;font-size: 14px;&quot;&gt;+&lt;/font&gt;&amp;nbsp;&lt;font style=&quot;font-size: 14px;&quot;&gt;getEventoDAO(): IEventoDAO&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getBigliettoDAO(): IBigliettoDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getArtistaDAO(): IArtistaDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getClienteDAO(): IClienteDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getOrganizzatoreDAO(): IOrganizzatoreDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getSedeDAO(): ISedeDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getTariffaDAO(): ITariffaDAO&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getRiepilogoAcquistoDAO(): IRiepilogoAcquistoDAO&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="177" width="358" x="1470" y="1313" as="geometry" />
         </mxCell>
         <mxCell id="tkHWN5Tr_WREsPViGvau-99" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;DBConnection&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="300" x="3355" y="1510" as="geometry" />
@@ -178,7 +178,7 @@
             <mxPoint x="2540" y="950" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tkHWN5Tr_WREsPViGvau-106" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.999;exitY=0.322;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="tkHWN5Tr_WREsPViGvau-50" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+        <mxCell id="tkHWN5Tr_WREsPViGvau-106" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.999;exitY=0.322;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.319;entryY=0.998;entryDx=0;entryDy=0;entryPerimeter=0;" target="tkHWN5Tr_WREsPViGvau-50" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
           <mxGeometry relative="1" width="160" x="0.8455" as="geometry">
             <mxPoint as="offset" />
             <Array as="points">
@@ -420,7 +420,7 @@
         <mxCell id="D5IsGomv7UJjWh38caYJ-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;OrganizzatoreDAO&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="340" x="2870" y="800" as="geometry" />
         </mxCell>
-        <mxCell id="D5IsGomv7UJjWh38caYJ-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- c: Connection&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="D5IsGomv7UJjWh38caYJ-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
           <mxGeometry height="30" width="340" x="2870" y="830" as="geometry" />
         </mxCell>
         <mxCell id="D5IsGomv7UJjWh38caYJ-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ isEmailEsistente(String): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ salvaOrganizzatore(Organizzatore): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ trovaOrganizzatorePerEmail(String): Organizzatore&lt;/font&gt;&lt;/div&gt;" vertex="1">
@@ -441,7 +441,7 @@
         <mxCell id="D5IsGomv7UJjWh38caYJ-49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;SedeDAO&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="270" x="4270" y="753" as="geometry" />
         </mxCell>
-        <mxCell id="D5IsGomv7UJjWh38caYJ-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- c: Connection&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="D5IsGomv7UJjWh38caYJ-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
           <mxGeometry height="25" width="270" x="4270" y="783" as="geometry" />
         </mxCell>
         <mxCell id="D5IsGomv7UJjWh38caYJ-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;+ isSedeEsistente(String, String): boolean&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ salvaSede(Sede): int&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ salvaSettore(Settore): boolean&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getTutteLeSedi(): List&amp;lt;Sede&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getSettoriBySede(int): List&amp;lt;Settore&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ eliminaSede(int): boolean&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
@@ -462,7 +462,7 @@
         <mxCell id="D5IsGomv7UJjWh38caYJ-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;TariffaDAO&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="360" x="4710" y="784" as="geometry" />
         </mxCell>
-        <mxCell id="D5IsGomv7UJjWh38caYJ-56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- c: Connection&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="D5IsGomv7UJjWh38caYJ-56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
           <mxGeometry height="25" width="360" x="4710" y="814" as="geometry" />
         </mxCell>
         <mxCell id="D5IsGomv7UJjWh38caYJ-57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;div align=&quot;left&quot;&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ inserisciTariffa(List&amp;lt;Tariffa&amp;gt;, int, int, Connection): void&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getPrezzoSettore(int, int, TipologiaBiglietto): double&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getTariffaCompleta(int, int, TipologiaBiglietto): Tariffa&lt;/span&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ findTipologieByTappaSettore(int, int): List&amp;lt;String&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
@@ -860,7 +860,7 @@
             <mxPoint x="2940" y="637" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="UxVjDc-E3NVDYbMz2poK-54" edge="1" parent="1" source="UxVjDc-E3NVDYbMz2poK-43" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="tkHWN5Tr_WREsPViGvau-70" value="">
+        <mxCell id="UxVjDc-E3NVDYbMz2poK-54" edge="1" parent="1" source="UxVjDc-E3NVDYbMz2poK-43" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.567;entryY=0.071;entryDx=0;entryDy=0;entryPerimeter=0;" target="tkHWN5Tr_WREsPViGvau-70" value="">
           <mxGeometry relative="1" width="160" as="geometry">
             <mxPoint x="3477" y="410" as="sourcePoint" />
             <mxPoint x="3460" y="567" as="targetPoint" />
@@ -953,13 +953,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;RegistrazioneService&lt;/font&gt;" vertex="1">
-          <mxGeometry height="30" width="320" x="2677" y="1800" as="geometry" />
+          <mxGeometry height="30" width="367" x="2630" y="1800" as="geometry" />
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
-          <mxGeometry height="20" width="320" x="2677" y="1830" as="geometry" />
+          <mxGeometry height="20" width="367" x="2630" y="1830" as="geometry" />
         </mxCell>
-        <mxCell id="rbbjtcLgugmhmQJO9udl-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ RegistraNuovoCliente(Cliente): boolean&lt;/font&gt;" vertex="1">
-          <mxGeometry height="60" width="320" x="2677" y="1850" as="geometry" />
+        <mxCell id="rbbjtcLgugmhmQJO9udl-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ RegistraNuovoCliente(Cliente): boolean&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ RegistraNuovoOrganizzatore(Organizzatore): boolean&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="367" x="2630" y="1850" as="geometry" />
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-15" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-10" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="tkHWN5Tr_WREsPViGvau-47" value="Use">
           <mxGeometry relative="1" width="160" as="geometry">
@@ -986,7 +986,7 @@
         <mxCell id="rbbjtcLgugmhmQJO9udl-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- qrService: QRService&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="320" x="3825" y="1850" as="geometry" />
         </mxCell>
-        <mxCell id="rbbjtcLgugmhmQJO9udl-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ Acquista(IPagamentoAdapter): void&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ storicoAcquisti(String): List&amp;lt;RiepilogoAcquisto&amp;gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="rbbjtcLgugmhmQJO9udl-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ Acquista(IPagamentoAdapter): void&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="320" x="3825" y="1910" as="geometry" />
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-23" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-20" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.912;entryY=1.032;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="tkHWN5Tr_WREsPViGvau-50" value="Use">
@@ -1025,13 +1025,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;AutenticazioneService&lt;/font&gt;" vertex="1">
-          <mxGeometry height="30" width="320" x="2677" y="2030" as="geometry" />
+          <mxGeometry height="30" width="357" x="2640" y="2030" as="geometry" />
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
-          <mxGeometry height="20" width="320" x="2677" y="2060" as="geometry" />
+          <mxGeometry height="20" width="357" x="2640" y="2060" as="geometry" />
         </mxCell>
-        <mxCell id="rbbjtcLgugmhmQJO9udl-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ login(String, String): Cliente&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="320" x="2677" y="2080" as="geometry" />
+        <mxCell id="rbbjtcLgugmhmQJO9udl-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ loginCliente(String, String): Cliente&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ loginOrganizzatore(String, String): Organizzatore&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="357" x="2640" y="2080" as="geometry" />
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-32" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-29" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.337;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="tkHWN5Tr_WREsPViGvau-47" value="Use">
           <mxGeometry relative="1" width="160" as="geometry">
@@ -1051,16 +1051,19 @@
             <mxPoint x="2760" y="1150" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-32" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="rbbjtcLgugmhmQJO9udl-36" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;CarrelloService&lt;/font&gt;" vertex="1">
-          <mxGeometry height="30" width="320" x="3355" y="2030" as="geometry" />
+          <mxGeometry height="30" width="365" x="3355" y="2030" as="geometry" />
         </mxCell>
         <mxCell id="rbbjtcLgugmhmQJO9udl-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
-          <mxGeometry height="20" width="320" x="3355" y="2060" as="geometry" />
+          <mxGeometry height="20" width="365" x="3355" y="2060" as="geometry" />
         </mxCell>
-        <mxCell id="rbbjtcLgugmhmQJO9udl-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ aggiungiAlCarrello(int, String, int): void&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="50" width="320" x="3355" y="2080" as="geometry" />
+        <mxCell id="rbbjtcLgugmhmQJO9udl-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ aggiungiAlCarrello(int, int, TipologiaBiglietto, int): void&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="365" x="3355" y="2080" as="geometry" />
         </mxCell>
-        <mxCell id="rbbjtcLgugmhmQJO9udl-37" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-34" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.072;entryY=1.022;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="tkHWN5Tr_WREsPViGvau-50" value="Use">
+        <mxCell id="rbbjtcLgugmhmQJO9udl-37" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-34" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.14;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="tkHWN5Tr_WREsPViGvau-50" value="Use">
           <mxGeometry relative="1" width="160" as="geometry">
             <Array as="points">
               <mxPoint x="3340" y="2045" />
@@ -1135,6 +1138,198 @@
           <mxGeometry relative="1" width="160" as="geometry">
             <mxPoint x="2190" y="1230" as="sourcePoint" />
             <mxPoint x="2350" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;GestoreHome&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="360" x="2860" y="2340" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="3200" y="2340" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- &lt;u&gt;instance: GestoreHome&lt;/u&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- registrazioneService: RegistrazioneService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- autenticazioneService: AutenticazioneService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- strategyDefault: IRicercaStrategy&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- areaClienteService: AreaClienteService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="360" x="2860" y="2370" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getRegistrazioneService(): RegistrazioneService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getAutenticazioneService(): AutenticazioneService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getStrategyDefault(): IRicercaStrategy&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getAreaClienteService(): AreaClienteService&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="111" width="360" x="2860" y="2479" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;GestoreAcquisto&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="360" x="3308" y="2338" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="3648" y="2338" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- &lt;u&gt;instance: GestoreAcquisto&lt;/u&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- carrelloService: CarrelloService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- acquistoService: AcquistoService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- carrello: Carrello&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="360" x="3308" y="2368" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getCarrelloService(): CarrelloService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getAcquistoService(): AcquistoService&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getCarrello(): Carrello&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="111" width="360" x="3308" y="2477" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;RiepilogoAcquistoDAO&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="360" x="5390" y="792.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
+          <mxGeometry height="25" width="360" x="5390" y="822.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ getBigliettiAcquistati(String) : List&amp;lt;RiepilogoAcquisto&amp;gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="360" x="5390" y="847.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;getBigliettiAcquistati(String): List&amp;lt;RiepilogoAcquisto&amp;gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="107.5" width="350" x="5395" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-13" edge="1" parent="1" source="hMnm6oOnohepWhnloAYL-9" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="hMnm6oOnohepWhnloAYL-12" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="5477.5" y="751.0699999999999" as="sourcePoint" />
+            <mxPoint x="5502.5" y="682.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-14" parent="1" style="html=1;whiteSpace=wrap;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;«interface»&lt;br&gt;&lt;b&gt;IRiepilogoAcquistoDAO&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="350" x="5395" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-15" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.43;exitDx=0;exitDy=0;exitPerimeter=0;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="0.9059" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2026.3069999999998" y="1441" />
+              <mxPoint x="5520" y="1430" />
+            </Array>
+            <mxPoint x="1840" y="1440" as="sourcePoint" />
+            <mxPoint x="5520" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-16" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="tkHWN5Tr_WREsPViGvau-101" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Use&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="-0.8379" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="5596" y="1617.5" />
+            </Array>
+            <mxPoint x="5596" y="927.5" as="sourcePoint" />
+            <mxPoint x="4270" y="1617.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-17" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-51" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="hMnm6oOnohepWhnloAYL-12" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="5250" y="1720" />
+              <mxPoint x="5240" y="624" />
+            </Array>
+            <mxPoint x="5150" y="2240" as="sourcePoint" />
+            <mxPoint x="5150" y="2411" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-18" edge="1" parent="1" source="hMnm6oOnohepWhnloAYL-3" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.358;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;" target="rbbjtcLgugmhmQJO9udl-31" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="0.7143" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2770" y="2425" />
+              <mxPoint x="2770" y="2240" />
+            </Array>
+            <mxPoint x="2250" y="2520.25" as="sourcePoint" />
+            <mxPoint x="2770" y="2150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-19" edge="1" parent="1" source="hMnm6oOnohepWhnloAYL-1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="rbbjtcLgugmhmQJO9udl-12" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="0.7143" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="3040" y="1880" />
+            </Array>
+            <mxPoint x="3125" y="2279" as="sourcePoint" />
+            <mxPoint x="3035" y="1995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;AreaClienteService&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="320" x="2230" y="2220" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="" vertex="1">
+          <mxGeometry height="20" width="320" x="2230" y="2250" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ storicoAcquist(String): List&amp;lt;RiepilogoAcquisto&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;+ cambioNominativo(int, String): void&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="320" x="2230" y="2270" as="geometry" />
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-23" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.801;entryY=1.019;entryDx=0;entryDy=0;entryPerimeter=0;" target="hMnm6oOnohepWhnloAYL-22" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="0.7143" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2770" y="2522" />
+              <mxPoint x="2490" y="2520" />
+            </Array>
+            <mxPoint x="2860" y="2522" as="sourcePoint" />
+            <mxPoint x="2770" y="2238" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-24" edge="1" parent="1" source="hMnm6oOnohepWhnloAYL-4" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="VO2-BgNAE9T2NM1NV8RW-14" value="Use">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="3280" y="2535" />
+              <mxPoint x="3290" y="3390" />
+              <mxPoint x="1750" y="3390" />
+              <mxPoint x="1750" y="3124" />
+            </Array>
+            <mxPoint x="1730" y="2920" as="sourcePoint" />
+            <mxPoint x="1730" y="3130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-26" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-22" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="rbbjtcLgugmhmQJO9udl-25" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="0.7143" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+            <mxPoint x="4150" y="2374" as="sourcePoint" />
+            <mxPoint x="4060" y="2090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-27" edge="1" parent="1" source="hMnm6oOnohepWhnloAYL-8" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="rbbjtcLgugmhmQJO9udl-22" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="0.7143" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="3780" y="2505" />
+              <mxPoint x="3770" y="1910" />
+            </Array>
+            <mxPoint x="3880" y="2734" as="sourcePoint" />
+            <mxPoint x="3790" y="2450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-28" edge="1" parent="1" source="hMnm6oOnohepWhnloAYL-5" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.643;exitY=-0.076;exitDx=0;exitDy=0;exitPerimeter=0;" target="rbbjtcLgugmhmQJO9udl-36" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Create&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" x="0.0006" y="-2" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points" />
+            <mxPoint x="3510" y="2330" as="sourcePoint" />
+            <mxPoint x="3510" y="2230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-29" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UxVjDc-E3NVDYbMz2poK-8" value="Use">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="3750" y="2430" />
+              <mxPoint x="3710" y="15" />
+            </Array>
+            <mxPoint x="3670" y="2430" as="sourcePoint" />
+            <mxPoint x="3740" y="2090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-30" edge="1" parent="1" source="rbbjtcLgugmhmQJO9udl-22" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="0OomtwkCdjCMnnh1lE14-2" value="Use">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="3905" y="2130" />
+              <mxPoint x="3710" y="2130" />
+              <mxPoint x="3710" y="2270" />
+              <mxPoint x="3100" y="2270" />
+              <mxPoint x="2660" y="2270" />
+              <mxPoint x="2660" y="2470" />
+              <mxPoint x="2321" y="2470" />
+            </Array>
+            <mxPoint x="3180" y="2140" as="sourcePoint" />
+            <mxPoint x="1870" y="2790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hMnm6oOnohepWhnloAYL-33" edge="1" parent="1" source="hMnm6oOnohepWhnloAYL-22" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" value="Use">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="1940" y="2285" />
+              <mxPoint x="1940" y="3340" />
+              <mxPoint x="5720" y="3350" />
+            </Array>
+            <mxPoint x="2680" y="2410" as="sourcePoint" />
+            <mxPoint x="5700" y="930" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
