@@ -24,7 +24,7 @@ public class OrganizzatoreDAO implements IOrganizzatoreDAO {
 	public boolean salvaOrganizzatore(Organizzatore org) {
 		PreparedStatement ps;
        
-		String query = "INSERT INTO Utente (nome, cognome, email, password, data_nascita, nome_organizzazione) VALUES (?,?,?,?,?,?)";
+		String query = "INSERT INTO Utente (nome, cognome, email, password, data_nascita, nome_organizzazione, tipo_utente) VALUES (?,?,?,?,?,?,?)";
         Connection c = null;
 		try {
             c = DBConnection.getInstance().startConnection();
@@ -36,6 +36,7 @@ public class OrganizzatoreDAO implements IOrganizzatoreDAO {
             ps.setString(4, org.getPassword());
             ps.setDate(5, Date.valueOf(org.getData_nascita()));
             ps.setString(6, org.getNome_organizzazione());
+            ps.setString(7, "ORGANIZZATORE");
             
             int result = ps.executeUpdate();
             return result > 0;

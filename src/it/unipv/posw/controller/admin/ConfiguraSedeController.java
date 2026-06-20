@@ -1,6 +1,6 @@
 package it.unipv.posw.controller.admin;
 
-import java.util.List;
+import java.util.List; 
 
 import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.entities.SessioneOrganizzatore;
@@ -10,7 +10,7 @@ import it.unipv.posw.model.enums.TipologiaSettore;
 import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.SedeException;
 import it.unipv.posw.model.exception.SettoreNonValidoException;
-import it.unipv.posw.model.service.SedeService;
+import it.unipv.posw.model.gestori.GestoreAdmin;
 import it.unipv.posw.view.admin.ConfiguraSedeView;
 import it.unipv.posw.view.utility.AlertView;
 import javafx.beans.value.ChangeListener;
@@ -25,14 +25,11 @@ import javafx.event.EventHandler;
 public class ConfiguraSedeController {
 
     private ConfiguraSedeView view;
-    private SedeService service;
+    private GestoreAdmin model;
 
-    private Sede nuovaSede;
-
-    public ConfiguraSedeController(ConfiguraSedeView view, SedeService service) {
+    public ConfiguraSedeController(ConfiguraSedeView view, GestoreAdmin model) {
         this.view = view;
-        this.service = service;
-        this.nuovaSede = new Sede();
+        this.model = model;
 
         inizializzaVista();
         inizializzaListener();
@@ -41,8 +38,8 @@ public class ConfiguraSedeController {
     private void inizializzaVista() {
         view.resetFormSede();
         view.resetCampiSettore();
-        view.aggiornaSettoriInAttesa(nuovaSede.getSettori());
-        view.aggiornaCapienzaTotale(nuovaSede.getCapienzaTotale());
+        view.aggiornaSettoriInAttesa(model.getSede().getSettori());
+        view.aggiornaCapienzaTotale(model.getSede().getCapienzaTotale());
         view.aggiornaCampiPerTipoPosto(view.getTipoPostiSelezionato());
         aggiornaListaSedi();
     }
@@ -80,33 +77,33 @@ public class ConfiguraSedeController {
     
     private void handleAggiungiSettore(ActionEvent e) {
     	try {
-    		Settore settore = service.creaSettore(
+    		Settore settore = model.getSedeService().creaSettore(
     				view.getNomeSettoreSelezionato(),
                     view.getPrefisso(),
                     view.getTipoPostiSelezionato(),
                     view.getNumFile(),
                     view.getNumColonne(),
                     view.getCapienza());
-            nuovaSede.aggiungiSettore(settore);
+    		model.getSede().aggiungiSettore(settore);
         } catch (SettoreNonValidoException ex) {
             AlertView.mostraErrore(ex.getMessage());
             return;
         }
  
-        view.aggiornaSettoriInAttesa(nuovaSede.getSettori());
-        view.aggiornaCapienzaTotale(nuovaSede.getCapienzaTotale());
+        view.aggiornaSettoriInAttesa(model.getSede().getSettori());
+        view.aggiornaCapienzaTotale(model.getSede().getCapienzaTotale());
         view.resetCampiSettore();
     }
     
     
     private void handleSalvaSede(ActionEvent e) {
-    	nuovaSede.setNome(view.getNomeSede());
-        nuovaSede.setIndirizzo(view.getIndirizzo());
-        nuovaSede.setEmail_organizzatore(
+    	model.getSede().setNome(view.getNomeSede());
+    	model.getSede().setIndirizzo(view.getIndirizzo());
+    	model.getSede().setEmail_organizzatore(
         		SessioneOrganizzatore.getInstance().getOrganizzatoreLoggato().getEmail());
  
         try {
-            Sede salvata = service.configuraSede(nuovaSede);
+            Sede salvata = model.getSedeService().configuraSede(model.getSede());
             AlertView.mostraInfo("Sede " + salvata.getNome() + " configurata con successo!");
             
             resetStato();
@@ -128,14 +125,14 @@ public class ConfiguraSedeController {
     }
 
     private void aggiornaListaSedi() {
-        List<Sede> sedi = service.getTutteLeSedi();
+        List<Sede> sedi = model.getSedeService().getTutteLeSedi();
         view.aggiornaSediEsistenti(sedi);
     }
 
     private void resetStato() {
-    	nuovaSede = new Sede();
+    	model.setSede(new Sede());
         view.resetFormSede();
-        view.aggiornaSettoriInAttesa(nuovaSede.getSettori());
-        view.aggiornaCapienzaTotale(nuovaSede.getCapienzaTotale());
+        view.aggiornaSettoriInAttesa(model.getSede().getSettori());
+        view.aggiornaCapienzaTotale(model.getSede().getCapienzaTotale());
     }
 }

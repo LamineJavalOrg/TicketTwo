@@ -2,9 +2,6 @@ package it.unipv.posw.controller.admin;
 
 import java.time.LocalDate; 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
 
 import it.unipv.posw.model.entities.Evento;
 import it.unipv.posw.model.entities.Sede;
@@ -18,11 +15,8 @@ import it.unipv.posw.model.exception.DataPassataException;
 import it.unipv.posw.model.exception.DataTappaDuplicataException;
 import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.EventoException;
-import it.unipv.posw.model.exception.EventoSenzaTappeException;
 import it.unipv.posw.model.exception.TariffaNonValidaException;
 import it.unipv.posw.model.gestori.GestoreAdmin;
-import it.unipv.posw.model.service.CreaEventoService;
-import it.unipv.posw.model.service.SedeService;
 import it.unipv.posw.view.admin.CreaEventoView;
 import it.unipv.posw.view.utility.AlertView;
 import javafx.beans.value.ChangeListener;
@@ -39,12 +33,9 @@ public class CreaEventoController {
     private CreaEventoView view;
     private GestoreAdmin model;
 
-    private List<Tappa> tappe;
-
     public CreaEventoController(CreaEventoView view, GestoreAdmin model) {
         this.view = view;
         this.model = model;
-        this.tappe = new ArrayList<>();
 
         inizializzaVista();
         inizializzaListener();
@@ -83,7 +74,7 @@ public class CreaEventoController {
 
         try {
             model.getCreaEventoService().validaTappa(tappa);
-            model.getCreaEventoService().validaDataNonDuplicata(tappa, tappe);
+            model.getCreaEventoService().validaDataNonDuplicata(tappa, model.getEvento().getTappe());
         } catch (EmptyFieldException ex) {
             AlertView.mostraErrore(ex.getMessage());
             return;
@@ -98,7 +89,7 @@ public class CreaEventoController {
             return;
 		}
 
-        tappe.add(tappa);
+        model.getEvento().getTappe().add(tappa);
 
         Sede sedeSel = view.getSedeSelezionata();
         LocalDate data = view.getData();
@@ -114,7 +105,8 @@ public class CreaEventoController {
         String emailOrg = SessioneOrganizzatore.getInstance().getOrganizzatoreLoggato().getEmail();
 
         try {
-            Evento creato = model.getCreaEventoService().creaEvento(nome, tipo, emailOrg, nomeArtista, tappe);
+            Evento creato = model.getCreaEventoService().creaEvento(nome, tipo, emailOrg, nomeArtista,
+            		model.getEvento().getTappe());
             AlertView.mostraInfo("Evento " + creato.getNome() + " creato con successo ("
                         + creato.getTappe().size() + " tappe)");
             resetStato();
@@ -167,7 +159,7 @@ public class CreaEventoController {
 
     
     private void resetStato() {
-        tappe = new ArrayList<>();
+    	model.getEvento().getTappe().clear();
         view.resetForm();
         Sede sedeCorrente = view.getSedeSelezionata();
         if (sedeCorrente != null) {

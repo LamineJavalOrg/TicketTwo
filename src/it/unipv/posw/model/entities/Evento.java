@@ -13,7 +13,7 @@ public class Evento {
 	private TipologiaEvento tipo;
 	private String email_organizzatore;
 	private int id_artista; 
-    private List<Tappa> tappe;
+    private List<Tappa> tappe = new ArrayList<>();
     
     public Evento() {};
     

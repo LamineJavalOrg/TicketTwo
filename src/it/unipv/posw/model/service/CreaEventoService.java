@@ -38,18 +38,8 @@ public class CreaEventoService {
 			throws EmptyFieldException, EventoException,
 			TariffaNonValidaException, DataPassataException {
 
-		if (nome == null || nome.trim().isEmpty() || nomeArtista == null || nomeArtista.trim().isEmpty()
-				|| emailOrganizzatore == null || emailOrganizzatore.trim().isEmpty() || tipo == null) {
-			throw new EmptyFieldException();
-		}
-
-		if (tappe == null || tappe.isEmpty()) {
-			throw new EventoSenzaTappeException();
-		}
-
-		for (Tappa tappa : tappe) {
-			validaTappa(tappa);
-		}
+		
+		validaEvento(nome, tipo, emailOrganizzatore, nomeArtista, tappe);
 
 		int idArtista = ritornaIdArtista(nomeArtista);
 		Evento evento = new Evento(0, nome, tipo, emailOrganizzatore, idArtista);
@@ -57,6 +47,24 @@ public class CreaEventoService {
 		return salvaInTransazione(evento, tappe);
 	}
 
+	public void validaEvento(String nome, TipologiaEvento tipo, String emailOrganizzatore,
+			String nomeArtista, List<Tappa> tappe)
+			throws EmptyFieldException, EventoException,
+			TariffaNonValidaException, DataPassataException {
+ 
+		if (nome == null || nome.trim().isEmpty() || nomeArtista == null || nomeArtista.trim().isEmpty()
+				|| emailOrganizzatore == null || emailOrganizzatore.trim().isEmpty() || tipo == null) {
+			throw new EmptyFieldException();
+		}
+ 
+		if (tappe == null || tappe.isEmpty()) {
+			throw new EventoSenzaTappeException();
+		}
+ 
+		for (Tappa tappa : tappe) {
+			validaTappa(tappa);
+		}
+	}
 
 	public void validaTappa(Tappa tappa) throws EmptyFieldException, TariffaNonValidaException, DataPassataException {
 		if (tappa == null || tappa.getId_sede() <= 0 || tappa.getData_ora() == null) {

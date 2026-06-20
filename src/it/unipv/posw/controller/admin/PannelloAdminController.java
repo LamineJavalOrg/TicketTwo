@@ -55,7 +55,7 @@ public class PannelloAdminController {
 		
 		private void handleConfiguraSede(ActionEvent e) {
 			pannelloAdmF.mostraSchermata(pannelloAdmF.getConfiguraSedeView());
-			new ConfiguraSedeController(pannelloAdmF.getConfiguraSedeView(), model.getSedeService());
+			new ConfiguraSedeController(pannelloAdmF.getConfiguraSedeView(), GestoreAdmin.getInstance());
 	}
 
 		private void handleCreaEvento(ActionEvent e) {

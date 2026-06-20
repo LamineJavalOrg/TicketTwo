@@ -10,11 +10,9 @@ import it.unipv.posw.model.entities.Settore;
 import it.unipv.posw.model.enums.TipologiaPosto;
 import it.unipv.posw.model.enums.TipologiaSettore;
 import it.unipv.posw.model.exception.EmptyFieldException;
-import it.unipv.posw.model.exception.SedeEsistenteException;
 import it.unipv.posw.model.exception.SedeException;
 import it.unipv.posw.model.exception.SedeSenzaSettoriException;
 import it.unipv.posw.model.exception.SettoreNonValidoException;
-import it.unipv.posw.model.persistence.dao.SedeDAO;
 import it.unipv.posw.model.service.SedeService;
 
 /**
@@ -24,12 +22,10 @@ import it.unipv.posw.model.service.SedeService;
 public class SedeTest {
 
 	private SedeService service;
-	private SedeDAO sedeDAO;
 
 	@Before
 	public void iniTest() {
 		service = new SedeService();
-		sedeDAO = new SedeDAO();
 	}
 
 	// metodo di aiuto che costruisce una sede valida con un settore
@@ -39,34 +35,42 @@ public class SedeTest {
 		sede.setIndirizzo(indirizzo);
 		Settore platea = service.creaSettore(TipologiaSettore.PLATEA, "A", TipologiaPosto.NUMERATO, 5, 10, 0);
 		sede.aggiungiSettore(platea);
-
 		return sede;
 	}
 
 
-	// configurazione corretta: la sede viene salvata 
+	// sede valida
 	@Test
-	public void testSedeOK()
-			throws EmptyFieldException, SedeException, SettoreNonValidoException {
-		Sede sede = creaSedeValida("Arena Test", "Via Roma 1");
-		Sede salvata = service.configuraSede(sede);
-
-		if (salvata != null) {
-			sedeDAO.eliminaSede(salvata.getId_sede());
-		}
-
+	public void testSedeOK() throws EmptyFieldException, SedeException, SettoreNonValidoException {
+		service.validaSede(creaSedeValida("Forum Milano", "Via Roma 1"));
 		assertTrue(true);
 	}
 
-	// campi obbligatori vuoti
+	// nome vuoto
 	@Test
-	public void testSedeKO1()
-			throws SedeException, SettoreNonValidoException {
-		Sede sede = creaSedeValida("", "Via Vuota 1");
+	public void testSedeKO1() throws SedeSenzaSettoriException, SettoreNonValidoException {
+		Sede sede = creaSedeValida(" ", "Via Roma 1");
+
 		boolean result = true;
 
 		try {
-			service.configuraSede(sede);
+			service.validaSede(sede);
+		} catch (EmptyFieldException ex) {
+			result = false;
+		}
+
+		assertFalse(result);
+	}
+
+	// indirizzo vuoto
+	@Test
+	public void testSedeKO2() throws SedeSenzaSettoriException, SettoreNonValidoException {
+		Sede sede = creaSedeValida("Forum Milano", " ");
+
+		boolean result = true;
+
+		try {
+			service.validaSede(sede);
 		} catch (EmptyFieldException ex) {
 			result = false;
 		}
@@ -76,44 +80,19 @@ public class SedeTest {
 
 	// nessun settore configurato
 	@Test
-	public void testSedeKO2()
-			throws EmptyFieldException, SedeEsistenteException {
+	public void testSedeKO3() throws EmptyFieldException {
 		Sede sede = new Sede();
-		sede.setNome("Arena Senza Settori");
+		sede.setNome("Forum Milano senza settori");
 		sede.setIndirizzo("Via Sola 3");
 
 		boolean result = true;
 
 		try {
-			service.configuraSede(sede);
-		} catch (SedeException ex) {
+			service.validaSede(sede);
+		} catch (SedeSenzaSettoriException ex) {
 			result = false;
 		}
 
-		assertFalse(result);
-	}
-
-	// sede già esistente
-	@Test
-	public void testSedeKO3()
-			throws EmptyFieldException, SedeSenzaSettoriException, SettoreNonValidoException {
-		Sede prima = creaSedeValida("Arena Doppia", "Via Milano 2");
-		Sede salvata = null;
-
-		boolean result = true;
-
-		try {
-			salvata = service.configuraSede(prima);
-
-			Sede duplicata = creaSedeValida("Arena Doppia", "Via Milano 2");
-			service.configuraSede(duplicata);
-		} catch (SedeException ex) {
-			result = false;
-		} finally {
-			if (salvata != null) {
-				sedeDAO.eliminaSede(salvata.getId_sede());
-			}
-		}
 		assertFalse(result);
 	}
 }

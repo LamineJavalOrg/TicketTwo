@@ -1,12 +1,10 @@
 package it.unipv.posw.controller.admin;
 
-import it.unipv.posw.model.entities.Evento;
+import it.unipv.posw.model.entities.Evento; 
 import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.entities.SessioneOrganizzatore;
 import it.unipv.posw.model.exception.EventoException;
-import it.unipv.posw.model.exception.EventoNonEliminabileException;
 import it.unipv.posw.model.exception.SedeException;
-import it.unipv.posw.model.exception.SedeNonEliminabileException;
 import it.unipv.posw.model.gestori.GestoreAdmin;
 import it.unipv.posw.view.admin.ArOrganizzatoreView;
 import it.unipv.posw.view.utility.AlertView;

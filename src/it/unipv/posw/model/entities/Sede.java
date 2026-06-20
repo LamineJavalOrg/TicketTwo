@@ -67,10 +67,6 @@ public class Sede {
 	    }
 		return settori;
 	}
-	
-	public void svuotaSettori() {
-		settori.clear();
-	}
 
 	public void aggiungiSettore(Settore settore) {
 		if (contienePrefisso(settore.getPrefisso())) {

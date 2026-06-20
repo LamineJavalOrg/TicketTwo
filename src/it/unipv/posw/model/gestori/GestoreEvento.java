@@ -1,7 +1,7 @@
 package it.unipv.posw.model.gestori;
 
 import it.unipv.posw.model.entities.Evento;
-import it.unipv.posw.model.service.CarrelloService;
+import it.unipv.posw.model.enums.TipologiaBiglietto;
 import it.unipv.posw.model.service.EventoService;
 import it.unipv.posw.model.service.SedeService;
 
@@ -14,6 +14,7 @@ public class GestoreEvento {
 	private SedeService sedeService;
     private EventoService eventoService;
     private Evento evento;
+    private TipologiaBiglietto tipologiaCorrente;
     
     public static GestoreEvento getInstance() {
 		if (instance == null) {
@@ -26,6 +27,7 @@ public class GestoreEvento {
 		this.sedeService = new SedeService();
 		this.eventoService = new EventoService();
 		this.evento = new Evento();
+		this.tipologiaCorrente = null;
 	}
 
 	public SedeService getSedeService() {
@@ -42,5 +44,13 @@ public class GestoreEvento {
 
 	public void setEvento(Evento evento) {
 		this.evento = evento;
+	}
+
+	public TipologiaBiglietto getTipologiaCorrente() {
+		return tipologiaCorrente;
+	}
+
+	public void setTipologiaCorrente(TipologiaBiglietto tipologiaCorrente) {
+		this.tipologiaCorrente = tipologiaCorrente;
 	}
 }

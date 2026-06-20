@@ -27,8 +27,6 @@ public class EventoController {
     private ChangeListener<Tappa> tappaListener;
     private ChangeListener<Settore> settoreListener;
     
-	private TipologiaBiglietto tipologiaCorrente;
-
     public EventoController(EventoView view, GestoreEvento model) {
 		this.view = view;
         this.model = model;
@@ -121,8 +119,8 @@ public class EventoController {
                 tappa.getId_tappa(), settore.getId_settore());
         
         if (tipologie != null && !tipologie.isEmpty()) {
-            this.tipologiaCorrente = tipologie.get(0);
-            view.setTipologiaValore(this.tipologiaCorrente.toString());
+            model.setTipologiaCorrente(tipologie.get(0));
+            view.setTipologiaValore(model.getTipologiaCorrente().toString());
             aggiornaPrezzo();
         } else {
             resetPrezzo();
@@ -133,7 +131,7 @@ public class EventoController {
     private void aggiornaPrezzo() {
         Tappa tappa = view.getComboTappe().getValue();
         Settore settore = view.getComboSettori().getValue();
-        TipologiaBiglietto tipo = this.tipologiaCorrente;
+        TipologiaBiglietto tipo = model.getTipologiaCorrente();
 
         if (tappa == null || settore == null || tipo == null) {
             resetPrezzo();
@@ -167,7 +165,7 @@ public class EventoController {
     }
 
     private void resetPrezzo() {
-    	this.tipologiaCorrente = null;
+    	model.setTipologiaCorrente(null);
         view.resetTipologia();
         view.resetPrezzo();
     }    
