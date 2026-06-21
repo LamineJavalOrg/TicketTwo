@@ -16,13 +16,13 @@ public class Main extends Application {
 		
 	    new HomeController(view, GestoreHome.getInstance());
 
-	       Scene scene = new Scene(view, 800, 600);
+	    Scene scene = new Scene(view, 800, 600);
 
-	       primaryStage.setTitle("TicketTwo");
-	       primaryStage.setScene(scene);
+	    primaryStage.setTitle("TicketTwo");
+	    primaryStage.setScene(scene);
 	        
-	       primaryStage.show();
-	    }
+	    primaryStage.show();
+	 }
 	
 	
 	public static void main(String[] args) {

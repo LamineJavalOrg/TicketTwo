@@ -10,7 +10,7 @@ import it.unipv.posw.model.exception.EmptyFieldException;
 import it.unipv.posw.model.exception.WrongEmailFormatException;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 
-/** 
+/** Classe del model che gestisce la registrazione dell'account
 * @author rkomi-dev
 * @author gpelle
 */
@@ -19,7 +19,17 @@ public class RegistrazioneService {
 	
 	public RegistrazioneService() {
 	}
-
+	
+	/** Metodo che permette la registrazione di un nuovo cliente nel sistema
+	 * @see Cliente
+	 * @param cliente Il cliente che vuole registrarsi
+	 * @return Cliente registrato
+	 * @throws EmptyFieldException Se uno o più campi sono vuoti
+	 * @throws WrongEmailFormatException Se l'email inserita non contiene '@'
+	 * @throws EmailEsistenteException Se l'email inserita è associata ad un Cliente già registrato
+	 * @throws DataNascitaException Se la data di nascita inserita è futura rispetto a quella corrente
+	 */
+	
 	public boolean registraNuovoCliente(Cliente cliente) throws EmptyFieldException, WrongEmailFormatException, EmailEsistenteException, DataNascitaException {
 		
 		if (cliente.getNome().isEmpty() || cliente.getCognome().isEmpty() ||cliente.getEmail().isEmpty()

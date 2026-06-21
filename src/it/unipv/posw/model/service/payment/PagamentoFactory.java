@@ -14,6 +14,11 @@ public class PagamentoFactory {
 	private static final String P_PROPERTYNAME = "PayPal.adapter.class.name";
 	private static final String M_PROPERTYNAME = "Mastercard.adapter.class.name";
 	
+	/**
+	 * Metodo che mi restutisce l'adapter, usa file properties
+	 * @param pay Classe che implementa l'interface {@link IPayPal}
+	 * @return L'adapter {@link PayPalAdapter}
+	 */
 	public static PayPalAdapter getPayPalAdapter(IPayPal pay) {
 		
 		String PayPalAdaptClassName;
@@ -33,6 +38,11 @@ public class PagamentoFactory {
 	return padapter;
 	}
 	
+	/**
+	 * Metodo che mi restutisce l'adapter, usa file properties
+	 * @param mast Classe che implementa l'interface {@link IMastercard}
+	 * @return L'adapter {@link MastercardAdapter}
+	 */
 	public static MastercardAdapter getMastercardAdapter(IMastercard mast) {
 		
 		String MastercardAdaptClassName;

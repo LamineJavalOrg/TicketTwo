@@ -12,9 +12,10 @@ import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITariffaDAO;
 
-/**
+/** Interface per implementare l'abstract factory dei dao
  * @author gpelle
  * @author rkomi-dev
+ * @see MYSQLDAOFactory
  */
 public interface IDAOFactory {
 	IClienteDAO getClienteDAO();

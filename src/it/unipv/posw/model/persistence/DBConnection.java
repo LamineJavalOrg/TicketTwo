@@ -7,8 +7,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/** Classe per la connessione al db tramite JDBC, usa file properties 
- * per la configurazione
+/** Classe per la connessione al db tramite JDBC, 
+ * usa file properties per la configurazione
 * @author rkomi-dev
 */
 

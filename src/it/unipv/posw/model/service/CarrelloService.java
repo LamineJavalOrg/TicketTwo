@@ -12,7 +12,7 @@ import it.unipv.posw.model.exception.SuperamentoLimiteBigliettiException;
 import it.unipv.posw.model.gestori.GestoreEvento;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 
-/**
+/** Classe del model che gestisce il riempimento del carrello
  * @author rkomi-dev
  */
 
@@ -23,7 +23,19 @@ public class CarrelloService {
 	
 	public CarrelloService() {
     }
-
+	
+	/** Metodo che permette di aggiungere biglietti al carrello
+	 * @see Carrello
+	 * @see SessioneCliente
+	 * @param idEvento L'id dell'evento associato al biglietto
+	 * @param idTappa L'id della tappa dell'evento associato al biglietto
+	 * @param idSettore L'id del settore
+	 * @param tipo La tipologia di biglietto 
+	 * @param quantita La quantità di biglietti che si vuole aggiungere
+	 * @throws IndisponibilitàException Se la quantità desiderata non è disponibile
+	 * @throws SuperamentoLimiteBigliettiException Se si supera il limite di 5 biglietti aggiunti al carrello
+	 */
+	
 	public void aggiungiAlCarrello(int idEvento, int idTappa, int idSettore, TipologiaBiglietto tipo, int quantita) 
             throws IndisponibilitàException, SuperamentoLimiteBigliettiException {
         

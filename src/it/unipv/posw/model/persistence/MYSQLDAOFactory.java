@@ -23,9 +23,10 @@ import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITappaDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ITariffaDAO;
 
-/**
+/** Implementazione concreta di IDAOFactory
  * @author gpelle
  * @author rkomi-dev
+ * @see IDAOFactory
  */
 public class MYSQLDAOFactory implements IDAOFactory {
 	

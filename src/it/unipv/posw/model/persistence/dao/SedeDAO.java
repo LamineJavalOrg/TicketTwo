@@ -10,8 +10,6 @@ import java.util.List;
 
 import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.entities.Settore;
-import it.unipv.posw.model.enums.TipologiaPosto;
-import it.unipv.posw.model.enums.TipologiaSettore;
 import it.unipv.posw.model.persistence.DBConnection;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;

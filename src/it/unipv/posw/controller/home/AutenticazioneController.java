@@ -1,7 +1,5 @@
 package it.unipv.posw.controller.home;
 
-import it.unipv.posw.model.entities.Cliente;
-import it.unipv.posw.model.entities.SessioneCliente;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
 import it.unipv.posw.model.service.AutenticazioneService;
 import it.unipv.posw.view.home.AutenticazioneView;
@@ -33,12 +31,7 @@ public class AutenticazioneController {
 	private void handleLoginCliente(ActionEvent e) {
 	    
 		try {
-			Cliente loggato = aService.loginCliente(view.getTxtEmail().getText(), view.getTxtPassword().getText());
-	    
-	    
-	    	SessioneCliente.getInstance().svuotaSessione();
-	    	SessioneCliente.getInstance().setClienteLoggato(loggato);
-	    	
+			aService.loginCliente(view.getTxtEmail().getText(), view.getTxtPassword().getText());
 		}catch (CredenzialiErrateException ex) {
 			AlertView.mostraErrore(ex.getMessage());
 		} finally {

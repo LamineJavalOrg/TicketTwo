@@ -25,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 
 /** Controller che gestisce ricerca e post-ricerca
+ * @see IRicercaStrategy
  * @author rkomi-dev
  */
 

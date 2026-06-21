@@ -8,6 +8,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class PagamentoView extends VBox implements IView {
 	
 	private Label lblTotale;

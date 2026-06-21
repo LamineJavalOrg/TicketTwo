@@ -6,7 +6,8 @@ import java.util.Properties;
 
 import it.unipv.posw.model.enums.PaymentType;
 
-/** Factory che restituisce la strategia di pagamento in base al tipo
+/** Factory che restituisce la strategia di pagamento in base al tipo, 
+ *  usa file di configurazione properties
  * @author rkomi-dev
  */
 
@@ -14,6 +15,11 @@ public class PagamentoStrategyFactory {
 	
 private static final String STRATEGY = "PagamentoStrategy.";
 	
+	/**
+	 * Metodo che mi restituisce la strategia di pagamento, usa file properties
+	 * @param tipo Il metodo di pagamento scelto
+	 * @return La strategia di pagamento in base al {@link PaymentType} passato
+	 */
 	public static IPagamentoStrategy getStrategia(PaymentType tipo) {
 		
 		String StrategyClassName;

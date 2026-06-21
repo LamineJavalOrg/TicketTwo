@@ -1,5 +1,9 @@
 package it.unipv.posw.model.exception;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class EmptyFieldException extends Exception {
 	
 	public EmptyFieldException() {

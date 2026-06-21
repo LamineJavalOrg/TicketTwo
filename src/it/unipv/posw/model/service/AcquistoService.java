@@ -6,7 +6,7 @@ import it.unipv.posw.model.entities.SessioneCliente;
 import it.unipv.posw.model.persistence.MYSQLDAOFactory;
 import it.unipv.posw.model.service.payment.IPagamentoAdapter;
 
-/** 
+/** Classe del model che gestisce l'acquisto
  * @author rkomi-dev
  */
 
@@ -16,6 +16,14 @@ public class AcquistoService {
 	
 	public AcquistoService() {
 	}
+	
+	/** Metodo che finalizza l'acquisto
+	 * Si assume che la validazione del pagamento venga fatta da un servizio esterno per cui 
+	 * l'acquisto va sempre a buon fine
+	 * @see QRService
+	 * @see IPagamentoAdapter
+	 * @param metodo Metodo di pagamento che si vuole utilizzare
+	 */
 	
 	public void Acquista(IPagamentoAdapter metodo) {
 		

@@ -7,6 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+/**
+ * @author rkomi-dev
+ */
+
 public class QRView extends VBox implements IView {
     
     private Label lblCodiceQR;

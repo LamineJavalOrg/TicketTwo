@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.posw.model.exception.DataPassataException;
 /**
  * @author gpelle
  */

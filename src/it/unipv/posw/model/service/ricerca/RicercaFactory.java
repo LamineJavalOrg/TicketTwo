@@ -7,7 +7,8 @@ import it.unipv.posw.model.enums.RicercaType;
 
 import java.io.FileInputStream;
 
-/** Factory che restituisce la strategia di ricerca, usa file properties di configurazione
+/** Factory che restituisce la strategia di ricerca, 
+ * usa file properties di configurazione
  * @author rkomi-dev
  */
 
