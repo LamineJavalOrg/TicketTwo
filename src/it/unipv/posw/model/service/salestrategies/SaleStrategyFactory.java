@@ -42,8 +42,6 @@ public class SaleStrategyFactory {
 	 * @return La strategia di sconto, oppure null in caso di errore di caricamento.
 	 */
 	public ISaleStrategy getDiscountStrategy() {
-				
-		if (sale_strategy == null) {
 
 			String DiscountClassName;
 			
@@ -60,7 +58,7 @@ public class SaleStrategyFactory {
 				e.printStackTrace();
 				sale_strategy = null;
 			}
-		}
+		
 		return sale_strategy;
 	}
 }
