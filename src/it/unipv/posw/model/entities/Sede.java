@@ -96,6 +96,11 @@ public class Sede {
 		return settori != null && !settori.isEmpty();
 	}
 	
+	
+	public void setSettori(List<Settore> settori) {
+		this.settori = settori;
+	}
+
 	@Override
 	public String toString() {
 	    return nome + " - " + indirizzo;

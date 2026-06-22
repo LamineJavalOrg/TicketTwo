@@ -45,17 +45,53 @@ public class Biglietto {
 	public int getId_biglietto() {
 		return id_biglietto;
 	}
+
+	public Integer getId_posto() {
+		return id_posto;
+	}
+
+	public void setId_posto(Integer id_posto) {
+		this.id_posto = id_posto;
+	}
+
+	public String getEmail_cliente() {
+		return email_cliente;
+	}
+
+	public void setEmail_cliente(String email_cliente) {
+		this.email_cliente = email_cliente;
+	}
+
+	public String getNominativo() {
+		return nominativo;
+	}
+
+	public void setNominativo(String nominativo) {
+		this.nominativo = nominativo;
+	}
+
+	public String getStato() {
+		return stato;
+	}
+
+	public void setStato(String stato) {
+		this.stato = stato;
+	}
+
+	public String getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(String qrCode) {
+		this.qrCode = qrCode;
+	}
+
+	public void setId_biglietto(int id_biglietto) {
+		this.id_biglietto = id_biglietto;
+	}
+
+	public void setTariffa(Tariffa tariffa) {
+		this.tariffa = tariffa;
+	}
 	
-    
-    
-    
-
-
-	
-
-    
-    
-    
-    
-
 }

@@ -31,21 +31,6 @@ public class SessioneCliente {
     }
 
     /**
-     * Esegue l'autenticazione del cliente memorizzandone il riferimento nella sessione globale.
-     * @param c Il {@link Cliente} che ha effettuato correttamente il logi
-     */
-    public void login(Cliente c) {
-        this.clienteLoggato = c;
-    }
-
-    /**
-     * Svuota il riferimento del cliente loggato
-     */
-    public void logout() {
-        this.clienteLoggato = null;
-    }
-
-    /**
      * Verifica se è presente un utente attualmente autenticato nel sistema.
      * @return {@code true} se un cliente è loggato, {@code false} altrimenti
      */

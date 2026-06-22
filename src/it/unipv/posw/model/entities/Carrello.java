@@ -35,7 +35,12 @@ public class Carrello {
     	items.clear(); 
     }
     
-    public double getTotale() {
+    
+    public void setItems(List<Biglietto> items) {
+		this.items = items;
+	}
+
+	public double getTotale() {
         double totale = 0;
         for (Biglietto b : items) {
             totale += b.getTariffa().getPrezzo(); 

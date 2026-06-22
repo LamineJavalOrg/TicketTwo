@@ -28,21 +28,6 @@ public class SessioneOrganizzatore {
         }
         return instance;
     }
-
-	/**
-	 * Effettua il login dell'organizzatore memorizzandolo nella sessione corrente.
-	 * @param o L'oggetto {@link Organizzatore} che sta effettuando l'accesso.
-	 */
-    public void login(Organizzatore o) {
-    	this.organizzatoreLoggato = o; 
-    }
-    
-    /**
-     * Effettua il logout dell'organizzatore corrente azzerandone il riferimento.
-     */
-    public void logout() { 
-    	this.organizzatoreLoggato = null;
-    }
     
     /**
      * Verifica se è presente un organizzatore autenticato nella sessione corrente.

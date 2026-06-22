@@ -42,6 +42,26 @@ public class RiepilogoAcquisto {
 	public int getId_biglietto() {
 		return id_biglietto;
 	}
+
+	public void setId_biglietto(int id_biglietto) {
+		this.id_biglietto = id_biglietto;
+	}
+
+	public void setNomeEvento(String nomeEvento) {
+		this.nomeEvento = nomeEvento;
+	}
+
+	public void setDataOraEvento(LocalDateTime dataOraEvento) {
+		this.dataOraEvento = dataOraEvento;
+	}
+
+	public void setNominativo(String nominativo) {
+		this.nominativo = nominativo;
+	}
+
+	public void setPrezzo(double prezzo) {
+		this.prezzo = prezzo;
+	}
 	
 	
 }

@@ -55,16 +55,16 @@ public class PannelloAdminController {
 		
 		private void handleConfiguraSede(ActionEvent e) {
 			pannelloAdmF.mostraSchermata(pannelloAdmF.getConfiguraSedeView());
-			new ConfiguraSedeController(pannelloAdmF.getConfiguraSedeView(), GestoreAdmin.getInstance());
+			new ConfiguraSedeController(pannelloAdmF.getConfiguraSedeView(), model);
 	}
 
 		private void handleCreaEvento(ActionEvent e) {
 			pannelloAdmF.mostraSchermata(pannelloAdmF.getCreaEventoView());
-			new CreaEventoController(pannelloAdmF.getCreaEventoView(), GestoreAdmin.getInstance());
+			new CreaEventoController(pannelloAdmF.getCreaEventoView(), model);
 	}
 
 		private void handleAreaRiservata(ActionEvent e) {
 			pannelloAdmF.mostraSchermata(pannelloAdmF.getArOrganizzatoreView());
-			new ArOrganizzatoreController(pannelloAdmF.getArOrganizzatoreView(), GestoreAdmin.getInstance());
+			new ArOrganizzatoreController(pannelloAdmF.getArOrganizzatoreView(), model.getArOrganizzatoreService());
 	}
 }

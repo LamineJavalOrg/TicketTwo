@@ -60,6 +60,36 @@ public class Tappa {
 	public String getNomeSede() {
 		return nomeSede;
 	}
+
+
+	public void setId_tappa(int id_tappa) {
+		this.id_tappa = id_tappa;
+	}
+
+
+	public void setId_evento(int id_evento) {
+		this.id_evento = id_evento;
+	}
+
+
+	public void setId_sede(int id_sede) {
+		this.id_sede = id_sede;
+	}
+
+
+	public void setNomeSede(String nomeSede) {
+		this.nomeSede = nomeSede;
+	}
+
+
+	public void setData_ora(LocalDateTime data_ora) {
+		this.data_ora = data_ora;
+	}
+
+
+	public void setTariffe(List<Tariffa> tariffe) {
+		this.tariffe = tariffe;
+	}
 	
 	
 

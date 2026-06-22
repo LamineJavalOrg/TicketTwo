@@ -56,6 +56,31 @@ public class Evento {
 	public void aggiungiTappa(Tappa tp) {
         this.tappe.add(tp);
     }
+	
+	
+	public void setId_evento(int id_evento) {
+		this.id_evento = id_evento;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setTipo(TipologiaEvento tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setEmail_organizzatore(String email_organizzatore) {
+		this.email_organizzatore = email_organizzatore;
+	}
+
+	public void setId_artista(int id_artista) {
+		this.id_artista = id_artista;
+	}
+
+	public void setTappe(List<Tappa> tappe) {
+		this.tappe = tappe;
+	}
 
 	@Override
 	public String toString() {

@@ -3,7 +3,6 @@ package it.unipv.posw.model.service;
 import java.util.List;
 
 import it.unipv.posw.model.entities.Evento;
-import it.unipv.posw.model.entities.Organizzatore;
 import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.exception.EventoException;
 import it.unipv.posw.model.exception.EventoNonEliminabileException;

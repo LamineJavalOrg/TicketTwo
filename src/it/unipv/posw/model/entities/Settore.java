@@ -104,6 +104,30 @@ public class Settore {
 	}
 	
 	
+	public void setNome_settore(TipologiaSettore nome_settore) {
+		this.nome_settore = nome_settore;
+	}
+
+	public void setTipo(TipologiaPosto tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setCapienza_max(int capienza_max) {
+		this.capienza_max = capienza_max;
+	}
+
+	public void setNum_file(int num_file) {
+		this.num_file = num_file;
+	}
+
+	public void setPosti_per_fila(int posti_per_fila) {
+		this.posti_per_fila = posti_per_fila;
+	}
+
+	public void setPrefisso(String prefisso) {
+		this.prefisso = prefisso;
+	}
+
 	@Override
 	public String toString() {
 	    StringBuilder sb = new StringBuilder();
@@ -120,4 +144,6 @@ public class Settore {
 	    
 	    return sb.toString();
 	}
+	
+	
 }

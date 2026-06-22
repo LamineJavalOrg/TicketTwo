@@ -5,7 +5,7 @@ import it.unipv.posw.model.entities.Sede;
 import it.unipv.posw.model.entities.SessioneOrganizzatore;
 import it.unipv.posw.model.exception.EventoException;
 import it.unipv.posw.model.exception.SedeException;
-import it.unipv.posw.model.gestori.GestoreAdmin;
+import it.unipv.posw.model.service.ArOrganizzatoreService;
 import it.unipv.posw.view.admin.ArOrganizzatoreView;
 import it.unipv.posw.view.utility.AlertView;
 import javafx.event.ActionEvent;
@@ -18,11 +18,11 @@ import javafx.event.EventHandler;
 public class ArOrganizzatoreController {
 
     private ArOrganizzatoreView view;
-    private GestoreAdmin model;
+    private ArOrganizzatoreService service;
 
-    public ArOrganizzatoreController(ArOrganizzatoreView view, GestoreAdmin model) {
+    public ArOrganizzatoreController(ArOrganizzatoreView view, ArOrganizzatoreService service) {
         this.view = view;
-        this.model = model;
+        this.service = service;
 
         inizializzaVista();
         inizializzaListener();
@@ -61,7 +61,7 @@ public class ArOrganizzatoreController {
         }
 
         try {
-            boolean eliminata = model.getArOrganizzatoreService().eliminaSede(sede);
+            boolean eliminata = service.eliminaSede(sede);
             if (eliminata) {
                 AlertView.mostraInfo("Sede " + sede.getNome() + " eliminata con successo.");
             } else {
@@ -85,7 +85,7 @@ public class ArOrganizzatoreController {
         }
 
         try {
-            boolean eliminato = model.getArOrganizzatoreService().eliminaEvento(evento);
+            boolean eliminato = service.eliminaEvento(evento);
             if (eliminato) {
                 AlertView.mostraInfo("Evento " + evento.getNome() + " eliminato con successo.");
             } else {
@@ -99,11 +99,11 @@ public class ArOrganizzatoreController {
 
     private void aggiornaListaSedi() {
         String email = SessioneOrganizzatore.getInstance().getOrganizzatoreLoggato().getEmail();
-        view.popolaSedi(model.getArOrganizzatoreService().getSediPerOrganizzatore(email));
+        view.popolaSedi(service.getSediPerOrganizzatore(email));
     }
 
     private void aggiornaListaEventi() {
         String email = SessioneOrganizzatore.getInstance().getOrganizzatoreLoggato().getEmail();
-        view.popolaEventi(model.getArOrganizzatoreService().getEventiPerOrganizzatore(email));
+        view.popolaEventi(service.getEventiPerOrganizzatore(email));
     }
 }

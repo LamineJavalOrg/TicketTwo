@@ -47,6 +47,30 @@ public class Tariffa {
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
+
+	public int getId_tappa() {
+		return id_tappa;
+	}
+
+	public void setId_tappa(int id_tappa) {
+		this.id_tappa = id_tappa;
+	}
+
+	public void setId_evento(int id_evento) {
+		this.id_evento = id_evento;
+	}
+
+	public void setId_settore(int id_settore) {
+		this.id_settore = id_settore;
+	}
+
+	public void setTipob(TipologiaBiglietto tipob) {
+		this.tipob = tipob;
+	}
+
+	public void setQuantita_massima(int quantita_massima) {
+		this.quantita_massima = quantita_massima;
+	}
 	
 	
 }

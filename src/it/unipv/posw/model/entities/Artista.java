@@ -19,5 +19,12 @@ public class Artista {
 	public String getNome_darte() {
 		return nome_darte;
 	}
-
+	public void setId_artista(int id_artista) {
+		this.id_artista = id_artista;
+	}
+	public void setNome_darte(String nome_darte) {
+		this.nome_darte = nome_darte;
+	}
+	
+	
 }
