@@ -3,7 +3,10 @@ package it.unipv.posw.model.service.salestrategies;
 import it.unipv.posw.model.entities.Utente;
 
 /**
+ * Strategia concreta del pattern Strategy che non applica alcuno sconto.
+ * Funge da comportamento di default quando nessuna promozione è attiva.
  * @author gpelle
+ * @see ISaleStrategy
  */
 
 public class NoScontiSaleStrategy implements ISaleStrategy {

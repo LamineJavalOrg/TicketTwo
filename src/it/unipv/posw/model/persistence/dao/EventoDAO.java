@@ -16,6 +16,7 @@ import it.unipv.posw.model.persistence.dao.interfaces.IEventoDAO;
 
 /**
  * @author rkomi-dev
+ * @author gpelle
  */
 
 public class EventoDAO implements IEventoDAO {

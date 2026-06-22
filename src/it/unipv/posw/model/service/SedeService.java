@@ -21,10 +21,26 @@ import it.unipv.posw.model.persistence.dao.interfaces.ISedeDAO;
 import it.unipv.posw.model.persistence.dao.interfaces.ISettoreDAO;
 
 /**
+ * Classe del model che orchestra la configurazione e la persistenza delle sedi.
+ * Delega la creazione dei settori ai factory method di {@link Settore} ed effettua la validazione anagrafica
+ * della sede.
+ * Coordina le operazioni sui DAO, garantendo la consistenza dei dati e l'esecuzione atomica delle transazioni.
  * @author gpelle
  */
 
 public class SedeService {
+	/**
+	 * Crea un settore delegando al factory method appropriato in base alla modalità dei posti 
+	 * (numerato o non numerato).
+	 * @param nome Tipo di settore
+	 * @param prefisso Prefisso identificativo
+	 * @param tipoPosto Modalità dei posti (numerato/non numerato)
+	 * @param numFile Numero di file (per i settori numerati)
+	 * @param numColonne Numero di colonne (per i settori non numerati)
+	 * @param capienza Capienza per i settori non numerati
+	 * @return Il settore creato.
+	 * @throws SettoreNonValidoException Se i dati del settore non sono validi
+	 */
 	public Settore creaSettore(TipologiaSettore nome, String prefisso, TipologiaPosto tipoPosto,
 			int numFile, int numColonne, int capienza) throws SettoreNonValidoException {
  
@@ -34,7 +50,15 @@ public class SedeService {
 		return Settore.creaNonNumerato(nome, prefisso, capienza);
 	}
 	
-	
+	/**
+	 * Valida tramite {@link #validaSede(Sede)} e persiste in modo transazionale una sede completa di settori e,
+	 * per i settori numerati, dei relativi posti.
+	 * @param sede La sede da configurare e salvare
+	 * @return La sede salvata, con id valorizzato.
+	 * @throws EmptyFieldException Se nome o indirizzo sono assenti
+	 * @throws SedeException Se la sede è priva di settori {@link SedeSenzaSettoriException}, 
+	 * esiste già {@link SedeEsistenteException} o la persistenza fallisce {@link SedeSalvataggioException}.
+	 */
 	public Sede configuraSede(Sede sede) throws EmptyFieldException, SedeException {
 		validaSede(sede);
 		
@@ -76,6 +100,13 @@ public class SedeService {
 		}
 	}
 	
+	/**
+	 * Valida i dati anagrafici della sede: presenza di nome e indirizzo ed esistenza di almeno un settore. 
+	 * Metodo pubblico per consentire unit test isolati dalla persistenza.
+	 * @param sede La sede da validare
+	 * @throws EmptyFieldException Se nome o indirizzo sono assenti.
+	 * @throws SedeSenzaSettoriException Se la sede non possiede settori.
+	 */
 	public void validaSede(Sede sede) throws EmptyFieldException, SedeSenzaSettoriException {
 		if (sede.getNome() == null || sede.getNome().trim().isEmpty()
 				|| sede.getIndirizzo() == null || sede.getIndirizzo().trim().isEmpty()) {
@@ -86,11 +117,19 @@ public class SedeService {
 		}
 	}
     
-	
+	/**
+	 * Restituisce tutte le sedi disponibili.
+	 * @return La lista di tutte le sedi.
+	 */
     public List<Sede> getTutteLeSedi() {
         return MYSQLDAOFactory.getInstance().getSedeDAO().getTutteLeSedi();
     }
     
+    /**
+     * Recupera l'elenco di tutti i settori associati alla sede di una specifica tappa di un evento.
+     * @param tappa L'oggetto {@link Tappa} da cui estrarre l'identificativo della sede di riferimento. 
+     * @return La lista di entità {@link Settore} appartenenti a quella specifica sede.
+     */
     public List<Settore> getSettoriPerSede(Tappa tappa) {
 		return MYSQLDAOFactory.getInstance().getSettoreDAO().getSettoriDaSede(tappa.getId_sede());
 	}	

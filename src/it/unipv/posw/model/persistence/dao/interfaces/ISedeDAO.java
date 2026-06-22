@@ -12,10 +12,10 @@ import it.unipv.posw.model.entities.Sede;
 
 public interface ISedeDAO {
 
-	public boolean isSedeEsistente(String nome, String indirizzo);
-	public Sede salvaSede(Sede sede, Connection c) throws SQLException;
-	public boolean eliminaSede(int idSede);
-	public List<Sede> getTutteLeSedi();
+	boolean isSedeEsistente(String nome, String indirizzo);
+	Sede salvaSede(Sede sede, Connection c) throws SQLException;
+	boolean eliminaSede(int idSede);
+	List<Sede> getTutteLeSedi();
 	List<Sede> getSediPerOrganizzatore(String email);
 
 

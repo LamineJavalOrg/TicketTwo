@@ -153,6 +153,7 @@ public class EventoView extends VBox implements IView {
 		}
     }
     
+    // Imposta il valore della tipologia di biglietto mostrata
     public void setTipologiaValore(String testo) {
         this.lblTipologiaValore.setText(testo);
     }
@@ -173,6 +174,7 @@ public class EventoView extends VBox implements IView {
 		mostraAreaSconto();
 	}
     
+    // Reimposta il prezzo a non disponibile e nasconde l'area sconto
     public void resetPrezzo() {
 		this.lblPrezzoBase.setText("Prezzo: -- €");
 		nascondiAreaSconto();

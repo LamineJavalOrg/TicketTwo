@@ -53,6 +53,17 @@ public class RegistrazioneService {
         return MYSQLDAOFactory.getInstance().getClienteDAO().salvaCliente(cliente);
     }
 	
+	/**
+	 * Metodo che permette la registrazione di un nuovo cliente nel sistema.
+	 * @see Organizzatore
+	 * @param org L'organizzatore che vuole registrarsi
+	 * @return Organizzatore registrato
+	 * @throws EmptyFieldException Se uno o più campi sono vuoti.
+	 * @throws WrongEmailFormatException Se l'email inserita non contiene '@'.
+	 * @throws EmailEsistenteException Se l'email inserita è associata ad un Organizzatore
+	 * già registrato
+	 * @throws DataNascitaException Se la data di nascita inserita è futura rispetto a quella corrente.
+	 */
 	public boolean registraNuovoOrganizzatore(Organizzatore org) throws EmptyFieldException, WrongEmailFormatException, EmailEsistenteException, DataNascitaException {
 		
 		if (org.getNome().isEmpty() || org.getCognome().isEmpty() ||org.getEmail().isEmpty()

@@ -16,9 +16,7 @@ public interface ITariffaDAO {
 
 	void inserisciTariffa(List<Tariffa> tariffe, int idTappa, int idEvento, Connection c,
 			Map<Integer, List<Integer>> postiPerSettore) throws SQLException;
-
 	Tariffa getTariffaCompleta(int id_tappa, int id_settore, TipologiaBiglietto tipo);
-
 	List<TipologiaBiglietto> trovaTipologieTappaSettore(int idTappa, int idSettore);
 
 }

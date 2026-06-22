@@ -5,7 +5,12 @@ import java.lang.reflect.Constructor;
 import java.util.Properties;
 
 /**
+ * Classe Singleton di tipo Factory adibita all'istanziazione dinamica delle 
+ * strategie di sconto variabili.
+ * Legge dal file di properties il nome completo della classe strategia e la istanzia
+ * via reflection.
  * @author gpelle
+ * @see ISaleStrategy
  */
 
 public class SaleStrategyFactory {
@@ -15,9 +20,15 @@ public class SaleStrategyFactory {
 	
 	private ISaleStrategy sale_strategy;
 	
-	
+	/**
+	 * Costruttore privato per il Singleton.
+	 */
 	private SaleStrategyFactory() {}
 	
+	/**
+	 * Restituisce l'unica istanza della factory.
+	 * @return L'istanza condivisa della factory
+	 */
 	public static SaleStrategyFactory getInstance() {
         if (instance == null) {
             instance = new SaleStrategyFactory();
@@ -25,7 +36,11 @@ public class SaleStrategyFactory {
         return instance;
     }
 	
-	
+	/**
+	 * Restituisce la strategia di sconto configurata, istanziandola via reflection alla
+	 * prima invocazione e riutilizzandola nelle successive.
+	 * @return La strategia di sconto, oppure null in caso di errore di caricamento.
+	 */
 	public ISaleStrategy getDiscountStrategy() {
 				
 		if (sale_strategy == null) {

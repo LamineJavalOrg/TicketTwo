@@ -149,6 +149,7 @@ public class CreaEventoController {
         return tappa;
     }
 
+    // Converte la stringa del prezzo in double
     private double parsePrezzo(String prezzoStr) {
         try {
             return Double.parseDouble(prezzoStr.trim());
@@ -157,7 +158,7 @@ public class CreaEventoController {
         }
     }
 
-    
+    // Svuota le tappe dell'evento del gestore, resetta il form e ricarica la piantina
     private void resetStato() {
     	model.getEvento().getTappe().clear();
         view.resetForm();

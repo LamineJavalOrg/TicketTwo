@@ -6,6 +6,8 @@ import it.unipv.posw.model.service.EventoService;
 import it.unipv.posw.model.service.SedeService;
 
 /**
+ * Classe che contiene il model necessario per l' evento.
+ * Implementa il Pattern Singleton, l'accesso avviene tramite {@link #getInstance()}.
  * @author gpelle
  */
 public class GestoreEvento {

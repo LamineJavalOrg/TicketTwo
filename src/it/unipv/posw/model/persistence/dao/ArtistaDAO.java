@@ -14,6 +14,7 @@ import it.unipv.posw.model.persistence.dao.interfaces.IArtistaDAO;
 
 /**
  * @author rkomi-dev
+ * @author gpelle
  */
 
 public class ArtistaDAO implements IArtistaDAO {

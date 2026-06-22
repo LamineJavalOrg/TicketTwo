@@ -98,34 +98,6 @@ public class BigliettoDAO implements IBigliettoDAO {
 		}
 	}
 	
-	@Override
-	public int countPostiLiberi(int idTappa, int idSettore, String tipo) { 
-	    String query = "SELECT COUNT(*) AS rimasti " +
-	                   "FROM Biglietto b " +
-	                   "JOIN Tariffa t ON b.id_tariffa = t.id_tariffa " +
-	                   "WHERE t.id_tappa = ? AND t.id_settore = ? AND t.tipologia_biglietto = ? AND b.stato = 'DISPONIBILE'";
-	    int totale = 0;
-	    Connection c = null;
-	    try {
-	        c = DBConnection.getInstance().startConnection();
-	        PreparedStatement ps = c.prepareStatement(query);
-	        
-	        ps.setInt(1, idTappa);
-	        ps.setInt(2, idSettore);
-	        ps.setString(3, tipo);
-	        
-	        ResultSet rs = ps.executeQuery();
-	            if (rs.next()) {
-	                totale = rs.getInt("rimasti");
-	            }
-	        
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        DBConnection.getInstance().closeConnection(c);
-	    }
-	    return totale;
-	}
 
 	@Override
 	public void cambiaNominativo(int id_biglietto, String nominativo) {

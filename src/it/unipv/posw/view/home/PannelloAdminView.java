@@ -8,6 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+/**
+ * @author gpelle
+ */
 public class PannelloAdminView extends VBox implements IView {
 	private Label lblBenvenuto;
 	private Button btnConfiguraSede;

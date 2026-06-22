@@ -14,6 +14,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 
+/**
+ * @author gpelle
+ */
 public class HomeFrame extends BorderPane {
 	
 

@@ -3,7 +3,10 @@ package it.unipv.posw.model.service.salestrategies;
 import it.unipv.posw.model.entities.Utente;
 
 /**
+ * Strategia concreta del pattern Strategy che applica la promozione 
+ * di Pasqua, indipendente dall'utente.
  * @author gpelle
+ * @see ISaleStrategy
  */
 
 public class EasterSaleStrategy implements ISaleStrategy {

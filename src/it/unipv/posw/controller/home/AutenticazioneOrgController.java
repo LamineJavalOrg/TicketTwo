@@ -1,7 +1,5 @@
 package it.unipv.posw.controller.home;
 
-import it.unipv.posw.model.entities.Organizzatore;
-import it.unipv.posw.model.entities.SessioneOrganizzatore;
 import it.unipv.posw.model.exception.CredenzialiErrateException;
 import it.unipv.posw.model.service.AutenticazioneService;
 import it.unipv.posw.view.home.AutenticazioneOrgView;
@@ -33,12 +31,7 @@ public class AutenticazioneOrgController {
 	private void handleLoginOrganizzatore(ActionEvent e) {
 		
 		try {
-			Organizzatore loggato = aService.loginOrganizzatore(
-					view.getTxtEmail().getText(), 
-					view.getTxtPassword().getText());
-			
-			SessioneOrganizzatore.getInstance().svuotaSessione();
-			SessioneOrganizzatore.getInstance().setOrganizzatoreLoggato(loggato);
+			aService.loginOrganizzatore(view.getTxtEmail().getText(), view.getTxtPassword().getText());
 					
 		}catch (CredenzialiErrateException ex) {
 			AlertView.mostraErrore(ex.getMessage());

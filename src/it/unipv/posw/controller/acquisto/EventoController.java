@@ -49,7 +49,7 @@ public class EventoController {
             pulisciCampiDipendenti();
         }
     }
-
+    // Registra i listener sui cambi di tappa e di settore, che innescano gli aggiornamenti a cascata.
     private void inizializzaListener() {
         this.tappaListener = new ChangeListener<Tappa>() {
             @Override
@@ -73,7 +73,7 @@ public class EventoController {
 
     }
 
-    
+    // Popola una combo in modo sicuro, rimuovendo temporaneamente il relativo listener
     private <T> void popolaCombo(ComboBox<T> combo, ChangeListener<T> listener, List<T> elementi) {
         if (listener != null) {
             combo.valueProperty().removeListener(listener);
@@ -108,6 +108,7 @@ public class EventoController {
         }
     }
 
+    // Determina la tipologia disponibile per la combinazione tappa/settore
     private void aggiornaListaTipologie(Settore settore) {
         Tappa tappa = view.getComboTappe().getValue();
         if (tappa == null || settore == null) {
@@ -127,7 +128,8 @@ public class EventoController {
         }
     }
         
-
+    // Recupera la tariffa per la combinazione selezionata, applica gli sconti in base
+    
     private void aggiornaPrezzo() {
         Tappa tappa = view.getComboTappe().getValue();
         Settore settore = view.getComboSettori().getValue();

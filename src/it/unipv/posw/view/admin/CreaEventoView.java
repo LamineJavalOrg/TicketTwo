@@ -214,25 +214,28 @@ public class CreaEventoView extends VBox implements IView {
         return spinnerMinuti.getValue();
     }
 
-  
+    // Restituisce i settori per cui è stata generata una riga di configurazione tariffa.
     public List<Settore> getSettoriConfigurati() {
         return new ArrayList<>(comboTipiBiglietto.keySet());
     }
 
+    // Restituisce la tipologia di biglietto scelta per il settore indicato.
     public TipologiaBiglietto getTipoBiglietto(Settore s) {
         return comboTipiBiglietto.get(s).getValue();
     }
 
+    // Restituisce il prezzo inserito per il settore indicato.
     public String getPrezzo(Settore s) {
         return campiPrezzo.get(s).getText().trim();
     }
 
+    // Restituisce la quantità inserita per il settore indicato.
     public int getQuantita(Settore s) {
         return spinnerQuantita.get(s).getValue();
     }
 
 
-
+    // Popola la combo delle sedi, selezionando la prima se disponibile.
     public void popolaSedi(List<Sede> sedi) {
         comboSede.getItems().setAll(sedi);
         if (!sedi.isEmpty()) {
@@ -264,6 +267,7 @@ public class CreaEventoView extends VBox implements IView {
         listaRiepilogo.getChildren().clear();
     }
 
+    // Crea la riga di configurazione tariffa per un settore (tipologia, prezzo, quantità)
     private VBox creaRigaSettore(Settore s) {
         Label lblNome = new Label(s.getNome_settore() + " (" + s.getPrefisso() + ")");
         lblNome.getStyleClass().add("titolo");

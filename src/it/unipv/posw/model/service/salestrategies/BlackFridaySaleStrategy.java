@@ -3,9 +3,11 @@ package it.unipv.posw.model.service.salestrategies;
 import it.unipv.posw.model.entities.Utente;
 
 /**
+ * Strategia concreta del pattern Strategy che applica la promozione 
+ * Black Friday, indipendente dall'utente.
  * @author gpelle
+ * @see ISaleStrategy
  */
-
 public class BlackFridaySaleStrategy implements ISaleStrategy {
 	
 	private final static double PERCENTUALE_SCONTO = 0.4;

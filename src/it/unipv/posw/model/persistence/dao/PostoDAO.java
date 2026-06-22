@@ -38,7 +38,7 @@ public class PostoDAO implements IPostoDAO {
 	// percorso transazionale
 	@Override
 	public List<Integer> getIdPostiPerSettore(int idSettore, Connection c) throws SQLException {
-		String query = "SELECT id_posto FROM Posto WHERE id_settore = ? ORDER BY fila, colonna"; // orberby per scorrere la lista idPosti in modo lineare
+		String query = "SELECT id_posto FROM Posto WHERE id_settore = ? ORDER BY fila, colonna"; // orber by per scorrere la lista idPosti in modo lineare
 		List<Integer> idPosti = new ArrayList<>();
 
 		PreparedStatement ps = c.prepareStatement(query);
